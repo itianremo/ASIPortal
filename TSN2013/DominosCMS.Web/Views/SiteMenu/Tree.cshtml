@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DominosCMS.Models.MenuItem>
+
+<ul class="treeview" id="tree">
+
+    @foreach (var item in Model)
+    {
+        @TreeNode(item)    
+    }
+</ul>
+
+@helper TreeNode(DominosCMS.Models.MenuItem item)
+    {
+    
+    TagBuilder builder = new TagBuilder("li");
+    
+    if (item.SubMenus != null && item.SubMenus.Count > 0)
+    {
+        TagBuilder div = new TagBuilder("div");
+        div.MergeAttribute("class", "hitarea expandable-hitarea");
+
+        builder.InnerHtml = div.ToString();
+        
+        builder.MergeAttribute("class", "expandable");
+    }
+
+    TagBuilder a = new TagBuilder("a");
+
+    a.MergeAttribute("href", "#");
+    a.SetInnerText(item.Title);
+    builder.InnerHtml += a.ToString();
+    
+    this.Write(MvcHtmlString.Create(builder.ToString(TagRenderMode.Normal)));
+    
+    foreach(var menuItem in item.SubMenus)
+    {
+        @TreeNode(menuItem);
+    }
+}

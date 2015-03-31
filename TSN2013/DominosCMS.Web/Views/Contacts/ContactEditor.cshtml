@@ -1,0 +1,155 @@
+﻿@model DominosCMS.Models.Contact
+
+@{
+    ViewBag.Title = "Create/Edit Contact";
+    var types = ViewBag.Types as IList<string>;
+
+    string otherType = ViewBag.OtherType as string;
+}
+
+@section header {
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+  
+<style type="text/css">
+    .text-box
+    {
+        width: auto;
+    }
+
+    label { width: 150px; display: inline-block}
+    .name-input { width: 100px; margin-left: 2px;}
+    .stree-address { width: 258px;  margin-left: 2px;}
+    .address { width: 80px;  margin-left: 2px;}
+</style>
+
+    @Html.Script("jquery.watermark.min.js")
+    @Html.Script("lib/jquery.meio.mask.min.js")
+    <script type="text/javascript">
+        $(function () {
+            $("input.watermark").each(function () {
+                var wm = $(this).attr("data-watermark-text");
+
+                $(this).watermark(wm);
+            });
+
+            if ($("#Type").val() == "Other") {
+                $("#OtherType").removeAttr("disabled");
+            }
+
+            $("#Type").change(function () {
+                var type = $(this).val();
+                if (type == "Other") {
+                    $("#OtherType").removeAttr("disabled");
+                }
+                else {
+                    $("#OtherType").val("");
+                    $("#OtherType").attr("disabled", "disabled");
+                }
+            });
+
+            $("#btnCancel").click(function (e) {
+                e.preventDefault();
+                location.href = "@Url.Action("Index")";
+            });
+
+            $("input.mask").setMask();
+        });
+    </script>  
+
+}
+
+<h2>Create/Edit Contact</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(false)
+   @* <fieldset>
+        <legend>Contact</legend>*@
+
+    <div id="frm-data">
+    <table cellspacing="0" cellpadding="0" class="frm" style=" border-style: none;">
+        <tr>
+            <td style="width:5px; color:red;"><span class="required-symbol">*</span></td>
+            <td style="width:10px;"><label for="Type">Type</label></td>
+            <td >
+            @Html.DropDownListFor(model => model.Type, new SelectList(types), "(Select One)")
+            @Html.TextBox("OtherType", otherType, new { @class = "watermark", data_watermark_text = "If Other, specify", disabled = "disabled", }) 
+           </td>
+           @* <td colspan="2" style="width:266px;">@Html.TextBox("OtherType", otherType, new { @class = "watermark", data_watermark_text = "If Other, specify", disabled = "disabled", style = "width: 250px !important;" }) 
+                @Html.ValidationMessage("otherType")
+            </td>*@
+        </tr>
+        <tr>
+            <td style="width:5px; color:red;"><span class="required-symbol">*</span></td>
+            <td><label for="Type">Company Name</label></td>
+            <td> @Html.TextBoxFor(model => model.CompanyName)
+            @Html.ValidationMessageFor(model => model.CompanyName)
+            </td>
+            
+        </tr>
+        <tr>
+            <td> </td>
+            <td>  <label for="FirstName">
+            Name</label></td>
+            <td> @Html.TextBoxFor(model => model.FirstName, new { @class = "name-input watermark", data_watermark_text = "First" }) 
+            @Html.TextBoxFor(model => model.MiddleName, new { @class = "name-input watermark", data_watermark_text = "Middle" }) 
+            @Html.TextBoxFor(model => model.LastName, new { @class = "name-input watermark", data_watermark_text = "Last" })
+</td>
+        </tr>
+        <tr>
+            <td style="width:5px; color:red;"> </td>
+            <td>@Html.LabelFor(model => model.Email)</td>
+            <td >@Html.EditorFor(model => model.Email)
+           </td> 
+        </tr>
+        <tr>
+            <td> </td>
+            <td> @Html.LabelFor(model => model.Phone)</td>
+            <td >
+               @Html.TextBoxFor(model => model.Phone, new { alt = "phone-us", @class = "mask" })  
+ <span class="italic-tex">Ex: (999) 999-9999</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:5px; color:red;"> </td>
+            <td>@Html.LabelFor(model => model.Fax)</td>
+            <td>  @Html.TextBoxFor(model => model.Fax, new { alt = "phone-us", @class = "mask" })  Ex: (999) 999-9999
+
+            </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td valign="top">@Html.LabelFor(model => model.Address1, "Address") </td>
+            <td> <span >
+                @Html.TextBoxFor(model => model.Address1, new { @class = "watermark stree-address", data_watermark_text = "Street address" }) <br />
+                @Html.TextBoxFor(model => model.Address2, new { @class = "watermark stree-address", data_watermark_text = "Street address" })<br />
+                @Html.TextBoxFor(model => model.City, new { @class = "watermark address", data_watermark_text = "City" }) 
+                @Html.TextBoxFor(model => model.State, new { @class = "watermark address", data_watermark_text = "State" })
+                @Html.TextBoxFor(model => model.ZipCode, new { @class = "watermark address", data_watermark_text = "Zip Code" })
+            </span> </td>
+        </tr>       
+     
+      
+       
+      
+    </table>
+</div>
+
+        
+       
+        
+
+                    <p>
+                        <input type="submit" value="Save Contact" />&nbsp;<button value="cancel" title="Cancel" id="btnCancel">Cancel</button>
+                    </p>
+
+   @* </fieldset>*@
+    
+    
+}
+
+<p>
+    @Html.ActionLink("Back to List", "Index") 
+</p>

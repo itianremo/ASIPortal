@@ -1,0 +1,91 @@
+@model IEnumerable<DominosCMS.Models.Page>
+
+@{
+    ViewBag.Title = "Pages Manager";
+}
+
+@section header {
+    <!-- Add fancyBox main JS and CSS files -->
+	@Html.Css("~/_static/js/lib/fancybox/jquery.fancybox.css?v=2.1.0", true)
+	<!-- Add Button helper (this is optional) -->
+    @Html.Css("~/_static/js/lib/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.3", true)
+
+	<!-- Add Thumbnail helper (this is optional) -->
+    @Html.Css("~/_static/js/lib/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.6", true)
+    @Html.Css("tablesorter/themes/blue/style.css")
+
+}
+@section scripts {
+    @Html.Script("lib/fancybox/jquery.fancybox.js?v=2.1.0")
+    @Html.Script("lib/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.3")
+    @Html.Script("lib/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.6")
+	<!-- Add Media helper (this is optional) -->
+    @Html.Script("~/_static/js/lib/fancybox/helpers/jquery.fancybox-media.js?v=1.0.3", true)
+
+    @Html.Script("tablesorter/jquery.tablesorter.min.js")
+    @Html.Script("tablesorter/jquery.metadata.js")
+
+    <script lang="javascript" type="text/javascript">
+        $(function () {
+
+            $("table.tablesorter").tablesorter();
+            $(".list a.sortLink").click(bindSort);
+            $(".various").fancybox({
+                width: 1000,
+                height: 800,
+                autoSize: false,
+                closeClick: false,
+                openEffect: 'elastic',
+                closeEffect: 'fade',
+                closeBtn: true,
+                afterClose: function () {
+                    location.reload();
+
+                    
+                }
+            });
+        });
+
+        function bindSort() {
+            //alert($(this).text());
+            var url = $(this).attr("data-source");
+            var order = $(this).attr("data-orderby");
+            $("#current-sort").val(order);
+            //alert(url);
+            var rndm = Math.floor((Math.random() * 10000) + 1);
+            $.get(url, { orderby: order, r: rndm }, function (data) {
+                $("#pageList").html(data);
+                $("a.sortLink").click(bindSort);
+
+            });
+
+            return false;
+        }
+
+    </script>
+    
+}
+
+@section actions {
+    
+    <div class="actions-toolbar">
+        <ul>
+            <li>
+                <a class="various" href="@Url.Action("Create")" title="Add new Page"  data-fancybox-type="iframe" >
+                    <img src="@Url.Content("~/_static/images/icons/new.png")" alt="Add new product" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="actions-title">
+        <h2>Pages Admin</h2>
+    </div>
+        
+}
+
+        
+
+<div id="pageList">
+    @{ Html.RenderPartial("_PagesList", Model); }
+</div>
+

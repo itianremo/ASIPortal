@@ -1,0 +1,19 @@
+﻿@model DominosCMS.Models.SpecificationItem
+
+@{
+    Layout = "~/Views/Shared/_Popup.cshtml";
+}
+
+
+<div id="se">
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    { Html.RenderPartial("_SpecsEditor", Model); }
+     
+    @Html.HiddenFor(model => model.ID)
+
+    <input type="submit" value="Save" />
+}
+
+</div>

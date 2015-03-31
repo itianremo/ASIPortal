@@ -1,0 +1,51 @@
+﻿@model DominosCMS.Models.NewsItem
+
+@{
+    ViewBag.Title = "_CreateOrEdit";
+}
+
+       <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+       <div class="editor-label">
+            @Html.LabelFor(model => model.Briefe)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Briefe)
+            @Html.ValidationMessageFor(model => model.Briefe)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Details)
+        </div>
+        <div class="editor-field rte-fullfeature">
+            @Html.EditorFor(model => model.Details)
+            @Html.ValidationMessageFor(model => model.Details)
+        </div>
+        
+<div class="editor-label">
+    @Html.LabelFor(model => model.Photo)
+</div>
+
+    @if (!string.IsNullOrEmpty(ViewBag.PhotoUrl))
+    {
+       <img src="@ViewBag.PhotoUrl" alt="@Model.Title" width="200" height="150" />
+    
+    }
+
+
+<div class="editor-field">
+    <input type="file" name="photoFile" /> <br />Dimentions 100px * 75px
+    @Html.HiddenFor(model => model.Photo)
+    @Html.ValidationMessageFor(model => model.Photo)
+</div>
+
+        <div class="editor-label">
+            
+            @Html.EditorFor(model => model.ShowInHome)
+            @Html.LabelFor(model => model.ShowInHome)
+        </div>

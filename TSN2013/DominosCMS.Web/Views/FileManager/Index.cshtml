@@ -1,0 +1,55 @@
+﻿@model DominosCMS.Web.Models.FileManagerModel
+
+@{
+    Layout = "~/Views/Shared/_popup.cshtml";
+    ViewBag.Title = "File Manager";
+}
+
+@section styles {
+    @Html.Css("filemanager.css")
+    @Html.Css(Url.Content("~/_static/js/lib/fileuploader/fileUploader.css"), true)
+}
+@section scripts {
+
+    @Html.Script("filemanager.js")
+    @Html.Script("tiny_mce/tiny_mce.js")
+    @Html.Script("tiny_mce/tiny_mce_popup.js")
+}
+
+@Html.Hidden("mce", Request.QueryString["mce"])
+<div id="fmwrapper">
+    <div id="toolbar">
+        <div id="selectedfolder">
+            <h4>Current Folder</h4>
+            <p id="currentFolderLabel">@Model.CurrentFolder</p>
+        </div>
+        <div id="actions">
+            <ul>
+                <li><a href="#" class="toolbarbutton upfolder">Up</a></li>
+                <li><a href="@Url.Action("CreateFolder")" class="toolbarbutton createfolder">Create folder</a></li>
+                <li><a href="@Url.Action("UploadFiles")" class="toolbarbutton uploadfile">Upload</a></li>
+                <li><a href="#" class="toolbarbutton refresh">Refresh</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="fmcontents">
+        <div id="folders">
+            <h3>Folders</h3>
+            
+            @{Html.RenderPartial("Folders", Model);}
+            
+
+        </div>
+        <div id="fileslist">
+            @{Html.RenderPartial("List", Model);}
+         <div class="clear"></div>
+         </div>
+         @Html.Hidden("filemangerpath", Url.Action("Index"))
+         @Html.Hidden("rootFolder", System.Configuration.ConfigurationManager.AppSettings["filesdir"])
+       <div class="clear"></div>
+    </div>
+    <div id="statusBar">
+        
+    </div>
+</div>

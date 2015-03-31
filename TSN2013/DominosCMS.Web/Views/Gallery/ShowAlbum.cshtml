@@ -1,0 +1,81 @@
+﻿@model DominosCMS.Models.PhotoAlbum
+
+@{
+    ViewBag.Title = Model.Title;
+
+    Layout = "~/Views/Shared/_Popup.cshtml";
+}
+
+@section header {
+    @Html.Css("gallery/jquery.ad-gallery.css")
+    @Html.Script("lib/gallery/jquery.ad-gallery.pack.js")
+
+    <script type="text/javascript">
+        $(function () {
+            var galleries = $('.ad-gallery').adGallery(
+            { 
+                start_at_index: @ViewBag.StartIndex , 
+                loader_image: '@Url.Content("~/_static/images/gallery/loader.gif")'
+            });
+            $('#switch-effect').change(
+              function () {
+                  galleries[0].settings.effect = $(this).val();
+                  return false;
+              }
+            );
+            $('#toggle-slideshow').click(
+              function () {
+                  galleries[0].slideshow.toggle();
+                  return false;
+              }
+            );
+            $('#toggle-description').click(
+              function () {
+                  if (!galleries[0].settings.description_wrapper) {
+                      galleries[0].settings.description_wrapper = $('#descriptions');
+                  } else {
+                      galleries[0].settings.description_wrapper = false;
+                  }
+                  return false;
+              }
+            );
+        });
+    
+    </script>
+}
+
+    <div id="gallery" class="ad-gallery">
+      <div class="ad-image-wrapper">
+      </div>
+      <div class="ad-controls">
+      </div>
+      <div class="ad-nav">
+        <div class="ad-thumbs">
+          <ul class="ad-thumb-list">
+            @foreach (var item in Model.Photos)
+            {
+                if (item.Visible)
+                {
+            <li>
+              @showThumb(item)
+            </li>
+                }
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="descriptions">
+
+    </div>
+
+@helper showThumb(DominosCMS.Models.Photo photo)
+{
+    string url = string.Format("{0}/{1}/{2}", System.Configuration.ConfigurationManager.AppSettings["gallery"], photo.Album.ID, photo.Filename);
+    string thumb = Url.Action("Thumb", new { filename = photo.Filename, album = photo.Album.ID });
+    
+    <a href="@Url.Content(url)">
+                <img src="@thumb" title="@photo.Title" alt="@photo.Description" />
+              </a>
+}

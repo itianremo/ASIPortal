@@ -1,0 +1,223 @@
+﻿@model DominosCMS.Models.Company
+
+@{
+    ViewBag.Title = "Submittal Queue";
+    var members = Model.Queue.Where(i => i.Type == "m").OrderBy(i => i.ViewOrder).ToList();
+    var clips = Model.Queue.Where(i => i.Type == "c").OrderBy(i => i.ViewOrder).ToList();
+    var custom = Model.Queue.Where(i => i.Type == "custom").OrderBy(i => i.ViewOrder).ToList();
+}
+
+
+@section header {
+    @Html.Css("themes/base/jquery.ui.all.css")
+    @Html.Script("jquery-ui-1.8.11.min.js")
+    <style type="text/css">
+        td.actions {
+            white-space: nowrap;
+        }
+
+        table.list {
+            font-size: 0.85em;
+            width: 100%;
+        }
+
+        .complete { color: green; }
+        .pending { color: red; }
+        .text-center { text-align: center; }
+        .col0 { width: 200px;}
+        .col1 { width: 280px;}
+
+        .col3, .col4 { width: 55px;}
+        .btns button { margin: 5px 0px 25px 5px}
+        </style>
+    <script type="text/javascript">
+        $(function () {
+            $(".btns button").click(function (e) {
+                e.preventDefault();
+                if ($(this).hasClass("validate")) {
+                    if ($("#proName").val() == "") {
+                        alert("Please click Edit to fill out the Project Details before saving");
+                        return;
+                    }
+                }
+                location.href = $(this).attr("data-href");
+            });
+
+            $("a.define-section").click(function (e) {
+                e.preventDefault();
+
+                var url = $(this).attr("href");
+                var dialog = "<div title='Edit Submittal Item...' id='definSectionDialog'>";
+
+                $(dialog).append($("<iframe  />").attr({
+                    "src": url,
+                    "width": '100%',
+                    "height": '100%',
+                    "style": "border: none",
+
+                })).dialog({
+                    width: 1150,
+                    height: 550,
+                    resizable: false,
+                    buttons: {
+                        Close: function () { $(this).dialog("close"); }
+                    }
+                });
+
+            });
+
+        });
+    </script>
+}
+       <h1>Submittal Queue</h1>
+
+
+    
+<div class="cp-section" style="float: right; width: 200px; font-size: 10px;">
+    <form action="@Url.Action("CreateSubmittalFromQueue")" method="post">
+    <h3>Project Details</h3>
+    <table class="submittal-details">
+        <tr>
+            <th>Project</th>
+            <td>@Model.Project
+                @Html.Hidden("proName", Model.Project)
+            </td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>@Model.Location</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>@{
+                var dd = (Model.Date ?? DateTime.Now);
+                }
+                
+                @dd.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <th>Building Code</th>
+            <td>@Model.BuildingCode</td>
+        </tr>
+        <tr>
+            <th>Contact</th>
+            <td>@Model.ContactName1 <br /> @Model.ContactEmail1</td>
+        </tr>
+        <tr>
+            <th>Contact</th>
+            <td>@Model.ContactName2 <br /> @Model.ContactEmail2</td>
+        </tr>
+    </table>
+    <p class="btns"><button data-href="@Url.Action("EditSubmittalQueueData")">Edit</button></p>
+    
+        
+
+</div>
+<div class="cp-section" style="margin-right: 240px;">
+    @if (members.Count > 0) {
+
+        <fieldset>
+
+            <legend>Members</legend>
+            <table class="list">
+                    <tr>
+                        <th class="col0">Member name</th>
+                        <th class="col1">Products</th>
+                        <th class="col2">Status</th>
+                        <th class="col3">Remove</th>
+                        <th class="col4">Add to Fav.</th>
+                    </tr>
+                @foreach (var item in members)
+                {
+                    <tr>
+                        <td>@Util.SuperScript(item.Product.Title)</td>
+                        <td>@if (item.Section == null) { 
+                                <span>@Html.ActionLink("Define Product", "DefineProduct", "Submittals", new { productID = item.Product.ID, submittalItem = item.ID }, new { @class = "define-section"}) </span>
+                            } else {
+                                <span>@Util.FormatSectionTitle(item)</span>
+                            }
+                            </td>
+                        <td>
+                            @if (item.Section == null) { 
+                                <span class="pending">Pending</span>
+                            } else {
+                                <span class="complete">Complete</span>
+                            }
+                       </td>
+                        <td class="text-center"><input type="checkbox" value="@item.ID" name="chkDel" /></td>
+                        <td class="text-center"><input type="checkbox" value="@item.ID" name="chkFav" /></td>
+
+                    </tr>
+                }
+            </table>
+        </fieldset>
+    }
+@if (clips.Count > 0) {
+        <fieldset>
+            <legend>Clips</legend>
+            <table class="list">
+                    <tr>
+                        <th class="col0">Clip name</th>
+                        <th class="col1"></th>
+                        <th class="col2">Status</th>
+                        <th class="col3">Remove</th>
+                        <th class="col4">Add to Fav.</th>
+                    </tr>
+                @foreach (var item in clips)
+                {
+                    <tr>
+                        <td>@Util.SuperScript(item.Product.Title)</td>
+                        <td>..................</td>
+                        <td>
+                            <span class="complete">Complete</span>
+                        </td>
+                        <td class="text-center"><input type="checkbox" value="@item.ID" name="chkDel" /></td>
+                        <td class="text-center"><input type="checkbox" value="@item.ID" name="chkFav" /></td>
+                    </tr>
+                }
+            </table>
+
+        </fieldset>
+}
+    @if (custom.Count > 0) {
+
+        <fieldset>
+            <legend>Custom</legend>
+            <table class="list">
+                <tr>
+                    <th class="col0">Custom Product</th>
+                    <th class="col1">Products</th>
+                    <th class="col2">Status</th>
+                    <th class="col3">Remove</th>
+                    <th class="col4">Add to Fav.</th>
+                </tr>
+                @foreach (var item in custom)
+                {
+                    <tr>
+                        <td>@Util.SuperScript(item.Product.Title)</td>
+                        <td>Special</td>
+                        <td>
+                            <span class="complete">Complete</span>
+                        </td>
+                        <td class="text-center"><input type="checkbox" value="@item.ID" name="chkDel" /></td>
+                        <td class="text-center"><input type="checkbox" value="@item.ID" name="chkFav" /></td>
+                    </tr>
+                }
+            </table>
+
+        </fieldset>
+    }
+    <p style="text-align: right" class="btns">
+<input type="submit" value="Update" />
+</p>    
+</form>
+
+<p style="text-align: right" class="btns">
+    <button data-href="@Url.Action("Index", "User")" class="validate">Add Products</button>
+    <button data-href="@Url.Action("Index", "User")" class="validate">Save for later</button>
+    <button data-href="@Url.Action("Index", "User")">Cancel</button> 
+    <button data-href="@Url.Action("CheckOutQueue")"  class="validate">Complete</button>
+</p>
+
+</div>
+<div class="clear"></div>

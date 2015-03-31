@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+
+    var notes = ViewBag.Notes as IList<DominosCMS.Models.Note>;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Product</title>
+    @Html.Css("members.css")
+</head>
+
+
+<body>
+
+<table id="container">
+    <tr>
+        <td style="width: 60%">
+            <h1>@ViewBag.Product</h1>
+            <p class="section-title"> 
+              @if (notes != null)
+              {
+                  var NoteNumber="";
+                  var seprator = "";
+                   foreach (var note in notes)
+                   {
+                       if (NoteNumber.Trim()!="")
+                       {
+                           seprator = ","; 
+                       }
+                       NoteNumber = NoteNumber + seprator + @note.Number;           
+                   }                 
+                   
+                  @Html.Raw(ViewBag.SectionTitle.Insert(ViewBag.SectionTitle.IndexOf(",") , "<sup>" + NoteNumber + "</sup>"));
+              }
+              else
+              {
+                  @ViewBag.SectionTitle
+              }
+               </p>
+            @RenderBody()
+
+        </td>
+        <td id="logoWrapper">
+            <table style="float:right">
+                <tr>
+                    <td style="text-align: right"  class="tsn-inc">
+                    <h4 style="font-size:12pt;">The Steel Network, Inc.</h4>
+                    <p style="font-size:10pt;">
+                        www.steelnetwork.com
+                        <br />
+                        1‐888‐474‐4876
+                    </p>
+
+                    </td>
+                    <td>
+                        <img src="/_static/images/logo.jpg" width="120" />
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align:center"> 
+            @RenderSection("right", false)
+            </div>
+
+        </td>
+    </tr>
+
+</table>
+    
+    
+    @RenderSection("comments", false)
+      
+
+</body>
+</html>

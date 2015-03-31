@@ -1,0 +1,31 @@
+@model DominosCMS.Models.Banner
+
+@{
+    ViewBag.Title = "Create";
+}
+@section header 
+{
+    @Html.Css("forms.css")
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+}
+
+<h2>Create Banner</h2>
+
+ <form action="" method="post" enctype="multipart/form-data">
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+
+		@Html.Partial("_CreateOrEdit", Model)
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+</form>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

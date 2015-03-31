@@ -1,0 +1,47 @@
+﻿@model DominosCMS.Models.Inquiry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section header {
+    @Html.Css("forms.css")    
+}
+
+@section actions {
+    <h2>@Html.ActionLink("Inquiries", "Index", "Inquiries") > @Model.Name</h2>
+}
+
+
+<fieldset>
+    <legend>Inquiry</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">Telephone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telephone)
+    </div>
+
+    <div class="display-label">Message</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Message)
+    </div>
+
+    <div class="display-label">SubmissionDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubmissionDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Delete", "Delete", new { id = Model.ID }, new { @class = "delete-link"}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

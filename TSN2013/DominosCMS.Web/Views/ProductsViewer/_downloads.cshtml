@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DominosCMS.Models.ProductFile>
+
+@{
+
+    var pdf = Model.Where(f => f.Type == "PDF").SingleOrDefault();
+    var bim = Model.Where(f => f.Type == "BIM").SingleOrDefault();
+    var dwg = Model.Where(f => f.Type == "DWG").SingleOrDefault();
+    var specs = Model.Where(f => f.Type.ToLower() == "specs").SingleOrDefault();
+
+}
+
+
+@DownloadLink(pdf, @Url.Content("~/_static/images/pdf-icon.png"), "Tech Sheet", "Download Technical data")
+@DownloadLink(dwg, @Url.Content("~/_static/images/dwg-icon.png"), "DWG", "Download drawing file")
+@DownloadLink(specs, @Url.Content("~/_static/images/specs-icon.png"), "Specs", "Download specification data")
+@DownloadLink(bim, @Url.Content("~/_static/images/bim-icon.png"), "BIM", "Download BIM data")
+
+
+@helper DownloadLink(DominosCMS.Models.ProductFile file, string icon, string text, string alt)  {
+    if (file != null) {
+        <a href="@Url.Action("ProductFile", new {id = file.ID })"><img src="@icon" border="0" alt="@alt"/> @text</a> @: | 
+    }
+}

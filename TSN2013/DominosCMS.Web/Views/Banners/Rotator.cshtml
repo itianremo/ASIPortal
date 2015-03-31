@@ -1,0 +1,18 @@
+﻿@model IEnumerable<DominosCMS.Models.Banner>
+
+@{
+    var photoPath = System.Configuration.ConfigurationManager.AppSettings["BannersPhotos"];
+    var index = 0;
+}
+
+<div id="bannerWrapper">
+            <ul>
+    	        @foreach (var item in Model)
+             {
+                 index++;
+                <li style="background-image: url('@string.Format("{0}/{1}", photoPath, item.Photo)'); background-position: initial initial; background-repeat: no-repeat no-repeat; " rel="@index">
+                </li>
+             }
+              </ul>
+
+</div>

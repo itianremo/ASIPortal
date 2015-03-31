@@ -1,0 +1,86 @@
+﻿@model IList<DominosCMS.Models.CustomProduct>
+
+@{
+    ViewBag.Title = "Custom";
+}
+
+@section header {
+    @Html.Css("tablesorter/themes/blue/style.css")
+}
+@section scripts {
+    @Html.Script("tablesorter/jquery.tablesorter.min.js")
+    @Html.Script("tablesorter/jquery.metadata.js")
+
+    <script type="text/javascript">
+        $(function () {
+            $("table.tablesorter").tablesorter();
+        })
+    </script>
+    }
+
+@section actions {
+    
+    <div class="actions-toolbar">
+        <ul>
+            <li>
+                <a class="various" href="@Url.Action("CreateCustom")" title="Add new custom product">
+                    <img src="@Url.Content("~/_static/images/icons/new.png")" alt="Add custom new product" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="actions-title">
+        <h2>Custom Products</h2>
+    </div>
+        
+}
+
+<table class="tablesorter">
+    <thead>
+    <tr>
+        <th>
+            Type
+        </th>
+        <th>
+            Product Line
+        </th>
+        <th>
+            Product
+        </th>
+        <th>
+            Expire
+        </th>
+        <th class="actions {sorter: false}"></th>
+    </tr>
+        </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @if (item.ProductLine != null) {
+            <span>@Html.DisplayFor(modelItem => item.ProductLine.Title)</span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @if (item.Expires.HasValue) { 
+                <span>@item.Expires.Value.ToShortDateString()</span>
+            }
+            
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditCustom",new { id = item.ID }) |
+            @Html.ActionLink("Preview", "PreviewCustom",new { id = item.ID }) |
+            @Html.ActionLink("Delete", "DeleteCustom",new { id = item.ID }, new { @class="delete-link"})
+            
+        </td>
+    </tr>
+}
+</tbody>
+</table>
+

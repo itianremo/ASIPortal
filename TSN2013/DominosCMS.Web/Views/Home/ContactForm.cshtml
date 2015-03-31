@@ -1,0 +1,43 @@
+﻿@model DominosCMS.Models.Inquiry
+@{
+    var types = new SelectList(new List<string> { "Complain", "Question" });   
+ }
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+<table cellpadding="5" style="width: 100%;">
+    <tr>
+        <th>@Html.LabelFor(model => model.Name)</th>
+        <td>
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+         </td>
+    </tr>
+    <tr>
+        <th>@Html.LabelFor(model => model.Email)</th>
+        <td>
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+         </td>
+    </tr>
+    <tr>
+        <th>@Html.LabelFor(model => model.Telephone)</th>
+        <td>
+            @Html.EditorFor(model => model.Telephone)
+            @Html.ValidationMessageFor(model => model.Telephone)
+         </td>
+    </tr>
+    <tr>
+        <th>@Html.LabelFor(model => model.Message)</th>
+        <td>
+            @Html.TextAreaFor(model => model.Message, new { style = "width: 70%", rows = 6})
+            @Html.ValidationMessageFor(model => model.Message)
+         </td>
+    </tr>
+</table>            
+
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+}
+

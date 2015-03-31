@@ -1,0 +1,82 @@
+﻿@model DominosCMS.Web.Models.FileManagerModel
+@using DominosCMS.Web.Helpers;           
+            @Html.Hidden("currentFolder", Model.CurrentFolder)
+            <ul>
+                @foreach (var item in Model.Folders)
+                { 
+                <li class="folder">
+               <a href="@item.RelativePath"  title="@item.Name" class="thumb">
+                    <img src="/_static/images/folder.png"  alt="@item.Name" />
+                    <span>@item.Name</span>
+                </a> 
+                <span class="actions"><a href="@Url.Action("DeleteFolder", new { filename = @item.RelativePath })" class="del" title="Delete @item.Name">
+                    @Html.Image("", Url.Content("~/_static/images/icons/deletered.png"), "Delete file")
+                </a></span>
+               </li>
+                }
+
+                @foreach (var item in Model.Files)
+                {
+                    switch (item.Extension.ToLower())
+                    {
+                        case "jpg":
+                        case "jpeg":
+                        case "gif":
+                        case "png":
+                            {
+                                @FileThumb(item, @Url.Action("Thumb", new { filename = item.RelativePath, height=100 }))
+                               break;
+                            }
+                        case "swf":
+                                @FileThumb(item, @Url.Content("~/_static/images/filemanager/swf.png"))
+                                break;
+                        case "mov":
+                                @FileThumb(item, @Url.Content("~/_static/images/filemanager/qt.png"))
+                                break;
+                        case "flv":
+                                @FileThumb(item, @Url.Content("~/_static/images/filemanager/flv.gif"))
+                                break;
+                        case "pdf":
+                                @FileThumb(item, @Url.Content("~/_static/images/filemanager/pdf.png"))
+                               break;
+                        case "doc":
+                        case "docx":
+                                @FileThumb(item, @Url.Content("~/_static/images/filemanager/word.png"))
+                               break;
+                        case "xls":
+                        case "xlsx":
+                                @FileThumb(item, @Url.Content("~/_static/images/filemanager/excel.png"))
+                               break;
+                        case "ppt":
+                        case "pptx":
+                                @FileThumb(item, @Url.Content("~/_static/images/filemanager/ppt.png"))
+                               break;
+                        default:
+                                @FileThumb(item, @Url.Content("~/_static/images/filemanager/generalFileType.gif"))
+                               break;
+                    }
+
+
+                }
+
+            </ul>
+            <div class="loader">
+                @Html.Image("loader", Url.Content("~/_static/images/loading.gif"), "LOADING....")
+                Loading folder contents...
+            </div>
+            <div class="clear"></div>
+
+
+@helper FileThumb(DominosCMS.Web.Models.FileItem item, string thumb)
+{
+    <li class="file"><a href="@item.RelativePath" title="@item.Name" class="thumb">
+        <img src="@thumb" alt="@item.Name" />
+        <span>@item.Name</span> </a><span class="actions"><a href="@Url.Action("DeleteFile", new { filename = @item.RelativePath })" class="del" title="Delete @item.Name">
+            @Html.Image("", Url.Content("~/_static/images/icons/deletered.png"), "Delete file")
+        </a><a href="@item.RelativePath" class="open" title="Open @item.Name">
+            @Html.Image("", Url.Content("~/_static/images/icons/openfile.png"), "Open file")
+        </a><a href="@Url.Action("DownloadFile", new { filename = @item.RelativePath })" class="download"  title="Download @item.Name">
+            @Html.Image("", Url.Content("~/_static/images/icons/download.png"), "Download file")
+        </a></span>
+    </li>
+}

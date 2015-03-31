@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DominosCMS.Models.PhotoAlbum>
+@using DominosCMS.Web.Helpers;
+
+@{
+    ViewBag.Title = "Photo Gallery";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@section header {
+    @Html.Css("gallery.css")
+}
+
+
+<ul id="album">
+@foreach (var item in Model) {
+    if (item.Visible)
+    {
+    <li>
+        <div>
+        @Html.ActionLink(item.Title, "ShowAlbum", new { id = item.ID })
+        </div>
+
+        <a href="@Url.Action("Album", new { id = item.ID })">
+         @if (item.Photos != null && item.Photos.Count > 0) {
+            <img src="@Url.Content("~/Gallery/Thumb/?filename=" + item.Photos[0].Filename + "&height=170&album=" + item.ID)" width="225" height="170" class="ongoing-border" />
+         }
+         else
+         {
+             <img src="@Url.Content("~/_static/images/no_image_thumb.gif")" width="225" height="170" class="ongoing-border" />
+         }
+        
+        </a>
+        
+        <div>
+            @item.Description
+        </div>
+
+    </li>
+    }
+
+    }
+    </ul>
+
+
+<div class="clear"></div>

@@ -1,0 +1,82 @@
+@model DominosCMS.Web.Areas.Admin.Models.EditPageModel
+
+@{
+    string photoPath = "";
+    if (Model.Page != null)
+    {
+        photoPath =  System.Configuration.ConfigurationManager.AppSettings["PagesPhotos"] + "/" + Model.Page.SplashPhoto;
+    }
+
+    bool isPublic = true;
+    
+   if (Model.Page != null && Model.Page.IsPublic != null) {
+       isPublic = Model.Page.IsPublic.Value;
+   }
+
+}
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Page.Title)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Page.Title)
+    @Html.ValidationMessageFor(model => model.Page.Title)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.Page.Url)
+</div>
+<div class="editor-field">
+    /@Html.EditorFor(model => model.Page.Url)
+    @Html.ValidationMessageFor(model => model.Page.Url)
+    <span id="urlMsgWrapper"></span>
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Page.Contents)
+</div>
+<div class="editor-field rte-fullfeature">
+    @Html.EditorFor(model => model.Page.Contents)
+    @Html.ValidationMessageFor(model => model.Page.Contents)
+</div>
+
+
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Page.Keywords)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Page.Keywords)
+    @Html.ValidationMessageFor(model => model.Page.Keywords)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Page.Description)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Page.Description)
+    @Html.ValidationMessageFor(model => model.Page.Description)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Page.Visible)
+    @Html.LabelFor(model => model.Page.Visible)
+
+</div> 
+
+<div class="editor-field" id="chkPublic">
+    <label>@Html.CheckBox("Page.IsPublic", isPublic)
+        Public
+    </label>
+
+</div> 
+<div id="securityOptions">
+
+<div class="editor-field">
+    Page Rule:
+    @Html.DropDownListFor(x => x.Page.RuleID, new SelectList(Model.Rules, "key", "value"))
+</div>
+
+    </div>
+
+    @Html.HiddenFor(model => model.Page.SplashPhoto)
+

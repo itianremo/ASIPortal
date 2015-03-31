@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataroot>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0003</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA01</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0024</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0025</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA03</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0036</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0042</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA04</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0043</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3; JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA05</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0044</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3; JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA05</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0045</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0046</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0047</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA03</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0048</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0049</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA04</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0054</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0062</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA03</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0063</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0066</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0067</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0068</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0069</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0071</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0072</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0073</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0076</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA07</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0077</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA07</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0082</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0083</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA07</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0084</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0085</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA07</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0087</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA08</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0089</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA08</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0091</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0102</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3; JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA05</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0106</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA08</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0152</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3; JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA05</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0154</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA07</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0160</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0162</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0167</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0184</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA07</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0185</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0186</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0190</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA09</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0193</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0209</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA07</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0218</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA03</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0246</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0256</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW1</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0259</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA03</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0263</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW4</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0271</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA10</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0272</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0275</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA10</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0277</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0278</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0280</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0293</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW4</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0299</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3; JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0310</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0313</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0321</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0322</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0324</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA07</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0341</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3; JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0342</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA11</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0353</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0356</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3; JW5</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0357</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0358</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0363</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA12</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0365</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0368</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0370</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA02</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0371</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM2 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA12</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0404</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW4</Joint_Width>
+		<Maximum_Deflection_Amount>MDA06</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0420</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>Firestik</Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA14</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0421</Head_of_Wall_Detail>
+		<Floor_System_type>SFS2</Floor_System_type>
+		<Firestopping_Type>Firestik</Firestopping_Type>
+		<Joint_Width>JW3</Joint_Width>
+		<Maximum_Deflection_Amount>MDA14</Maximum_Deflection_Amount>
+	</HOW>
+	<HOW>
+		<Head_of_Wall_Detail>HW-D-0460</Head_of_Wall_Detail>
+		<Floor_System_type>SFS1</Floor_System_type>
+		<Firestopping_Type>FM1 </Firestopping_Type>
+		<Joint_Width>JW2</Joint_Width>
+		<Maximum_Deflection_Amount>MDA13</Maximum_Deflection_Amount>
+	</HOW>
+</dataroot>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DominosCMS.Models.Inquiry>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section actions {
+    <h2>Inquiries</h2>
+}
+
+@if (Model == null || Model.Count() == 0)
+{ 
+    <p style="text-align: center;">There are no Inquiries submitted</p>
+    return;
+}
+<table class="list">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Telephone
+        </th>
+        <th>
+            SubmissionDate
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmissionDate)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "delete-link"})
+        </td>
+    </tr>
+}
+
+</table>

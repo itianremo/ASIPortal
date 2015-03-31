@@ -1,0 +1,32 @@
+@model DominosCMS.Models.Banner
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Banner</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">@Model.Title</div>
+
+    <div class="display-label">Details</div>
+    <div class="display-field">@Model.Details</div>
+
+    <div class="display-label">Photo</div>
+    <div class="display-field">@Model.Photo</div>
+
+    <div class="display-label">ShowInHome</div>
+    <div class="display-field">@Model.ShowInHome</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

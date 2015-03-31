@@ -1,0 +1,13 @@
+﻿@model System.Data.DataView
+@{
+    ViewBag.Title = "FRList";
+}
+
+<h4>@ViewData["msg"] </h4>
+<ul>
+@foreach (System.Data.DataRowView dr in Model)
+{
+    var url = string.Format("~/_static/Content/HW/{0}.htm", dr[0]);
+    <li><a href="@Url.Content(url)" target="_blank" class="fire-rated" data-fancybox-type="iframe">@dr[0]</a></li>
+} 
+</ul>

@@ -1,0 +1,118 @@
+﻿@model DominosCMS.Models.Submittal
+
+@{
+    ViewBag.Title = "Progress";
+    Layout = "~/Views/Shared/_popup.cshtml";
+    var members = Model.Items.Where(i => i.Type == "m").ToList();
+    var clips = Model.Items.Where(i => i.Type == "c").ToList();
+    var custom = Model.Items.Where(i => i.Type == "x").ToList();
+    var reports = Model.Items.Where(i => i.Type == "r").ToList();
+}
+
+
+<h2>@Model.Project</h2>
+<p>Submittal Preview</p> 
+
+<h3>Products</h3>
+@if (members.Count > 0) {
+
+<fieldset>
+    
+
+    
+        <legend>Member Type</legend>
+
+        <table class="list">
+            @foreach(var item in members) {
+            <tr>
+                <td>@item.Product.Title</td>
+                <td>@Util.FormatSectionTitle(item)</td>
+@*                <td class="actions delete-section">@Html.ImageActionLink(Url.Content("~/_static/images/icons/delete2.jpg"), "Delete", Url.Action("DeleteItem", new { id = item.ID, submittal_id = Model.ID, fromProgress=true  }), new { @class="delete-link" })</td>*@
+                <td class="actions delete-section">@Html.ActionLink("Delete", "DeleteItem", new { id = item.ID, submittal_id = Model.ID, fromProgress=true  }, new { @class="delete-link" })</td>
+            
+            </tr>
+            }
+        </table>
+    </fieldset>
+}
+@if (clips.Count > 0)
+{
+
+    <fieldset>
+        <legend>Connections</legend>
+        <table class="list">
+        @foreach (var item in clips)
+        {
+            <tr>
+                <td>@item.Product.Title</td>
+@*                <td class="actions delete-section">@Html.ImageActionLink(Url.Content("~/_static/images/icons/delete2.jpg"), "Delete", Url.Action("DeleteItem", new { id = item.ID, submittal_id = Model.ID, fromProgress=true  }), new { @class="delete-link" })</td>*@
+                <td class="actions delete-section">@Html.ActionLink("Delete", "DeleteItem", new { id = item.ID, submittal_id = Model.ID, fromProgress=true  }, new { @class="delete-link" })</td>
+            </tr>
+        }
+        </table>
+
+    </fieldset>
+}
+@if (custom.Count > 0)
+{
+
+    <fieldset>
+        <legend>Custom</legend>
+        <table class="list">
+        @foreach (var item in custom)
+        {
+            <tr>
+                <td>@item.Custom.Title</td>
+@*                <td class="actions delete-section">@Html.ImageActionLink(Url.Content("~/_static/images/icons/delete2.jpg"), "Delete", Url.Action("DeleteItem", new { id = item.ID, submittal_id = Model.ID, fromProgress=true  }), new { @class="delete-link" })</td>*@
+                <td class="actions delete-section">@Html.ActionLink("Delete", "DeleteItem", new { id = item.ID, submittal_id = Model.ID, fromProgress=true  }, new { @class="delete-link" })</td>
+            </tr>
+        }
+        </table>
+
+    </fieldset>
+}
+@if (reports.Count > 0)
+{
+
+    <fieldset>
+        <legend>Reports</legend>
+        <table class="list">
+        @foreach (var item in reports)
+        {
+            <tr>
+                <td>@item.Report.Title</td>
+@*                <td class="actions delete-section">@Html.ImageActionLink(Url.Content("~/_static/images/icons/delete2.jpg"), "Delete", Url.Action("DeleteItem", new { id = item.ID, submittal_id = Model.ID, fromProgress=true  }), new { @class="delete-link" })</td>*@
+                <td class="actions delete-section">@Html.ActionLink("Delete", "DeleteItem", new { id = item.ID, submittal_id = Model.ID, fromProgress=true  }, new { @class="delete-link" })</td>
+            </tr>
+        }
+        </table>
+
+    </fieldset>
+}
+
+
+
+@*<h3>Members</h3>
+<table class="list">
+@foreach (var item in members)
+{
+    var punched = (item.Punched) ? "Punched" : "Unpunched";
+    <tr>
+        <td> @item.ID</td>
+        <td><strong> @item.Product.Title</strong></td>
+        <td>@string.Format("{0}, {1}, {2}", item.Section.Title, item.CoatingWeight, punched )</td>
+
+    </tr>
+}
+</table>
+<h3>Clips</h3>
+
+<table class="list">
+@foreach (var item in clips)
+{
+    <tr>
+        <td><strong> @item.Product.Title</strong></td>
+
+    </tr>
+}
+</table>*@

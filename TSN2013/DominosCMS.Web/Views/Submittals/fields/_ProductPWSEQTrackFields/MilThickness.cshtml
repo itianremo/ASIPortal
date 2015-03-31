@@ -1,0 +1,22 @@
+﻿@model DominosCMS.Web.Models.SubmittalBuilderModel
+
+@{
+    bool showThick = Convert.ToBoolean(ViewBag.ShowThickness);
+}
+               
+@if (showThick) {
+        <div class="form-line">
+            <label>Mil Thickness (Gauge):</label>
+            @Html.DropDownList("MilThickness", new SelectList(Model.MilThickness, "Key", "Value"), "Select") 
+        </div>
+}
+<script type="text/javascript">
+
+    $(function () {
+        $("#MilThickness").change(function () {
+
+            updateSections(this);
+        });
+
+    });
+</script>

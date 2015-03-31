@@ -1,0 +1,30 @@
+﻿@{
+    string fb = (string.IsNullOrEmpty(ViewBag.FaceBook) ? "" : ViewBag.FaceBook);
+    string tw = (string.IsNullOrEmpty(ViewBag.Twitter) ? "" : ViewBag.Twitter);
+    string gp = (string.IsNullOrEmpty(ViewBag.GooglePlus) ? "" : ViewBag.GooglePlus);
+    string yt = (string.IsNullOrEmpty(ViewBag.Youtube) ? "" : ViewBag.Youtube);
+    string rss = (string.IsNullOrEmpty(ViewBag.Rss) ? "" : ViewBag.Rss);
+    string linkedin = (string.IsNullOrEmpty(ViewBag.Linkedin) ? "" : ViewBag.Linkedin);
+    string pintrest = (string.IsNullOrEmpty(ViewBag.Pintrest) ? "" : ViewBag.Pintrest);
+}
+
+
+@SocialLink("fb-n.jpg", fb)
+@SocialLink("YouTube-n.jpg", yt)
+@SocialLink("RSS-n.jpg", rss)
+@SocialLink("twitter-n.jpg", tw)
+@SocialLink("LinkedIn-n.jpg", linkedin)
+@SocialLink("googleplusbadge-n.png", gp)
+@SocialLink("pintrest.jpg", pintrest)
+          
+
+
+
+@helper SocialLink(string imagePath, string url)
+{
+    if (string.IsNullOrEmpty(url)) { return; }
+    
+    var path = Url.Content("~/_static/images/newicons/" + imagePath);
+    
+    <a href="@url" target="_blank"><img src="@path" style="border-width:0px;" /></a> 
+}

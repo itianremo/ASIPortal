@@ -1,0 +1,191 @@
+﻿@model DominosCMS.Models.CustomProduct
+
+@{
+    ViewBag.Title = "CreateCustom";
+
+    var members = ViewBag.Members as IList<DominosCMS.Models.Account>;
+    var types = ViewBag.Types as IList<string>;
+    var products = ViewBag.Products as SelectList;
+}
+@section header {
+
+    @Html.Css("themes/base/jquery.ui.all.css")
+    @Html.Css(Url.Content("~/_static/js/lib/uploadfy/uploadify.css"), true)
+    @Html.Css("forms.css")
+    @Html.Css("productManager.css")
+    
+
+
+    }
+@section scripts {
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("#membersList").hide();
+
+            $("#rdOther").click(function () {
+                $("#membersList").fadeIn();
+            });
+            $("#rdPublic").click(function () {
+                $("#membersList").fadeOut();
+            });
+
+            $(".datepicker input").datepicker({
+                showOn: "button",
+                buttonImage: "/_static/images/icons/calendar.gif",
+                buttonImageOnly: true
+            });
+
+            $("#Type").change(function () {
+                //show spinner after me
+
+                //load the products by selected type
+
+                $.get("@Url.Action("GetJsonProducts")", { type: $(this).val()}, function (data) {
+                    if (data)
+                    {
+                        $("#pLine").empty();
+                        $("#pLine").append("<option value=''>Select Product</option>");
+
+                        $.each(data["Result"], function (i, val) {
+                            $('#pLine').append('<option value="' + val.ID + '">' + val.Name + '</option>');
+                        });
+                    }
+                    
+                }, "json");
+            });
+
+            $("#btnSearch").click(function (e) {
+                e.preventDefault();
+                var kw = $("#contactSearch").val();
+                var url = $("#SearchContactsUrl").val();
+                $("<span class='spinner' />").insertAfter(this);
+                //console.log(kw);
+                $.get(url, { kw: kw }, function (data) {
+                    $("#contactList").replaceWith(data);
+                    $("span.spinner").remove();
+                });
+
+            });
+
+
+        });
+
+    </script>
+    <style type="text/css">
+
+        .datepicker input
+        {
+            width: auto;
+        }
+    </style>
+
+}
+
+
+@section actions {
+    
+    <div class="actions-toolbar">
+        <ul>
+            <li>
+                <a href="@Url.Action("Custom")" title="Back to products">
+                    Back to products
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="actions-title">
+        <h2>Create Custom Product</h2>
+    </div>
+        
+}
+
+
+
+@using (Html.BeginForm("CreateCustom", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Custom Product</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Type) <span class="spinner" style="display: none;"></span>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Type, new SelectList(types)) 
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductLine)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("pLine", products, "Select Product")
+            @Html.ValidationMessageFor(model => model.ProductLine)
+        </div>
+
+        <div class="editor-label">
+            Product
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Expires)
+        </div>
+        <div class="editor-field ">
+            <span class="datepicker">
+            @Html.EditorFor(model => model.Expires) </span>
+            <label><input type="checkbox" name="notExpired" value="true"> Never</label>
+            
+            @Html.ValidationMessageFor(model => model.Expires)
+        </div>
+
+        <div class="editor-label">
+            Tech Sheet
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file1" id="file1" />
+            @Html.ValidationMessageFor(model => model.Filename)
+        </div>
+        <div class="editor-label">
+            Drawing
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file2" id="file2" />
+            @Html.ValidationMessageFor(model => model.DrawingFile)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AssignedTo)
+        </div>
+        <div class="editor-field">
+            <input type="radio" value="public" id="rdPublic" name="accessLevel" checked="checked" />
+            <label for="rdPublic">Public</label>
+            <input type="radio" value="member" id="rdOther"  name="accessLevel" />
+            <label for="rdOther">Other</label>
+            
+        </div>
+
+        <div id="membersList">
+            <p style="margin-bottom: 15px; margin-top: 10px; font-weight: bold">
+            Search: @Html.TextBox("contactSearch") 
+                <input type="button" id="btnSearch" value="Go" style="padding: 0 5px" />
+
+                @Html.Hidden("SearchContactsUrl", Url.Action("FindContacts"))
+                </p>
+            @{ Html.RenderPartial("_Members", members); } 
+
+
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+

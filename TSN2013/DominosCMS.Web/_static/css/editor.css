@@ -1,0 +1,17 @@
+﻿body {
+	font: 80% Verdana, Arial, Helvetica, sans-serif;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	color: #000000;
+}
+
+.yellow
+{
+    color: #ffca03;
+}
+
+.blue_text
+{
+    color: #000066;
+}
+

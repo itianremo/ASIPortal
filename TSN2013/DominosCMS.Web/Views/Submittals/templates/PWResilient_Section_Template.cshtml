@@ -1,0 +1,125 @@
+﻿@model DominosCMS.Models.SubmittalItem
+
+@{
+    Layout = "~/Views/Shared/_members.cshtml";
+    int columns = Convert.ToInt32(Model.Section.LegLength);
+    var bcode = ViewBag.BuildingCode;
+    var vals = Model.Section.Values.Where(v => v.BuildingCode == bcode).OrderBy(v => v.Property.ViewOrder).ToList();
+}
+
+@section right {
+
+    @if (columns == 1)
+    {    
+        <img src="/_static/images/pwResilient-single.jpg" width="299" height="236"  /><br />
+    } else {
+        <img src="/_static/images/pwResilient-double.jpg" width="299"  /><br />
+    }
+            
+}
+
+            <table style="width:100%">
+                <tr>
+                    <th colspan="3">Product Profile</th>
+                </tr>
+                <tr class="alt">
+                    <td>Web Depth (D)</td>
+                    <td class="val-col">@vals[0].Value </td>
+                    <td class="val-col">in</td>
+                </tr>
+                    @if (columns == 1)
+                    {
+                <tr>
+                    <td>Flange Width (B1)</td>
+                    <td class="val-col">@vals[1].Value </td>
+                    <td class="val-col">in</td>
+                </tr>
+                <tr class="alt">
+                    <td>Flange Width (B2)</td>
+                    <td class="val-col">@vals[2].Value </td>
+                    <td class="val-col">in</td>
+                </tr>
+                    }
+                else {
+                <tr>
+                    <td>Flange Width (B)</td>
+                    <td class="val-col">@vals[1].Value </td>
+                    <td class="val-col">in</td>
+                </tr>
+                    }
+                <tr>
+                    <td>Return Lip (d)</td>
+                    <td class="val-col">@vals[3].Value </td>
+                    <td class="val-col">in</td>
+                </tr>
+                <tr class="alt">
+                    <td>Gauge</td>
+                    <td class="val-col">@vals[4].Value </td>
+                    <td class="val-col">ga</td>
+                </tr>
+                <tr>
+                    <td>Design Thickness (t)</td>
+                    <td class="val-col">@vals[5].Value </td>
+                    <td class="val-col">in</td>
+                </tr>
+                <tr class="alt">
+                    <td>Minimum Steel Thickness (t<sub>min</sub>)</td>
+                    <td class="val-col">@vals[6].Value </td>
+                    <td class="val-col">in</td>
+                </tr>
+		<tr >
+                    <td>Inside Bend Radius (R)</td>
+                    <td class="val-col">@vals[7].Value </td>
+                    <td class="val-col">in</td>
+                </tr>
+                <tr class="alt">
+                    <td>Unit Weight</td>
+                    <td class="val-col">@vals[8].Value </td>
+                    <td class="val-col">lbs/ft</td>
+                </tr>
+@*                <tr class="alt">
+                    <td>Stock Lengths</td>
+                    <td class="val-col">12 </td>
+                    <td class="val-col">ft</td>
+                </tr>
+                <tr>
+                    <td>Packaging</td>
+                    <td class="val-col">500 </td>
+                    <td class="val-col">pcs/pallet</td>
+                </tr>*@
+                <tr>
+                    <th colspan="3">Material Composition</th>
+                </tr>
+                <tr >
+                    <td>ASTM Standard</td>
+                    <td class="val-col" colspan="2">@vals[9].Value</td>
+                </tr>
+                <tr class="alt">
+                    <td>Yield Strength (F<sub>y</sub>)</td>
+                    <td class="val-col">@vals[10].Value </td>
+                    <td class="val-col">ksi (MPa)</td>
+                </tr>
+                <tr >
+                    <td>Tensile Strength (F<sub>u</sub>)</td>
+                    <td class="val-col">@vals[11].Value </td>
+                    <td class="val-col">ksi (MPa)</td>
+                </tr>
+                <tr class="alt">
+                    <td>Coating Weight</td>
+                    <td class="val-col">@vals[12].Value</td>
+                    <td class="val-col">&nbsp;</td>
+                </tr>
+
+            </table>
+
+
+
+@section comments {
+    
+    <ul>
+        <li>18 mil resilient channel is hemmed; 30 mil resilient channel is unhemmed.</li>
+        <li>PrimeWall Furring Channel is produced to meet or exceed ASTM C645, A653, and A1003.</li>
+        <li>Galvanized sheet steel meets or exceeds requirements of ASTM A924 & A1003.</li>
+    </ul>
+
+}

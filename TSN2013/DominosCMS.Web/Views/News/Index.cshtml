@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DominosCMS.Models.NewsItem>
+@using System.Configuration;
+@using DominosCMS.Web.Helpers;
+
+@{
+    ViewBag.Title = "Our News";
+}
+
+
+<h2>Our News</h2>
+<div id="news-list">
+@foreach (var item in Model)
+{
+
+
+        <h3>@Html.ActionLink(item.Title, "Details", new { id = item.ID}) </h3>
+    <p>@item.LastUpdate.ToString()</p>
+    <a href="@Url.Action("Details", new { id = item.ID})">
+    @Html.Image("", ConfigurationManager.AppSettings["NewsPhotos"] + "/" + item.Photo, item.Title, new {width=100, height=75, style="float: right; margin: 5px;"})   
+       </a> 
+         <p>@item.Briefe</p>
+        <div class="clear"></div>
+    
+}
+</div>

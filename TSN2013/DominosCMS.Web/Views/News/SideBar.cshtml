@@ -1,0 +1,17 @@
+﻿@model IEnumerable<DominosCMS.Models.NewsItem>
+@using DominosCMS.Web.Helpers;
+@using System.Configuration;
+
+
+<h2>Our News</h2>
+@foreach (var item in Model)
+{
+        <span class="thumb">
+    @Html.Image("", ConfigurationManager.AppSettings["NewsPhotos"] + "/" + item.Photo, item.Title, new { width=176, height=118})   
+            </span> 
+        <h3>@Html.ActionLink(item.Title, "Details", new { id = item.ID}) </h3>
+        <p>@item.Briefe</p>
+    
+}
+
+@Html.ActionLink("Our Clients", "Index", "Clients")

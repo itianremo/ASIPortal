@@ -1,0 +1,49 @@
+﻿    #nav
+    {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    #nav li
+    {
+        float: left;
+        margin: 0;
+        padding: 5px 12px;
+    }
+
+    #nav li a
+    {
+        color: #000;
+        text-decoration: none;
+    }
+
+    #customerArea
+    {
+        margin-top: 20px;
+        background-color: #f7f7f7;
+        border: 1px solid #808080;
+        padding: 10px 15px;
+    }
+
+       .cp-section
+        {
+            background-color: white;
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 25px;
+        }
+.submittal-details  td, .submittal-details  th {
+    padding: 5px;
+}
+
+.submittal-details th {
+    background-color: lightgray;
+    width: 80px;
+}
+
+.submittal-details {
+    border: 1px solid lightgray;
+    width: 100%;
+}

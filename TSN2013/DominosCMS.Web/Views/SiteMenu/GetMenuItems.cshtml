@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DominosCMS.Models.MenuItem>
+@using DominosCMS.Web.Helpers;     
+
+@using (Ajax.BeginForm(new AjaxOptions { 
+    Url = Url.Action("SortMenuList"),
+    HttpMethod = "Post",
+    LoadingElementId="loader",
+    OnSuccess="location.reload()",
+    OnFailure="alert('Error occured!')"
+}))
+{
+    <p>Drag menu items up and down to change view order then press the Save button above to apply changes.</p>
+<ul>
+@foreach (var item in Model) {
+    <li>
+        @Html.ActionLink(item.Title, "GetMenuItems", new { id = item.ID }, new { @class= "menuItem", data_id = item.ID })
+        <span class="controls">
+            @Html.Hidden("IDs", item.ID)
+            @Html.ImageActionLink(Url.Content("~/Content/images/icons/recycle.png"), "Delete", Url.Action("Delete", new { id = item.ID }), new { @class = "delete"})
+            @Html.ImageActionLink(Url.Content("~/Content/images/icons/edit.png"), "Edit", Url.Action("Edit", new { id = item.ID }), new { @class = "edit"})
+        </span>
+    </li>
+}
+</ul>
+}

@@ -1,0 +1,659 @@
+﻿@{
+    ViewBag.Title = "LSF Applications";
+}
+
+@section header {
+    <style type="text/css">
+    #cadDetails select {width: 100%;}
+    </style>
+    
+    <script type="text/javascript">
+        function showSubItems(Obj) {
+            var divID, divIndex;
+            divIndex = Obj.selectedIndex + 1
+            divID = "sub" + divIndex;
+            hideAll();
+            document.getElementById(divID).style.display = "";
+            //alert(divID);
+        }
+
+        function hideAll() {
+            for (i = 1; i <= 5; i++) {
+                document.getElementById("sub" + i).style.display = "none";
+            }
+        }
+        function getHTMLEncode(t) {
+            return t.toString().replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+            //return t;
+        }
+
+        function showDetails(obj) {
+            if (obj.selectedIndex == 0) return;
+            var url = "CadPrev/" + obj.value;
+            //cadPreview.location.href = url;
+            var selected_text = obj.options[obj.selectedIndex].text;
+            $("#cadPreview").show();
+            $("#cat_title").text(selected_text);
+            $("#cadLink").attr("href", "Content/cad/dwg/" + obj.value + ".dwg");
+            // alert(selected_text);
+            //$("#cadPreview").load(url, null, null);
+        }
+    </script>    
+}
+
+    <h2>CAD Details</h2>
+                                                    <table width="98%" border="0" cellpadding="2" cellspacing="0" id="cadDetails">
+                                                    <tr>
+                                                        <td width="50%" valign="top">
+                                                            <p>
+                                                                <select name="select1" onchange="showDetails(this)" class="ndx">
+                                                                    <option value="0" selected="selected">Vertical Deflection Solutions</option>
+                                                                    <option value="VertiClip_sl">VertiClip<sup>&reg;</sup>
+                                                                        SL (Ex How)</option>
+                                                                    <option value="VertiTrack_vtx">VertiTrack<sup>&reg;</sup>
+                                                                        VTX (Ex How)</option>
+                                                                    <option value="VertiClip_sld">VertiClip<sup>&reg;</sup>
+                                                                        SLD (In How)</option>
+                                                                    <option value="VertiTrack_vtd">VertiTrack<sup>&reg;</sup>
+                                                                        VTD (In How)</option>
+                                                                    <option value="fileName=VertiClip_slb">
+                                                                        VertiClip<sup>&reg;</sup> SLB(Ex Slab Bypass)</option>
+                                                                    <option value="VertiClip_sls">
+                                                                        VertiClip<sup>&reg;</sup> SLS (EX Str Bypass)</option>
+                                                                    <option value="VertiClip_slt">
+                                                                        VertiClip<sup>&reg;</sup> SLT (Ex Bypass top slab)</option>
+                                                                    <option value="VertiClip_Splice">
+                                                                        VertiClip<sup>&reg;</sup> Splice (Multi-Stud Conn)</option>
+                                                                </select>
+                                                            </p>
+                                                            <p>
+                                                                <select name="select2" onchange="showDetails(this)" class="ndx">
+                                                                    <option value="0" selected="selected">Vertical Deflection &amp; Drift Connectors</option>
+                                                                    <option value="DriftClip_dsl">DriftClip<sup>&reg;</sup>
+                                                                        DSL (Ex How)</option>
+                                                                    <option value="drifttrack_dtsl">DriftTrak<sup>&reg;</sup>
+                                                                        DTSL (Ex How)</option>
+                                                                    <option value="DriftClip_dsld">DriftClip<sup>&reg;</sup>
+                                                                        DSLD (In How)</option>
+                                                                    <option value="DriftClip_dslb">
+                                                                        DriftClip<sup>&reg;</sup> DSLB (Ex Slab Bypass)</option>
+                                                                    <option value="drifttrack_dtslb">
+                                                                        DriftTrak<sup>&reg;</sup> DTSLB (Ex Slab Bypass)</option>
+                                                                    <option value="DriftClip_dsls">
+                                                                        DriftClip<sup>&reg;</sup> DSLS (EX Str Bypass)</option>
+                                                                </select>
+                                                            </p>
+                                                            <p>
+                                                                <select name="select3" onchange="showDetails(this)" class="ndx">
+                                                                    <option value="0" selected="selected">Wall Bridging</option>
+                                                                    <option value="BridgeClip">BridgeClip<sup>&reg;</sup></option>
+                                                                    <option value="BridgeBar">BridgeBar<sup>&reg;</sup></option>
+                                                                    <option value="BC600">BC600</option>
+                                                                    <option value="BC800">BC800</option>
+                                                                </select>
+                                                            </p>
+                                                            <p>
+                                                                <select name="select4" onchange="showDetails(this)" class="ndx">
+                                                                    <option value="0" selected="selected">Rigid Wall Connectors</option>
+                                                                    <option value="StiffClip_td">StiffClip<sup>&reg;</sup>
+                                                                        TD (Tie Down)</option>
+                                                                    <option value="StiffClip_cl">StiffClip<sup>&reg;</sup>
+                                                                        CL (Tie Down)</option>
+                                                                    <option value="StiffClip_al">StiffClip<sup>&reg;</sup>
+                                                                        AL (Multi-Purpose)</option>
+                                                                    <option value="StiffClip_he">StiffClip<sup>&reg;</sup>
+                                                                        HE (Header Tie)</option>
+                                                                    <option value="StiffClip_lb">StiffClip<sup>&reg;</sup>
+                                                                        LB (Ex Slab Bypass)</option>
+                                                                    <option value="StiffClip_ls">StiffClip<sup>&reg;</sup>
+                                                                        LS (Ex Str Bypass)</option>
+                                                                </select>
+                                                            </p>
+                                                            <p>
+                                                                <select name="select5" onchange="showDetails(this)" class="ndx">
+                                                                    <option value="0" selected="selected">Wall Members (Studs)</option>
+                                                                    <option value="Sigma_10_Detail">
+                                                                        SigmaStud<sup>&reg;</sup> (Load Bearing Stud)</option>
+                                                                    <option value="StiffWall sections">
+                                                                        StiffWall&reg; SW-S (Shear Wall)</option>
+                                                                    <option value="JS_WindowElevation_SingleStory">
+                                                                        JamStud<sup>&reg;</sup> (Wall Openeing Member)</option>
+                                                                    <option value="JamHeader Sections 3-7-06">
+                                                                        JamStud<sup>&reg;</sup> Header (Header Member)</option>
+                                                                    <option value="S_Section_Library">
+                                                                        SSMA (S) Sections ('Cee' Studs)</option>
+                                                                    <option value="Track_Section_library">SSMA (T)(Tracks)</option>
+                                                                </select>
+                                                            </p>
+                                                        </td>
+                                                        <td width="50%" valign="top">
+                                                            <p>
+                                                                <select name="select6" onchange="showSubItems(this)" class="ndx">
+                                                                    <option>Vertical Deflection Solutions</option>
+                                                                    <option>Load Bearing Wall Framing</option>
+                                                                    <option>Shear Wall Framing</option>
+                                                                    <option>Floor Framing</option>
+                                                                    <option>Roof/Truss Framing</option>
+                                                                </select>
+                                                                <div id="sub1">
+                                                                    <p>
+                                                                        <select name="ctl02" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Balcony / Cantilever">Balcony / Cantilever</option>
+                                                                            <option value="5B Cantilevered Wall on Concrete Slab">
+                                                                                Cantilevered Wall on Concrete Slab</option>
+                                                                            <option value="5C Cantilevered Wall on WF Beam">
+                                                                                Cantilevered Wall on WF Beam</option>
+                                                                            <option value="5E Half Wall @@ Roof Deck W. Steel Tube Supports">
+                                                                                Half Wall @@ Roof Deck W. Steel Tube Supports</option>
+                                                                            <option value="5A Spandrel Wall Bypass WF Beam">
+                                                                                Spandrel Wall Bypass WF Beam</option>
+                                                                            <option value="5H Spandrel wall connection to concrete">
+                                                                                Spandrel wall connection to concrete</option>
+                                                                            <option value="5I Spandrel wall strut to beam">
+                                                                                Spandrel wall strut to beam</option>
+                                                                            <option value="5G StiffClip to structural pour stop">
+                                                                                StiffClip<sup>&reg;</sup> to structural pour stop</option>
+                                                                            <option value="5J Stud strut to WF Beam">Stud
+                                                                                strut to WF Beam</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl03" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Multi Story Wall Sections">Multi Story Wall Sections</option>
+                                                                            <option value="2B Curtainwall, Multi Story, Concrete">
+                                                                                Curtain wall, Multi Story, Concrete</option>
+                                                                            <option value="2A Curtainwall, Multi Story, Deck w. Slab">
+                                                                                Curtain wall, Multi Story, Deck w. Slab</option>
+                                                                            <option value="2E Curtainwall, Multi Story, Parapet w. Concrete">
+                                                                                Curtain wall, Multi Story, Parapet w. Concrete</option>
+                                                                            <option value="2H Curtainwall, Multi Story, Roof Slab Overhang">
+                                                                                Curtain wall, Multi Story, Roof Slab Overhang</option>
+                                                                            <option value="2C Curtainwall, Multi Story, WF Beam">
+                                                                                Curtain wall, Multi Story, WF Beam</option>
+                                                                            <option value="2D Curtainwall, Multi Stroy, Parapet w. Slab">
+                                                                                Curtain wall, Multi Story, Parapet w. Slab</option>
+                                                                            <option value="2G Curtainwall, Span Reduction, w. Structural Tube">
+                                                                                Curtain wall, Span Reduction, w. Structural Tube</option>
+                                                                            <option value="2F Curtainwall. Multi Story, Parapet w. WF Beam">
+                                                                                Curtain wall. Multi Story, Parapet w. WF Beam</option>
+                                                                            <option value="2J Infill WF Beam">Infill WF Beam</option>
+                                                                            <option value="2I Stud Splice Connection">
+                                                                                Stud Splice Connection</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl04" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="One Story Wall Sections">One Story Wall Sections</option>
+                                                                            <option value="1B Curainwall, Single Story, concrete">
+                                                                                Curtain wall, Single Story, concrete</option>
+                                                                            <option value="1F Curtainwall, Single Story, Step Out">
+                                                                                Curtain wall, Single Story, Step Out</option>
+                                                                            <option value="1G Curtainwall, Single Story, Step Out w. Concrete">
+                                                                                Curtain wall, Single Story, Step Out w. Concrete</option>
+                                                                            <option value="1E Curtainwall, Single Story, w. Parapt w. Concrete">
+                                                                                Curtain wall, Single Story, w. Parapt w. Concrete</option>
+                                                                            <option value="1D Curtainwall, Single Story, W. Tow BF Beam">
+                                                                                Curtain wall, Single Story, W. Tow BF Beam</option>
+                                                                            <option value="1C Curatinwall, Single Story, WF Beam">
+                                                                                Curtain wall, Single Story, WF Beam</option>
+                                                                            <option value="1A Curtainwall, Slab to Slab">
+                                                                                Curtain wall, Slab to Slab</option>
+                                                                            <option value="1H Curtainwall, Span Reduction">
+                                                                                Curtain wall, Span Reduction</option>
+                                                                            <option value="1J Curtainwall, Span Reduction, Concrete">
+                                                                                Curtain wall, Span Reduction, Concrete</option>
+                                                                            <option value="1I Curtainwall, Span Reduction, WF Beam">
+                                                                                Curtain wall, Span Reduction, WF Beam</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl05" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Spandrel Sections">Spandrel Wall Sections</option>
+                                                                            <option value="3C Spandrel Wall Attached to Lentil">
+                                                                                Spandrel Wall Attached to Lentil</option>
+                                                                            <option value="3D Spandrel Wall Attached to Structural">
+                                                                                Spandrel Wall Attached to Structural</option>
+                                                                            <option value="3A Spandrel Wall Braced to Deck">
+                                                                                Spandrel Wall Braced to Deck</option>
+                                                                            <option value="3B Spandrel Wall Braced to Deck w. Strongback">
+                                                                                Spandrel Wall Braced to Deck w. Strongback</option>
+                                                                            <option value="3E Spandrel Wall Welded to Structural">
+                                                                                Spandrel Wall Welded to Structural</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl08" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Windows and Doors">Windows and Doors</option>
+                                                                            <option value="7AM Box Header Connection to Jamb">
+                                                                                Box Header Connection to Jamb</option>
+                                                                            <option value="7AQ Door">Door</option>
+                                                                            <option value="7AG  Door Elevation Multi Story Bypass Parapet">
+                                                                                Door Elevation, Multi Story, Bypass Parapet</option>
+                                                                            <option value="7AF Door Elevation Single Story">
+                                                                                Door Elevation, Single Story</option>
+                                                                            <option value="7AJ Door Elevation, Single Story, Parapet">
+                                                                                Door Elevation, Single Story, Parapet</option>
+                                                                            <option value="7AV Door, Curtainwall">Door, Curtain
+                                                                                wall</option>
+                                                                            <option value="7AU Door, Load Bearing, Dropped Header">
+                                                                                Door, Load Bearing, Dropped Header</option>
+                                                                            <option value="7AT Door, Load Bearing, Raised Header">
+                                                                                Door, Load Bearing, Raised Header</option>
+                                                                            <option value="7AW Header Assembly">Header Assembly</option>
+                                                                            <option value="7AL Header Connection to Jamb">
+                                                                                Header Connection to Jamb</option>
+                                                                            <option value="7AK Header Connection to Jamb, Load Bearing">
+                                                                                Header Connection to Jamb, Load Bearing</option>
+                                                                            <option value="7AP Jamb Connection @@ Base w. Anchor">
+                                                                                Jamb Connection @@ Base w. Anchor</option>
+                                                                            <option value="7AD Post Combination Library">
+                                                                                Post Combination Library</option>
+                                                                            <option value="7AO Sill Connection to Jamb">
+                                                                                Sill Connection to Jamb</option>
+                                                                            <option value="7AN Sill Connection to Jamb, Buit-up">
+                                                                                Sill Connection to Jamb, Built-up</option>
+                                                                            <option value="7AI Window Elevation, Load Bearing">
+                                                                                Window Elevation, Load Bearing</option>
+                                                                            <option value="7AE Window Elevation Multi Story">
+                                                                                Window Elevation, Multi Story</option>
+                                                                            <option value="7AC Window Elevation, Single Story JamStud">
+                                                                                Window Elevation, Single Story JamStud<sup>&reg;</sup></option>
+                                                                            <option value="7AH Window Elevation Single Story Parapet">
+                                                                                Window Elevation, Single Story, Parapet</option>
+                                                                            <option value="7AR Window, Raised Header">Window
+                                                                                Raised Header</option>
+                                                                            <option value="7AS Window, Dropped Header">
+                                                                                Window, Dropped Header</option>
+                                                                        </select>
+                                                                    </p>
+                                                                </div>
+                                                                <div id="sub2" style="display: none">
+                                                                    <p>
+                                                                        <select name="ctl02" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="End of Wall">End of Wall</option>
+                                                                            <option value="8G Bearing Wall @@ Floor Joist, Aligned">
+                                                                                Bearing Wall @@ Floor Joist, Aligned</option>
+                                                                            <option value="8H Bearing Wall @@ Floor Joist, Not Aligned">
+                                                                                Bearing Wall @@ Floor Joist, Not Aligned</option>
+                                                                            <option value="8A StiffClip CL for Exterior Bearing Wall, @@ Slab Edge">
+                                                                                StiffClip<sup>&reg;</sup> CL for Exterior Bearing Wall, @@ Slab Edge</option>
+                                                                            <option value="8E Temporary Bracing, Joist Floor">
+                                                                                Temporary Bracing, Joist Floor</option>
+                                                                        </select>
+                                                                    </p>
+                                                                </div>
+                                                                <div id="sub3" style="display: none">
+                                                                    <p>
+                                                                        <select name="ctl02" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Multi Story Sections">Multi Story Sections</option>
+                                                                            <option value="12B Shearwall connection through steel floor, exterior">
+                                                                                Shear Wall connection through wall plenum, exterior</option>
+                                                                            <option value="12C Shearwall connection through steel floor, interior">
+                                                                                Shear Wall connection through steel floor, interior</option>
+                                                                            <option value="12F Shearwall Elevation, multi story, concrete">
+                                                                                Shear Wall Elevation, multi story, concrete</option>
+                                                                            <option value="12G Shearwall Elevation, Stud-plank">
+                                                                                Shear Wall Elevation, Stud-plank</option>
+                                                                            <option value="12D StiffWall, single story, iso">
+                                                                                StiffWall, single story, ISO</option>
+                                                                            <option value="12L SWR connection @@ top of exterior wall, parallel wood">
+                                                                                SWR connection @@ top of exterior wall, parallel wood</option>
+                                                                            <option value="12J SWR connection @@ top of exterior wall, perpendicular wood">
+                                                                                SWR connection @@ top of exterior wall, perpendicular wood</option>
+                                                                            <option value="12K SWR connection @@ top of interior wall, parallel wood">
+                                                                                SWR connection @@ top of interior wall, parallel wood</option>
+                                                                            <option value="12I SWR connection @@ top of interior wall, perpendicular wood">
+                                                                                SWR connection @@ top of interior wall, perpendicular wood</option>
+                                                                            <option value="12H SWR connection @@ top of wall, concrete">
+                                                                                SWR connection @@ top of wall, concrete(1)</option>
+                                                                            <option value="12E SWR connection @@ top of wall, plank">
+                                                                                SWR connection @@ top of wall, plank(1)</option>
+                                                                            <option value="12R SWS connection @@ top of exterior wall, parallel concrete">
+                                                                                SWS connection @@ top of exterior wall, parallel concrete</option>
+                                                                            <option value="12N SWS connection @@ top of exterior wall, perpendicular concrete">
+                                                                                SWS connection @@ top of exterior wall, perpendicular concrete</option>
+                                                                            <option value="12T SWS connection @@ top of exterior wall, plank">
+                                                                                SWS connection @@ top of exterior wall, plank(1)</option>
+                                                                            <option value="12O SWS connection @@ top of exterior wall, plank">
+                                                                                SWS connection @@ top of exterior wall, plank(2)</option>
+                                                                            <option value="12Q SWS connection @@ top of exterior wall, steel">
+                                                                                SWS connection @@ top of exterior wall, steel(1)</option>
+                                                                            <option value="12M SWS connection @@ top of exterior wall, steel">
+                                                                                SWS connection @@ top of exterior wall, steel(2)</option>
+                                                                            <option value="12P SWS connection @@ top of exterior wall, wood">
+                                                                                SWS connection @@ top of exterior wall, wood</option>
+                                                                            <option value="12V SWS connection @@ top of interior wall, parallel steel">
+                                                                                SWS connection @@ top of interior wall, parallel steel</option>
+                                                                            <option value="12U SWS connection @@ top of interior wall, perpendicular wood">
+                                                                                SWS connection @@ top of interior wall, perpendicular wood</option>
+                                                                            <option value="12S SWS connection @@ top of intorior wall, concrete">
+                                                                                SWS connection @@ top of intorior wall, concrete</option>
+                                                                            <option value="12A SWS elevation, multi story, steel">
+                                                                                SWS elevation, multi story, steel</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl03" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="One Story Sections">One Story Sections</option>
+                                                                            <option value="11K Shear wall corner">Shear wall
+                                                                                corner</option>
+                                                                            <option value="11J Shear wall intersection double">
+                                                                                Shear Wall intersection double</option>
+                                                                            <option value="11H Shear Wall intersection, single">
+                                                                                Shear Wall intersection, single(1)</option>
+                                                                            <option value="11I Shear Wall intersection, single">
+                                                                                Shear Wall intersection, single(2)</option>
+                                                                            <option value="11N Shear wall w. blocking top plate">
+                                                                                Shear Wall w. blocking top plate</option>
+                                                                            <option value="11Fa Shearwall connection to slab, exterior">
+                                                                                Shear Wall connection to slab, exterior</option>
+                                                                            <option value="11F Shearwall connection to slab, interior">
+                                                                                Shear Wall connection to slab, interior</option>
+                                                                            <option value="11A Shearwall SW-S Elevation">
+                                                                                Shear Wall SW-S Elevation</option>
+                                                                            <option value="11L Shearwall w. Drag beam 1">
+                                                                                Shear Wall w. Drag beam (1)</option>
+                                                                            <option value="11M Shearwall w. Drag beam 2">
+                                                                                Shear Wall w. Drag beam (2)</option>
+                                                                            <option value="11Ae SWR connection @@ top of wall, concrete">
+                                                                                SWR connection @@ top of wall, concrete(2)</option>
+                                                                            <option value="11Ac SWR connection @@ top of wall, plank">
+                                                                                SWR connection @@ top of wall, plank(2)</option>
+                                                                            <option value="11Al SWR connection @@ top of wall, steel, double wood sill">
+                                                                                SWR connection @@ top of wall, steel, double wood sill</option>
+                                                                            <option value="11AK SWR connection @@ top of wall, Top Plate">
+                                                                                SWR connection @@ top of wall, Top Plate</option>
+                                                                            <option value="11Aa SWR connection to foundation">
+                                                                                SWR connection to foundation</option>
+                                                                            <option value="11Ze SWS connection @@ top of exterior wall, concrete">
+                                                                                SWS connection @@ top of exterior wall, concrete</option>
+                                                                            <option value="11Zg SWS connection @@ top of exterior wall, plank">
+                                                                                SWS connection @@ top of exterior wall, plank(3)</option>
+                                                                            <option value="11Zi SWS connection @@ top of interior wall, plank">
+                                                                                SWS connection @@ top of interior wall, plank</option>
+                                                                            <option value="11G SWS connection @@ top of wall">
+                                                                                SWS connection @@ top of wall</option>
+                                                                            <option value="11W SWS connection @@ top of wall, concrete">
+                                                                                SWS connection @@ top of wall, concrete</option>
+                                                                            <option value="11X SWS connection @@ top of wall, plank">
+                                                                                SWS connection @@ top of wall, plank</option>
+                                                                            <option value="11Y SWS connection @@ top of wall, steel">
+                                                                                SWS connection @@ top of wall, steel</option>
+                                                                            <option value="11V SWS connection @@ top of wall, top plate">
+                                                                                SWS connection @@ top of wall, top plate</option>
+                                                                            <option value="11B SWS connection to foundation with floor joists">
+                                                                                SWS connection to foundation with floor joists</option>
+                                                                            <option value="11Q SWS connection to foundation, double wood sill">
+                                                                                SWS connection to foundation, double wood sill</option>
+                                                                            <option value="11C SWS connection to foundation, no sill">
+                                                                                SWS connection to foundation, no sill</option>
+                                                                            <option value="11D SWS connection to foundation, single wood sill">
+                                                                                SWS connection to foundation, single wood sill</option>
+                                                                        </select>
+                                                                    </p>
+                                                                </div>
+                                                                <div id="sub4" style="display: none">
+                                                                    <p>
+                                                                        <select name="ctl02" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Floor Girder Framing">Floor Girder Framing</option>
+                                                                            <option value="18G Drop-Flush girder connection">
+                                                                                Drop-Flush girder connection</option>
+                                                                            <option value="18I Girder to corner post">Girder
+                                                                                to corner post</option>
+                                                                            <option value="18F Girder to girder connection">
+                                                                                Girder to girder connection</option>
+                                                                            <option value="18J Girder to wall post">Girder
+                                                                                to wall post</option>
+                                                                            <option value="18A Girder type I">Girder type I</option>
+                                                                            <option value="18B Girder type II">Girder type II</option>
+                                                                            <option value="18C Girder type III">Girder type III</option>
+                                                                            <option value="18D Girder type IV">Girder type IV</option>
+                                                                            <option value="18E Girder type V">Girder type V</option>
+                                                                            <option value="18H Post to girder connection">
+                                                                                Post to girder connection</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl03" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Joist Framing">Joist Framing</option>
+                                                                            <option value="16AC Double joist end bearing">
+                                                                                Double joist end bearing</option>
+                                                                            <option value="16T Double joist end bearing, WF Steel">
+                                                                                Double joist end bearing, WF Steel</option>
+                                                                            <option value="16X double rim joist w. LSF wall below">
+                                                                                Double rim joist w. LSF wall below</option>
+                                                                            <option value="16N Double rim joist, double wood sill">
+                                                                                Double rim joist, double wood sill</option>
+                                                                            <option value="16L Double rim joist, no sill">
+                                                                                Double rim joist, no sill</option>
+                                                                            <option value="16M Double rim joist, single wood sill">
+                                                                                Double rim joist, single wood sill</option>
+                                                                            <option value="16AF Floor bridging assembly solid">
+                                                                                Floor bridging assembly solid</option>
+                                                                            <option value="16AG Floor bridging, Cross bridging">
+                                                                                Floor bridging, Cross bridging</option>
+                                                                            <option value="16AD Floor bridging, solid">
+                                                                                Floor bridging, solid</option>
+                                                                            <option value="16AE Floor bridging, Strap w. solid blocking">
+                                                                                Floor bridging, Strap w. solid blocking</option>
+                                                                            <option value="16AH Joint Attachment to WF Steel">
+                                                                                Joist Attachment to WF Steel(1)</option>
+                                                                            <option value="16AJ Joint Attachment to WF Steel">
+                                                                                Joist Attachment to WF Steel(2)</option>
+                                                                            <option value="16AA Joint cross over interior bearing wall">
+                                                                                Joist cross over interior bearing wall</option>
+                                                                            <option value="16B Joist Bearing on Foundation wall">
+                                                                                Joist Bearing on Foundation wall(1)</option>
+                                                                            <option value="16A Joist bearing on foundation wall">
+                                                                                Joist Bearing on Foundation wall(2)</option>
+                                                                            <option value="16U Joist bearing on LSF below">
+                                                                                Joist Bearing on LSF Wall Below</option>
+                                                                            <option value="16Y Joist Below offset bearing wall">
+                                                                                Joist Below offset bearing wall(1)</option>
+                                                                            <option value="16O Joist below offset bearing wall">
+                                                                                Joist Below offset bearing wall(2)</option>
+                                                                            <option value="16Z Joist below parallel interior drywall">
+                                                                                Joist below parallel interior drywall(1)</option>
+                                                                            <option value="16P Joist below parallel interior drywall">
+                                                                                Joist below parallel interior drywall(2)</option>
+                                                                            <option value="16S Joist cross lap over girder, WF Steel">
+                                                                                Joist cross lap over girder, WF Steel</option>
+                                                                            <option value="16Q Joist cross over girder, LSF">
+                                                                                Joist cross over girder, LSF</option>
+                                                                            <option value="16R Joist cross over girder, WF Steel">
+                                                                                Joist cross over girder, WF Steel</option>
+                                                                            <option value="16E Joist end web stiffener, loose">
+                                                                                Joist end web stiffener, loose</option>
+                                                                            <option value="16D Joist end web stiffener, tight">
+                                                                                Joist end web stiffener, tight</option>
+                                                                            <option value="16AB Joist lap over interior bearing wall">
+                                                                                Joist lap over interior bearing wall</option>
+                                                                            <option value="16C Joist on foundation wall">
+                                                                                Joist on foundation wall</option>
+                                                                            <option value="16F Joist overhang @@ foundation wall">
+                                                                                Joist overhang @@ foundation wall (1)</option>
+                                                                            <option value="16G Joist overhang @@ foundation wall">
+                                                                                Joist overhang @@ foundation wall (2)</option>
+                                                                            <option value="16H Joist overhang @@ foundation wall">
+                                                                                Joist overhang @@ foundation wall (3)</option>
+                                                                            <option value="16V Joist overhang w. LSF wall below">
+                                                                                Joist overhang w. LSF wall below</option>
+                                                                            <option value="16I Rim Joist, Stiffener below studs">
+                                                                                Rim Joist, Stiffener below studs (1)</option>
+                                                                            <option value="16J Rim joist, Stiffener below studs">
+                                                                                Rim Joist, Stiffener below studs (2)</option>
+                                                                            <option value="16K Rim Joist, stiffener below studs, double wood sill">
+                                                                                Rim Joist, stiffener below studs, double wood sill</option>
+                                                                            <option value="16W Rim joist, stiffener below w. LSF">
+                                                                                Rim joist, stiffener below w. LSF</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl04" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Stair Openings">Stair Openings</option>
+                                                                            <option value="17E Girder to girder connection type I">
+                                                                                Joist to Girder connection type I</option>
+                                                                            <option value="17F Girder to girder connection type II">
+                                                                                Joist to Girder connection type II</option>
+                                                                            <option value="17C Joist attachment to girder, clip angle">
+                                                                                Joist attachment to girder, clip angle</option>
+                                                                            <option value="17D Joist attachment to girder, hanger">
+                                                                                Joist attachment to girder, hanger</option>
+                                                                            <option value="17A Stair opening parallel to joist">
+                                                                                Stair opening parallel to joist</option>
+                                                                            <option value="17B Stair opening perpendicular to joist">
+                                                                                Stair opening perpendicular to joist</option>
+                                                                        </select>
+                                                                    </p>
+                                                                </div>
+                                                                <div id="sub5" style="display: none">
+                                                                    <p>
+                                                                        <select name="ctl02" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Roof Girder Framing">Roof Girder Framing</option>
+                                                                            <option value="21C Ridge girder, rafter attachment">
+                                                                                Ridge girder, rafter attachment (1)</option>
+                                                                            <option value="21D Ridge girder, rafter attachment">
+                                                                                Ridge girder, rafter attachment (2)</option>
+                                                                            <option value="21E Ridge girder, rafter attachment , WF steel">
+                                                                                Ridge girder, rafter attachment , WF steel</option>
+                                                                            <option value="21A Ridge girder, rafter attachment, LSF top">
+                                                                                Ridge girder, rafter attachment, LSF top</option>
+                                                                            <option value="21B Ridge girder, rafter attachment, WF Steel top">
+                                                                                Ridge girder, rafter attachment, WF Steel top</option>
+                                                                            <option value="21F Step ridge girder, LSF">
+                                                                                Step ridge girder, LSF</option>
+                                                                            <option value="21G Step ridge girder, WF steel">
+                                                                                Step ridge girder, WF steel</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl03" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Roof Rafter Framing">Roof Rafter Framing</option>
+                                                                            <option value="20F Cathedral rafter conneciton T.O.W studs">
+                                                                                Cathedral rafter connection T.O.W studs</option>
+                                                                            <option value="20G Cathedral rafter conneciton, aligned">
+                                                                                Cathedral rafter connection, aligned</option>
+                                                                            <option value="20I Cathedral rafter connection, steel">
+                                                                                Cathedral rafter connection, steel</option>
+                                                                            <option value="20L Ceiling joist lap over bearing wall">
+                                                                                Ceiling joist lap over bearing wall</option>
+                                                                            <option value="20K Ceiling joist, change direction">
+                                                                                Ceiling joist, change direction</option>
+                                                                            <option value="20Y Circular roof">Circular roof </option>
+                                                                            <option value="20B Collar tie detail">Collar tie
+                                                                                detail</option>
+                                                                            <option value="20U False valley framing">False
+                                                                                valley framing</option>
+                                                                            <option value="20M Gable wall Bracing">Gable wall
+                                                                                Bracing</option>
+                                                                            <option value="20P Cable wall w. flush gable end">
+                                                                                Gable wall w. flush gable end</option>
+                                                                            <option value="20Q Gable wall w. flush gable end, cathedral">
+                                                                                Gable wall w. flush gable end, cathedral</option>
+                                                                            <option value="20N Gable wall w. flying A">
+                                                                                Gable wall w. flying A</option>
+                                                                            <option value="20O Gable wall w. flying A cathedral">
+                                                                                Gable wall w. flying A cathedral</option>
+                                                                            <option value="20W Hip connection @@ ridge">
+                                                                                Hip connection @@ ridge</option>
+                                                                            <option value="20X Hip connection @@ T.O.W, post">
+                                                                                Hip connection @@ T.O.W, post</option>
+                                                                            <option value="20Z Inside gable wall @@ step up roof">
+                                                                                Inside gable wall @@ step up roof</option>
+                                                                            <option value="20AB offset roof load">Offset roof
+                                                                                load</option>
+                                                                            <option value="20R Post supporting roof @@ ceiling joist">
+                                                                                Post supporting roof @@ ceiling joist</option>
+                                                                            <option value="20E Rafter connection, T.O.W. studs">
+                                                                                Rafter connection, T.O.W. studs</option>
+                                                                            <option value="20D Rafter connection, tow studs aligned">
+                                                                                Rafter connection, T.O.W. studs aligned</option>
+                                                                            <option value="20A Ridge plate connection">
+                                                                                Ridge plate connection</option>
+                                                                            <option value="20V Roof over framing dormer">
+                                                                                Roof over framing , Dog House</option>
+                                                                            <option value="20H Shed roof rafter framing">
+                                                                                Shed roof rafter framing</option>
+                                                                            <option value="20AA Skylight opening">Skylight opening</option>
+                                                                            <option value="20J Soffit framing">Soffit framing</option>
+                                                                            <option value="20C True Valley girder">True Valley
+                                                                                girder</option>
+                                                                            <option value="20T True valley to girder">True
+                                                                                valley to girder</option>
+                                                                            <option value="20S True valley to ridge">True
+                                                                                valley to ridge</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl04" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Soffit / Mansard Framing">Soffit / Mansard Framing</option>
+                                                                            <option value="19B Built out soffit from curtainwall">
+                                                                                Built out soffit from Curtain wall</option>
+                                                                            <option value="19C Deep soffit below structural overhang">
+                                                                                Deep soffit below structural overhang</option>
+                                                                            <option value="19A Soffit Below LSF Rafter overhang">
+                                                                                Soffit Below LSF Rafter overhang(1)</option>
+                                                                            <option value="19AA Soffit Below LSF Rafter overhang">
+                                                                                Soffit Below LSF Rafter overhang(2)</option>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p>
+                                                                        <select name="ctl05" onchange="showDetails(this)" class="ndx">
+                                                                            <option value="Truss Framing">Truss Framing</option>
+                                                                            <option value="22CQ CRC Bridging">CRC Bridging</option>
+                                                                            <option value="22A Gable truss">Gable truss</option>
+                                                                            <option value="22E Gable truss w. full half step">
+                                                                                Gable truss w. full half step</option>
+                                                                            <option value="22F Gable truss w. half scissor">
+                                                                                Gable truss w. half scissor</option>
+                                                                            <option value="22C Gable truss w. half step">
+                                                                                Gable truss w. half step</option>
+                                                                            <option value="22D Gable truss w. half step, half scissor">
+                                                                                Gable truss w. half step, half scissor</option>
+                                                                            <option value="22J Gambrel truss">Gambrel truss</option>
+                                                                            <option value="22B Half Gable truss">Half Gable
+                                                                                truss</option>
+                                                                            <option value="22K Half gambrel truss">Half gambrel
+                                                                                truss</option>
+                                                                            <option value="22I Half scissor truss">Half scissor
+                                                                                truss</option>
+                                                                            <option value="22M Half step truss">Half step truss</option>
+                                                                            <option value="22G Scissor truss">Scissor truss</option>
+                                                                            <option value="22H Scissor truss w. half step">
+                                                                                Scissor truss w. half step</option>
+                                                                            <option value="22L Step truss">Step truss</option>
+                                                                            <option value="22CR Truss Bracing @@ Gable end">
+                                                                                Truss Bracing @@ Gable end</option>
+                                                                            <option value="22CH Truss connection  @@ step scissor, Heel">
+                                                                                Truss connection @@ step scissor, Heel</option>
+                                                                            <option value="22CB Truss connection @@ bottom cord to web">
+                                                                                Truss connection @@ bottom cord to web</option>
+                                                                            <option value="22CL Truss connection @@ Half">
+                                                                                Truss connection @@ Half</option>
+                                                                            <option value="22CA Truss connection @@ ridge">
+                                                                                Truss connection @@ ridge</option>
+                                                                            <option value="22CG Truss connection @@ step gable, heel">
+                                                                                Truss connection @@ step gable, heel</option>
+                                                                            <option value="22CK Truss connection @@ step scissor">
+                                                                                Truss connection @@ step scissor</option>
+                                                                            <option value="22CD Truss connection at top cord">
+                                                                                Truss connection @@ top cord</option>
+                                                                        </select>
+                                                                    </p>
+                                                                </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <div id="cadPreview" style="display: none">
+                                                <table style="width: 100%; border: none">
+                                                    <tr>
+                                                        <td><h3 id="cat_title"></h3></td>
+                                                        <td style="text-align: right">
+                                                        <img src="@Url.Content("~/_static/images/cad_graphic.gif")" width="24" height="32" border="0" alt="" align="middle" />&nbsp;
+                                                        <a href='' id="cadLink">Download the drawing file (DWG)</a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                </div>

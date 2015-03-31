@@ -1,0 +1,39 @@
+@model IEnumerable<DominosCMS.Models.Banner>
+@using DominosCMS.Web.Helpers;
+
+@{
+    ViewBag.Title = "Banners Admin";
+    var photoPath = System.Configuration.ConfigurationManager.AppSettings["BannersPhotos"];
+}
+@section actions {
+    
+    <div class="actions-toolbar">
+        <ul>
+            <li>
+                <a class="various" href="@Url.Action("Create")" title="Add new product">
+                    <img src="@Url.Content("~/_static/images/icons/new.png")" alt="Add new product" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="actions-title">
+        <h2>Banners Admin</h2>
+    </div>
+        
+}
+
+
+@foreach (var item in Model)
+{
+
+    <h4>@item.Title</h4>
+    <img src="@string.Format("{0}/{1}", photoPath, item.Photo)" alt="" />
+        <div style="margin-top: 15px;">
+            @Html.ImageActionLink(Url.Content("~/_static/images/icons/edit.png"), "Edit", Url.Action("Edit", new { id = item.ID }), null)
+            @Html.ImageActionLink(Url.Content("~/_static/images/icons/delete.png"), "Delete", Url.Action("Delete", new { id = item.ID }), new { @class="delete-link" })
+        </div>
+    
+}
+
+
+

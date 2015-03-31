@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Submittal Submitted";
+}
+
+    <h2>Submittal Submitted</h2>
+    <p>submittal package was sent to <strong><%= Html.Encode(Model.Email) %></strong></p>
+<p>If you would like to package another submittal, please @Html.ActionLink("click here", "Index") .</p>
+
+<p>To view more of TSN’s product line, please @Html.ActionLink("click here", "Products", "Product").</p>
+
+<p>For further support, please contact (888) 474-4876 or email TSN’s 
+    <a href="mailto:salessupport@steelnetwork.com">Sales Support</a>.</p>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DominosCMS.Models.Contact>
+
+@{
+    ViewBag.Title = "User Contacts";
+    var totalPages = ViewBag.totalPages as string;
+}
+@section header {
+    @Html.Script("contacts.js")
+    <script type="text/javascript">
+        $(function () {
+            $("#dataArea").on("click", ".actions button", function (e) {
+                e.preventDefault();
+                if ($(this).is(".delete-link"))
+                    if (confirm("Are you sure you want to delete this contact?"))
+                        location.href = $(this).attr("data-href");
+                    else
+                        return;
+                else 
+                    location.href = $(this).attr("data-href");
+            });
+
+           
+        });
+    </script>
+    <style type="text/css">
+        .contact-item { border: 1px #000 solid; background-color: #fff; margin-bottom: 5px; width: 95%; padding: 5px;}
+        .contact-item table { width: 100%; }
+        .contact-item table td { vertical-align: top }
+        .contact-item table .actions  { width: 150px; vertical-align: bottom}
+        .contact-item table .actions button { width: 100px;}
+    </style>
+}
+
+
+
+<h2>User Contacts</h2>
+
+@Html.Hidden("listUrl", Url.Action("List"))
+@Html.Hidden("filter")
+@Html.Hidden("currentPage", "1")
+
+<table style="width: 95%; margin-bottom: 15px;">
+    <tr>
+        <td style="width: 120px;">@Html.ActionLink("Create New", "Create")</td>
+        <td style="text-align: center">
+            <  
+            @for (char c = 'A'; c <= 'Z'; c++)
+            {
+                <a href="@Url.Action("List", new { c = c })" class="letter" data-letter="@c">@c</a> 
+            } 
+
+            <a href="@Url.Action("List", new { c = "all" })" class="letter-all">All</a> 
+            >
+        </td>
+        <td style="width: 120px; text-align: right">@Html.DropDownList("showNumber", ViewBag.DisplayCount as SelectList) </td>
+    </tr>
+</table>
+<div id="dataArea">
+
+    @Html.Partial("List")
+</div>
+
+
+
+
+<table style="width: 95%; margin-bottom: 15px;" id="pager">
+    <tr>
+        <td style="width: 120px;"></td>
+        <td style="text-align: center">
+            <a href="#" id="prev"><< Previous</a>
+            <a href="#" style="margin-left: 25px" id="next">Next >></a>
+
+        </td>
+        <td style="width: 120px; text-align: right"></td>
+    </tr>
+</table>
+
+

@@ -1,0 +1,84 @@
+﻿@model DominosCMS.Models.Submittal
+
+@{
+    Layout = "~/Views/Shared/_CustomerPortal.cshtml";
+    ViewBag.Title = "Builder";
+    var clips = ViewBag.Clips as IList<DominosCMS.Models.ProductCategory>;
+    var customs = ViewBag.Customs as IList<DominosCMS.Models.CustomProduct>;
+    var reports = ViewBag.Reports as IList<DominosCMS.Models.Report>;
+}
+
+@section header {
+    @Html.Css("themes/base/jquery.ui.all.css")
+    @Html.Css("submittalBuilder.css")
+
+    @Html.Script("jquery-ui-1.8.11.min.js")
+
+}
+    @Html.Script("submittalbuilder.js")
+
+@Html.Hidden("submittal_id", Model.ID)
+<div>
+<div style="float: right; width: 300px;">
+ <p>
+        <button id="btnProgress" data-href="@Url.Action("Progress", new { id = Model.ID })">View Submittal Progress</button>
+@*        @Html.ActionLink("View Submittal Progress", "Progress", new { id = Model.ID }, new { @class = "progress_link"})*@
+        
+    </p>    <p style="font-style: italic">Don't see what you are looking for?
+        <br />
+    Request a @Html.ActionLink("special product submittal here", "RequestCustom", "User") </p>
+   
+</div>
+<h2>Submittal Builder</h2>
+<p>Product Selection</p>
+<p><strong>Current Submittal:</strong> @Model.Project @Html.ActionLink("Change", "Submittals", "User")</p>
+</div>
+    <div id="tabs">
+  <ul>
+    <li><a href="#members">Members</a></li>
+    <li><a href="#clips" title=""><span>Connections</span></a></li>
+    <li><a href="#customs" title="">Custom Products</a></li>
+    <li><a href="#reports" title="">Reports</a></li>
+  </ul>
+  <div id="members">
+      
+      <div id="frm">
+      <div class="form-line">
+          <label>Member Type:</label>
+          @Html.DropDownList("product", ViewBag.ProductsList as SelectList, "Select Member Type") 
+      </div>
+      
+      <div id="fields">
+
+
+      </div>
+    </div>
+      <div id="pro_photo">
+          <img src=""  style="display: none" id="productImage" />
+          
+      </div>
+      <div id="sections">
+          <span style="font-style: italic">To begin, select a product from the dropdown to show a list of all available sections.</span>
+      </div>
+      <div class="clear"></div>
+  </div>
+  <div id="clips">
+      @{Html.RenderPartial("Clips", clips); }
+  </div>
+  <div id="customs">
+      @{Html.RenderPartial("Customs", customs); }
+  </div>
+  <div id="reports">
+      @{Html.RenderPartial("Reports", reports); }
+  </div>
+
+</div>
+
+<div class="buttons">
+    <button id="btnComplete" data-href="@Url.Action("View", new { id = Model.ID })">Continue</button>
+    <button id="btnCancel" data-href="@Url.Action("Preview", new { id = Model.ID })">Cancel</button>
+ @*   <button id="btnGeneratePDF" data-href="@Url.Action("PDF", new { id = Model.ID })">Generate PDF</button>
+    @Html.ActionLink("Complete", "View", new { id = Model.ID })
+    @Html.ActionLink("Generate PDF", "PDF", new { id = Model.ID } )*@
+
+</div>

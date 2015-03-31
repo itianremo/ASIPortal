@@ -1,0 +1,87 @@
+BODY {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ffffff
+}
+H3 {
+	FONT-SIZE: 10pt
+}
+P {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+A {
+	COLOR: #000000
+}
+.topside .buttons {
+	DISPLAY: none
+}
+.topside H1 {
+	DISPLAY: none
+}
+.rightside {
+	TEXT-ALIGN: left
+}
+.rightside A {
+	DISPLAY: block
+}
+.leftside {
+	TEXT-ALIGN: left
+}
+.leftside TABLE {
+	DISPLAY: none
+}
+.leftside H2 {
+	DISPLAY: none
+}
+.rightside H2 {
+	FONT-SIZE: 10pt
+}
+.inner {
+	FONT-SIZE: 8pt; TEXT-ALIGN: left
+}
+.inner H1 {
+	FONT-SIZE: 12pt; TEXT-ALIGN: left
+}
+.inner TABLE {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid
+}
+.inner P {
+	FONT-SIZE: 8pt
+}
+.inner .footer {
+	MARGIN-TOP: 1em
+}
+.inner .footer TABLE {
+	DISPLAY: none
+}
+.continue A {
+	DISPLAY: none
+}
+.copyright {
+	TEXT-ALIGN: left
+}
+.listing {
+	FONT-SIZE: 10px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.listing TABLE {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 10px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px; BACKGROUND-COLOR: #ffffff
+}
+.listing H2 {
+	FONT-SIZE: 16px; TEXT-ALIGN: center
+}
+.listing H4 {
+	FONT-SIZE: 10px
+}
+.listing TD {
+	FONT-SIZE: 10px; TEXT-ALIGN: left
+}
+P {
+	FONT-SIZE: 10px; TEXT-ALIGN: left
+}
+.copyright {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 10px; TEXT-ALIGN: right
+}
+.letterhead {
+	TEXT-ALIGN: center
+}
+.tips {
+	DISPLAY: none
+}

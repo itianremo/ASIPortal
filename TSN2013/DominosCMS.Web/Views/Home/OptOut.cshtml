@@ -1,0 +1,48 @@
+﻿@model DominosCMS.Models.OptOutRequest
+
+@{
+    ViewBag.Title = "OptOut";
+}
+
+@section header {
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+
+    <style type="text/css">
+        input[type=text], #Comments { width: 60%; padding: 5px;}
+
+        #Comments { height: 100px;}
+    </style>
+}
+
+<h2>Opt-Out</h2>
+<p>I opt-out of receiving promotional e-mails or newsletters</p>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Opt Out</legend>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comments)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comments)
+            @Html.ValidationMessageFor(model => model.Comments)
+        </div>
+
+        <p>
+            <input type="submit" value="Opt Out Now" />
+        </p>
+    </fieldset>
+}
+

@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_TSNMaster.cshtml";
+}
+
+@section header {
+    @Html.Css("themes/base/jquery.ui.all.css")
+
+    @Html.Script("jquery-ui-1.8.11.min.js")
+    @Html.Script("tiny_mce/jquery.tinymce.js")
+    @Html.Script("admin.js")
+
+    
+     @RenderSection("header", false)
+}
+
+
+
+    @RenderBody()

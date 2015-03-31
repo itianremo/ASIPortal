@@ -1,0 +1,243 @@
+﻿@model DominosCMS.Web.Models.SBModel
+
+@{
+    ViewBag.Title = "Submittal Builder";
+}
+
+    <h2>Submittal Builder</h2>
+    <p>* The information entered and technical data selected will be sent to the email address provided.</p>
+    @using (Html.BeginForm()) {
+        Html.ValidationSummary(true);
+                        
+        
+        
+       <fieldset>
+            <legend>Project Information</legend>
+           @Html.HiddenFor(model => model.ID)
+        <table border="0" width="100%">
+            <tr>
+                <td valign="top" style="width: 50%">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ProjectName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.ProjectName)
+                        @Html.ValidationMessageFor(model => model.ProjectName)
+                    </div>
+            
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ProjectNumber)
+                    </div>
+                    <div class="editor-field">
+                            @Html.TextBoxFor(model => model.ProjectNumber)
+                            @Html.ValidationMessageFor(model => model.ProjectNumber)
+                        </div>
+            
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ProjectAddress)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.ProjectAddress)
+                            @Html.ValidationMessageFor(model => model.ProjectAddress)
+                        </div>
+            
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.City)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.City)
+                            @Html.ValidationMessageFor(model => model.City)
+                        </div>
+            
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.State)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownListFor(model => model.State, new SelectList(Model.States, "Key", "Value"))
+                            @Html.ValidationMessageFor(model => model.State)
+                        </div>
+            
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ZIPCode)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.ZIPCode)
+                            @Html.ValidationMessageFor(model => model.ZIPCode)
+                        </div>                
+                     <div class="editor-label">
+                        @Html.LabelFor(model => model.MetalFramingStartDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.MetalFramingStartDate)
+                        @Html.ValidationMessageFor(model => model.MetalFramingStartDate)
+                    </div>
+               </td>
+                <td valign="top" style="width: 50%">
+            
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.GeneralContractor)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.GeneralContractor)
+                        @Html.ValidationMessageFor(model => model.GeneralContractor)
+                    </div>
+            
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.GeneralContractorContact)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.GeneralContractorContact)
+                        @Html.ValidationMessageFor(model => model.GeneralContractorContact)
+                    </div>
+            
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ArchitecturalFirm)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.ArchitecturalFirm)
+                        @Html.ValidationMessageFor(model => model.ArchitecturalFirm)
+                    </div>
+            
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ArchitecturalFirmContact)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.ArchitecturalFirmContact)
+                        @Html.ValidationMessageFor(model => model.ArchitecturalFirmContact)
+                    </div>
+            
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.StructuralEngineer)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.StructuralEngineer)
+                        @Html.ValidationMessageFor(model => model.StructuralEngineer)
+                    </div>
+            
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.StructuralEngineerContact)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.StructuralEngineerContact)
+                        @Html.ValidationMessageFor(model => model.StructuralEngineerContact)
+                    </div>                
+                </td>
+            </tr>
+        </table>
+ 
+        </fieldset>
+            
+       <fieldset>
+            <legend>Framing Contractor Information</legend>
+        <table border="0" width="100%">
+            <tr>
+                <td valign="top" style="width: 50%">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ContractorFirm)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.ContractorFirm)
+                @Html.ValidationMessageFor(model => model.ContractorFirm)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Address)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Address)
+                @Html.ValidationMessageFor(model => model.Address)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ContractorCity)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.ContractorCity)
+                @Html.ValidationMessageFor(model => model.ContractorCity)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ContractorZip)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.ContractorZip)
+                @Html.ValidationMessageFor(model => model.ContractorZip)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ContractorContact)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.ContractorContact)
+                @Html.ValidationMessageFor(model => model.ContractorContact)
+            </div>
+                </td>
+                <td valign="top" style="width: 50%">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Phone)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Fax)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Fax)
+                @Html.ValidationMessageFor(model => model.Fax)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ContractorState)
+            </div>
+                        <div class="editor-field">
+                            @Html.DropDownListFor(model => model.ContractorState, new SelectList(Model.States, "Key", "Value"))
+                            @Html.ValidationMessageFor(model => model.ContractorState)
+                        </div>
+                  </td>
+            </tr>
+        </table>
+        </fieldset>
+
+
+        @Html.ValidationMessage("ProductsList")
+            <fieldset>
+                <legend>Select products</legend>
+                    @foreach (var item in Model.Products)
+                       {
+                            <div style="width: 45%; float: left; padding: 10px;">
+                            <label>
+                                <input type="checkbox" name="ProductsList" value="@item.ID" />
+                                @item.Title
+                            </label>
+                            </div>
+                     }
+
+            </fieldset>
+            
+        <div class="editor-label" style="margin-bottom: 25px;">
+            Would you like to recieve email notifications from TSN?
+        </div>
+        <div class="editor-field" style="margin-left: 25px; margin-bottom: 15px;">
+            @Html.EditorFor(model => model.ProductUpdatesNotification)
+            @Html.LabelFor(model => model.ProductUpdatesNotification) <br />
+            @Html.EditorFor(model => model.SoftwareNotification) 
+            @Html.LabelFor(model => model.SoftwareNotification)<br />
+        </div>
+
+            
+            <p>
+                <input type="submit" value="Package Submittal" />
+            </p>
+
+    }

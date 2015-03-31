@@ -1,0 +1,26 @@
+﻿@model IList<DominosCMS.Models.Account>            
+
+
+<table id="contactList">
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="members" value="@item.Username"   />
+                                @item.Company.FirstName 
+                                @item.Company.LastName 
+                                <a href="mailto: @item.Email">@item.Email</a>
+                                (@item.Company.CompanyName) 
+
+                            </label>
+                        </td>
+                        <td>
+                        
+                        </td>
+                    </tr>
+                    
+                }
+                
+            </table>

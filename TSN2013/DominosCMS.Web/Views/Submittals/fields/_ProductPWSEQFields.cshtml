@@ -1,0 +1,40 @@
+﻿@model DominosCMS.Web.Models.SubmittalBuilderModel
+
+        <div class="form-line">
+            <label>Web Depth:</label>
+            @Html.DropDownList("WebDepth", new SelectList(Model.WebDepths, "Key", "Value"), "Select") 
+        </div>
+        <div class="form-line">
+            <label>Punchouts:</label>
+             @Html.DropDownList("Punchouts", new SelectList(Model.Punchouts, "key", "value")) 
+        </div>
+        @Html.Hidden("CoatingWeights", "G40")
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#fields select").change(function () {
+            updateSections(this);
+        });
+        $("#WebDepth").change(function () {
+
+            if ($(this).val() > 250) {
+                if ($("#photo2").val())
+                    $("#productImage").attr("src", $("#photo2").val());
+                else {
+                    $("#productImage").hide();
+                    $("#sectionLabel").remove();
+                }
+
+            } else {
+                if ($("#photo1").val())
+                    $("#productImage").attr("src", $("#photo1").val());
+                else {
+                    $("#productImage").hide();
+                    $("#sectionLabel").remove();
+                }
+            }
+        });
+
+    });
+</script>

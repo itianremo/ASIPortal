@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DominosCMS.Models.Note>
+           @{
+               var productID = ViewBag.ProID as int?;
+               }
+
+<table class="list">
+    <tr>
+        <th style="width: 60px">
+            Number
+        </th>
+        <th >
+            Note
+        </th>
+        <th class="actions"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td style="white-space: normal">
+            @item.Text
+        </td>
+        <td>
+            @Html.Hidden("hId" + item.ID.ToString(), item.ID)
+            @Html.Hidden("hNum" + item.ID.ToString(), item.Number)
+            @Html.Hidden("hText" + item.ID.ToString(), item.Text)
+            @Html.ActionLink("Edit", "EditNote", new { id=item.ID }, new { @class = "edit-link", data_number = item.Number, data_text = item.Text, data_id = item.ID}) |
+            @Html.ActionLink("Delete", "DeleteNote", new { id = item.ID, productID = productID }, new { @class = "delete-note"})
+        </td>
+    </tr>
+}
+
+</table>

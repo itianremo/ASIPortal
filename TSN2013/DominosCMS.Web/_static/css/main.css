@@ -1,0 +1,485 @@
+﻿@charset "utf-8";
+body {
+	font: 80% Verdana, Arial, Helvetica, sans-serif;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	background-image:url(images/header-bg.png);
+	background-repeat:repeat-x;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+}
+#container {
+	width: 100%;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+#headerWrapper
+{
+	padding: 0;
+	height:87px;
+	background-color:#e3f4fc;
+}
+#header {
+	position: relative;
+    width: 1100px;
+	margin: 0 auto;
+	background-image:url(../images/TSN-ASI-Portal-Logo-web.png);
+	background-repeat:no-repeat;
+}
+.ui-autocomplete { text-align: left; }
+#login-bar
+{
+	width: 1100px;
+	margin: 0 auto;
+	height: 16px;	
+	text-align:right;
+	font-size:10px;
+	font-weight:bold;
+	color: #125c94;
+	padding-top:3px;
+
+
+}
+
+#login-bar a.wide
+{
+    margin: auto 20px;
+}
+
+#login-bar a {color: #125c94; text-decoration:none; font-size: 1.1em}
+#login-bar a:hover {text-decoration:underline}
+
+
+#header #menubar
+{
+	margin-left: 207px;
+    color: #FFF;
+}
+
+#menubar 
+{
+	width: 913px;
+	margin: 0 auto;
+    margin-top:2px;
+    position: relative;
+}
+
+#menubar  ul
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+	
+}
+
+#menubar  ul li
+{
+	display:inline;
+	float: left;
+    position:relative;
+}
+
+#menubar  ul ul
+{
+    display: none;	
+    background-color: #1f77b7;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    border: 1px solid white;
+    font-size: 11px;
+    z-index: 1000;
+}
+
+#menubar  ul ul ul
+{
+    top: 0px;
+    left: 220px;
+}
+
+#menubar  ul ul li
+{
+	display:block;
+    float:none;
+    min-width: 220px;
+    white-space: nowrap;
+
+}
+
+#menubar  ul ul li a
+{
+	padding: 3px 5px;
+    
+}
+
+#menubar ul li a 
+{
+	color: #125c94; 
+	text-decoration:none;
+	display:block;
+	padding: 1px 8px;
+}
+
+#menubar #search-box {
+    margin:0;
+    padding: 0 2px 1px 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: White;
+}
+
+#menubar #search-box input#kw {
+    height: 13px;
+    border: none;
+    width: 130px;
+    color: Gray;
+    font-style: italic;
+    font-size: 11px;
+}
+
+
+#menubar ul ul .parent-menu
+{
+    background-image: url(MenuBarRight.gif);
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+#menubar ul li:hover, #menubar ul li.selected-menu {}
+
+
+#header #slogan
+{
+	text-align:center;
+	color: #FFF;
+}
+
+#header #logoArea
+{
+	position: absolute;
+    left: 5px;
+    width: 200px;
+    height: 87px;
+}
+
+#header #logoArea a
+{
+    display: block;
+    height: 100%;
+
+}
+
+
+#header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+#mainContent {
+	width: 1100px;
+	margin: 0 auto;
+	margin-top:5px;
+	padding: 0;
+    min-height: 450px;
+}
+
+#mainContent #socialLinks 
+{
+    margin-top: 50px;
+    text-align: center;
+}
+#FooterWrapper {
+	/*background-image:url(images/footer-bg.jpg);
+	background-repeat:repeat-x;*/
+	background-color: #e3f3fa;
+    height:65px;
+	/*padding-top:57px;*/
+
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+#footer {
+	font-weight:bold;
+    width:1150px;
+	margin: 0 auto;
+    color:#125c94;
+    margin-top: 28px;
+	padding: 0; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+} 
+
+#footer #links
+{
+	float:right;	
+	padding-top: 10px;
+}
+
+#footer a
+{
+	color:#FFF;
+	}
+#footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding:  0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+
+
+.field-validation-error
+{
+    font-weight: bold;
+    color: #ff0000;
+    font-size: 11px;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+legend  {color: Navy; padding: 5px;}
+
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label,
+.editor-label,
+.display-field,
+.editor-field
+{
+    margin: 0.5em 0;
+}
+
+.display-label,
+.editor-label
+{
+    font-weight:bold;
+    font-size: 11px;
+}
+
+.display-field
+{
+    margin: 0.5em 1em 1em 1em;
+}
+
+
+.text-box
+{
+    width: 25em;
+}
+
+.text-box.multi-line
+{
+    height: 50px;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+/* TABLE
+----------------------------------------------------------
+*/
+table.list
+{
+  border: solid 1px #e8eef4;
+  border-collapse: collapse;
+  width: 95%;
+}
+
+table.list td 
+{
+  padding: 5px;   
+  border: solid 1px #e8eef4;
+}
+
+table.list .actions
+{
+    width: 100px;
+    text-align: center;
+}
+table.list th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #e8eef4; 
+  border: solid 1px #e8eef4;   
+}
+
+table.list tr.alternateRow td {
+    background-color: #F7F7F7;
+}
+
+table.list td.nowrap { white-space: nowrap; }
+
+#adminPanel {
+    position: absolute;
+    font-size: 13px;
+	background: #fff;
+    z-index: 10;
+    top: -40px;
+    left: 3px;
+    text-align: left;
+    padding: 10px;
+    width: 98%;
+}
+
+#adminPanel a
+{
+    color: #000;
+    text-decoration: none;
+}
+#adminPanel a:hover
+{
+    text-decoration: underline;
+}
+
+#PanelSlider
+{
+    position: absolute;
+	background: #fff;
+    z-index: 10;
+    top: 36px;
+    padding: 8px 15px;
+    -moz-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -khtml-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -khtml-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+
+
+}
+
+
+
+a img { border: none;}
+
+/*testmonials styles*/
+#testmonials
+{
+    min-height: 150px;
+}
+
+#testmonials h3
+{
+    color: #2f2f82;
+    font-weight: bold;
+    font-family: 'Arial Rounded MT', Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+#testmonials .testmonial
+{
+    display: none;
+}
+
+#testmonials .testmonial p.blue_text
+{
+    color: #2F2F82;
+}
+
+.clear
+{
+    clear: both;
+}
+
+table.frm 
+{
+    width: 100%;
+    border: solid 1px #e8eef4;
+    border-collapse: collapse;
+}
+
+table.frm td 
+{
+  padding: 5px;   
+  border: solid 1px #e8eef4;
+}
+
+table.frm th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #08314F; 
+  border: solid 1px #08314F;   
+    border-bottom-color: white;
+    width: 150px;
+    color: #fff;
+}
+
+table.frm .actions
+{
+    width: 100px;
+    text-align: center;
+}
+
+
+#socialLinks 
+{
+    text-align: center;
+}
+
+#socialLinks img 
+{
+    margin: 0 3px;
+    border: none;
+}
+
+
+
+    .buttons
+    {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .buttons a, a.progress_link
+    {
+        padding: 5px 8px;
+        border: solid 1px #000;
+        background-color: white;
+        height: 40px;
+        text-decoration: none;
+        color: #000;
+    }
+
+    .buttons a:hover, a.progress_link:hover
+    {
+        background-color: silver;
+    }
+
+    .required-symbol { color: red; font-weight: bold;}
+    .order-links a {
+        width: 17px;
+        height: 14px;
+        background-repeat: no-repeat;
+        display: inline-block;
+    }
+    .order-links a.move-up {
+        background-image: url(/_static/images/arrow-up.png);
+    }
+    .order-links a.move-down {
+        background-image: url(/_static/images/arrow-down.png);
+    }

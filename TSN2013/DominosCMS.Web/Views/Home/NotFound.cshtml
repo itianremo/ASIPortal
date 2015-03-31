@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Not Found";
+}
+
+
+<h3>"Oops! We are sorry, but this page cannot be found!</h3>
+
+The page you requested has moved or does not exist.  @Html.ActionLink("Click here", "Index")  to go back.
+
+@if (ViewBag.Url != null) { 
+    @:Or <a href="@ViewBag.Url">Try this url</a>
+}
+
+

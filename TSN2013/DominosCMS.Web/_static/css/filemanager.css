@@ -1,0 +1,275 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+img {border: none}
+#fmwrapper 
+{
+    width: 100%;
+    margin: 0 auto;
+    min-width: 500px;
+}
+
+#toolbar 
+{
+    background-image: url(images/toolbar-bg.jpg);
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 15px;
+    height: 35px;
+    background-repeat: repeat-x;
+    -moz-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -khtml-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -khtml-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#toolbar #selectedfolder {float: left;}
+
+#toolbar #actions {float: right; margin-top: 8px;}
+#toolbar #actions .toolbarbutton 
+{
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    padding: 0 5px 0 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #000;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+
+
+#toolbar #actions .toolbarbutton:hover
+{
+    background-color: gray;
+    color: White;
+}
+#toolbar #actions .createfolder
+{
+    background-image: url(images/new_folder.png);
+}
+
+
+#toolbar #actions .uploadfile
+{
+    background-image: url(images/upload_file.png);
+}
+#toolbar #actions .upfolder
+{
+    background-image: url(images/up_one_dir.png);
+}
+
+#toolbar #actions .refresh
+{
+    background-image: url(images/view_refresh.png);
+}
+
+#toolbar #actions .busy
+{
+    background-image: url(images/spinner_small.gif);
+    color: Gray;
+}
+
+#toolbar #actions .busy:hover
+{
+    background-color: transparent;
+    color: Gray;
+}
+#toolbar #actions ul, #toolbar #actions ul li
+{
+    display: inline;
+    
+}
+#fmcontents 
+{
+    min-height: 550px;
+}
+#folders 
+{
+    width: 200px;
+    float: left;
+    border: 1px solid #CCC;
+    padding: 20px 10px;
+    height: 480px;
+    background-color: #f1f1f3;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    overflow: auto;
+    z-index: 10px;
+   
+}
+
+#folders h3 
+{
+    color: #a9ace9;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+#folders ul 
+{
+    margin-left: 15px;  
+    margin-top: 5px; 
+}
+#folders ul ul ul
+{
+    display: none;
+}
+#folders ul li 
+{
+    white-space: nowrap;
+}
+#folders ul li span.folder-icon
+{
+    background-image: url(images/closed_folder_yellow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 25px;
+    height: 17px;
+}
+    #folders ul li span.open-folder {
+        background-image: url(images/open_folder_yellow.png);
+    }
+
+#folders ul li.openfolder 
+{
+    list-style-image: url(images/open_folder_yellow.png);
+}
+
+#folders ul li.openfolder a 
+{
+    color: red;
+    text-decoration: underline;
+        
+}
+#folders ul li a 
+{
+    color: Black;
+    text-decoration: none;
+}
+
+#folders ul li a:hover
+{
+    color: red;
+    text-decoration: underline;
+}
+
+#fileslist 
+{
+    margin-left: 230px;
+    padding: 10px 0;
+    display: block;
+    position: relative;
+    height: 500px;
+    overflow: auto;
+    border: 1px solid #CCC;
+    background-color: #f1f1f3;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    
+}
+
+#fileslist li
+{
+    width: 120px;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 135px;
+    
+}
+
+#fileslist li a
+{
+    text-decoration: none;
+    color: #000;    
+}
+
+#fileslist li a:hover {color: red; }
+
+
+#fileslist li img
+{
+    display: block;   
+    max-width: 120px;
+    height: 100px;
+    margin: 0 auto;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+}
+#fileslist li span 
+{
+    width: 120px; 
+    overflow: hidden;
+    display: block;
+    margin-top: 5px;
+}
+
+#fileslist li span.actions 
+{
+    display: none;
+    position: absolute;    
+    top: 0;
+    left: 0;
+    width: 95%;
+    background-color: white;
+    border: 1px dashed gray;
+    opacity: 0.8;
+    
+}
+
+
+#fileslist li span.actions img 
+{
+    width: 16px; 
+    height: 16px; 
+    margin: 0; 
+    padding: 0;
+    display: inline;
+    border: solid 1px white;    
+    padding: 2px;
+}
+
+#fileslist li span.actions img:hover
+{
+    border: solid 1px gray;    
+}
+
+
+
+
+#fileslist div.loader 
+{
+    position: absolute;
+    
+    top: 10px;
+    left: 10px;
+    display: none;
+        
+}
+
+#fileslist div.loader img {vertical-align: middle; margin-right: 10px;}
+
+#statusBar 
+{
+    background-color: #e2e2e2;
+    border-top: 2px solid navy;
+    padding: 15px;
+    
+}

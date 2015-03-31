@@ -1,0 +1,94 @@
+﻿        
+    .form-line
+    {
+        padding: 10px;
+    }
+
+    label
+    {
+        width: 120px;
+        float: left;
+        font-weight: bold;
+        font-size: 11px;
+    }
+
+    #members select
+    {
+        width: 250px;
+        font-size: 0.9em;
+    }
+
+    #frm
+    {
+        width: 41%;
+        float: left;
+    }
+
+    #pro_photo
+    {
+        float: left;
+        width: 266px;
+        text-align: center;
+        padding-top: 15px;
+
+
+    }
+    #pro_photo img { max-width: 260px; }
+
+    .section-label { display: block; text-align: center;}
+
+    #sections 
+    {
+        float: right;
+        width: 33%;
+    }
+
+    #sections-list
+    {
+        max-height: 250px;
+        overflow: auto;
+        margin-bottom: 10px;
+    }
+    #sections-list a, #clipsList .action a, #customList a, #reportsList a
+    {
+        width: 60px;
+        height: 20px;
+    }
+
+
+    #clipsList #ClipFileLink
+    {            
+        color: blue;
+    }
+    
+
+
+    a.action
+    {
+        /*background-image: url(../images/add.jpg);*/
+    }
+
+    a.delete-section
+    {
+        /*background-image: url(../images/icons/delete2.jpg);*/
+    }
+
+    a.loading
+    {
+        background-image: url(../images/ajax-loader.gif);
+    }
+
+    span.loading {
+        width: 20px;
+        height: 15px;
+        background-image: url(../images/ajax-loader.gif);
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    button { padding: 5px 10px}
+    #reportsList td { padding-left: 10px;}
+
+button.add-section { margin-left : 130px; margin-top: 10px;}

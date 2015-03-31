@@ -1,0 +1,14 @@
+﻿@model DominosCMS.Models.NewsItem
+
+@{
+    ViewBag.Title = Model.Title;
+    var photoPath = System.Configuration.ConfigurationManager.AppSettings["NewsPhotos"];
+}
+
+<h2>@Html.ActionLink("News", "Index") >  @Model.Title</h2>
+<p>@Model.LastUpdate</p>
+    <div>
+        @Html.Raw(Model.Details)
+    </div>
+    
+        

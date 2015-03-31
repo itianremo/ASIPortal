@@ -1,0 +1,200 @@
+﻿@model DominosCMS.Models.Company
+
+@{
+    ViewBag.Title = "Edit Submittal Queue Data";
+}
+
+@section header {
+    
+    @Html.Css("forms.css")
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+
+    @Html.Css("themes/base/jquery.ui.all.css")
+    @Html.Script("jquery-ui-1.8.11.min.js")
+    @Html.Script("jquery.watermark.min.js")
+    <script type="text/javascript">
+        $(function () {
+            $(".datepicker input").datepicker({
+                showOn: "button",
+                buttonImage: "/_static/images/icons/calendar.gif",
+                buttonImageOnly: true
+            });
+
+            $("#btnCancel").click(function (e) {
+                e.preventDefault();
+                location.href = $(this).attr("data-href");
+            });
+
+            $("input.watermark").each(function () {
+                var wm = $(this).attr("data-watermark-text");
+
+                $(this).watermark(wm);
+            });
+
+            $("#ContactName1").autocomplete({
+
+                minLength: 0,
+                autoFill: true,
+                source: '@Url.Action("GetUserContacts", "Submittals")',
+                select: function (event, ui) {
+                    $("#ContactName1").val(ui.item.name);
+                    $("#ContactEmail1").val(ui.item.email);
+                    $("#chkAddToContact1").attr("disabled", "disabled");
+                    return false;
+                }
+
+            }).data('autocomplete')._renderItem = function (ul, item) {
+                return $('<li></li>')
+                    .data('item.autocomplete', item)
+                    .append('<a>' + item.name + '</a>')
+                    .appendTo(ul);
+            };
+
+            $("#ContactName2").autocomplete({
+
+                minLength: 0,
+                autoFill: true,
+                source: '@Url.Action("GetUserContacts", "Submittals")',
+                select: function (event, ui) {
+                    $("#ContactName2").val(ui.item.name);
+                    $("#ContactEmail2").val(ui.item.email);
+                    $("#chkAddToContact2").attr("disabled", "disabled");
+                    return false;
+                }
+
+            }).data('autocomplete')._renderItem = function (ul, item) {
+                return $('<li></li>')
+                    .data('item.autocomplete', item)
+                    .append('<a>' + item.name + '</a>')
+                    .appendTo(ul);
+            };
+
+        });
+
+    </script>
+
+    <style type="text/css">
+
+        .datepicker input
+        {
+            width: auto;
+        }
+    </style>
+}
+
+<h3>Project Details</h3>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Project Details</legend>
+
+        <table>
+            <tr>
+                <td>
+            @Html.LabelFor(model => model.Project)<span class="required-symbol">*</span>
+
+                </td>
+                <td>
+                    <div class="editor-field">
+                    @Html.TextBox("projectName", Model.Project)
+                    @Html.ValidationMessage("projectName")
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+            @Html.LabelFor(model => model.Location)<span class="required-symbol">*</span>
+
+                </td>
+                <td>
+                    <div class="editor-field">
+                    @Html.TextBox("projectLocation", Model.Location)
+            @Html.ValidationMessage("projectLocation")
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+            @Html.LabelFor(model => model.Date)<span class="required-symbol">*</span>
+
+                </td>
+                <td>
+        <div class="editor-field datepicker">
+            @Html.TextBox("projectDate", Model.Date)
+            @Html.ValidationMessage("projectDate")
+        </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+            @Html.LabelFor(model => model.BuildingCode)<span class="required-symbol">*</span>
+
+                </td>
+                <td>
+        <div class="editor-field">
+            @Html.DropDownList("BuildingCode", ViewBag.BuildingCodes as SelectList)
+            @Html.ValidationMessage("BuildingCode")
+        </div>
+
+        <div style="font-style: italic">
+            Not sure? <a href="http://www.iccsafe.org/gr/documents/stateadoptions.pdf" target="_blank">Click here</a> for a list of International Codes by State
+        </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Contact
+                </td>
+                <td>
+                    <div class="editor-field">
+                    @Html.TextBox("ContactName1", Model.ContactName1, new { @class = "name-input watermark", data_watermark_text = "Name"})
+                        @Html.CheckBox("chkAddToContact1")
+                        @Html.Label("chkAddToContact1", "Add to Contacts")
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    <div class="editor-field">
+                    @Html.TextBox("ContactEmail1", Model.ContactEmail1, new { @class = "name-input watermark", data_watermark_text = "Email"})
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Contact
+                </td>
+                <td>
+                    <div class="editor-field">
+                    @Html.TextBox("ContactName2", Model.ContactName2, new { @class = "name-input watermark", data_watermark_text = "Name"})
+                         @Html.CheckBox("chkAddToContact2")
+                        @Html.Label("chkAddToContact2", "Add to Contacts")
+                       </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    <div class="editor-field">
+                    @Html.TextBox("ContactEmail2", Model.ContactEmail2, new { @class = "name-input watermark", data_watermark_text = "Email"})
+                        </div>
+                </td>
+            </tr>
+
+        </table>
+
+        <p>
+            <input type="submit" value="Update" />
+        </p>
+    </fieldset>
+}

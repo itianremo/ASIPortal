@@ -1,0 +1,93 @@
+﻿@model DominosCMS.Models.Submittal
+
+@{
+    Layout = "~/Views/Shared/_CustomerPortal.cshtml";
+    ViewBag.Title = "Edit Submittal";
+}
+@section header {
+    
+    @Html.Css("forms.css")
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+
+    @Html.Css("themes/base/jquery.ui.all.css")
+    @Html.Script("jquery-ui-1.8.11.min.js")
+    <script type="text/javascript">
+        $(function () {
+            $(".datepicker input").datepicker();
+        });
+        
+    </script>
+
+    <style type="text/css">
+
+        .datepicker input
+        {
+            width: auto;
+        }
+    </style>
+}
+
+<h2>Project Details</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Project</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Project)<span class="required-symbol">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Project)
+            @Html.ValidationMessageFor(model => model.Project)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)<span class="required-symbol">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)<span class="required-symbol">*</span>
+        </div>
+        <div class="editor-field datepicker">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BuildingCode)<span class="required-symbol">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.BuildingCode, ViewBag.BuildingCodes as SelectList)
+            @Html.ValidationMessageFor(model => model.BuildingCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreparerName)<span class="required-symbol">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreparerName)
+            @Html.ValidationMessageFor(model => model.PreparerName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PreparerCompany)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PreparerCompany)
+            @Html.ValidationMessageFor(model => model.PreparerCompany)
+        </div>
+            @Html.HiddenFor(model => model.ContactEmail1)
+            @Html.HiddenFor(model => model.ContactEmail2)
+            @Html.HiddenFor(model => model.ContactName1)
+            @Html.HiddenFor(model => model.ContactName2)
+        <p>
+            <input type="submit" value="Update Submittal" />
+        </p>
+    </fieldset>
+}

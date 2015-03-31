@@ -1,0 +1,74 @@
+﻿@model DominosCMS.Models.Product
+@using DominosCMS.Web.Helpers;
+
+@{
+    if (Model == null) { return; }
+
+    var tech_prop = Model.TechnicalProperties.OrderBy(s => s.ViewOrder).ToList();
+}
+        <p>Count: @tech_prop.Count</p>
+      <table style="width: 100%">
+          <tr>
+              <td>
+                  <fieldset>
+                      <legend>Technical properties</legend>
+                      @using (Ajax.BeginForm(new AjaxOptions
+                      {
+                          Url = Url.Action("SortTechnical"),
+                          HttpMethod = "Post",
+                          LoadingElementId = "TechLoader",
+                          OnFailure = "alert('Error occured!')"
+                      }))
+                      {
+                    <input type="image" name="imageField" id="imageField" src="@Url.Content("~/_static/images/icons/save.png")" style="margin-top:1px" title="Save order" />
+                    <span id="TechLoader" style="display: none">@Html.Image("spinner", Url.Content("~/_static/images/loading.gif"), "PLEASE WAIT...")</span>
+                          <ul>
+                             
+                              @foreach (var item in tech_prop)
+                              { 
+                    
+                                  <li>
+                                      @Html.Hidden("IDs", item.ID)
+                                      <span class="actions">
+                                          @Html.ImageActionLink(Url.Content("~/_static/images/icons/edit.jpg"), "Edit", "#", new { @class = "edit-link" })
+                                          @Html.ImageActionLink(Url.Content("~/_static/images/icons/delete2.jpg"), "Delete", Url.Action("DeleteSpecs", new { id = item.ID }), new { @class = "delete-link" })
+                                      </span>@item.Title</li>
+              
+              }
+                          </ul>
+                          
+}               
+                  </fieldset>
+
+
+              </td>
+              <td style="width: 30%">
+                  <fieldset>
+                      <legend>Add properties</legend>
+                      @using (Ajax.BeginForm(new AjaxOptions
+                      {
+                          Url = Url.Action("AddProperties"),
+                          HttpMethod = "Post",
+                          LoadingElementId = "Propertiesloader",
+                          OnFailure = "alert('Error occured!')"
+                      }))
+                      { 
+                          <div class="editor-label">
+                              Add Technical properties (one per line)
+                          </div>
+                          <div class="editor-field">
+                              @Html.TextArea("properties")
+                              @Html.Hidden("pro_id", Model.ID)
+                                
+                          </div>
+                          <p>
+                              <input type="submit" value="Submit" class="various" />
+                              <span id="Propertiesloader" style="display: none">@Html.Image("spinner", Url.Content("~/_static/images/spinner_small.gif"), "PLEASE WAIT...")</span>
+
+                          </p>
+          }
+                  </fieldset>
+              </td>
+          </tr>
+
+      </table>

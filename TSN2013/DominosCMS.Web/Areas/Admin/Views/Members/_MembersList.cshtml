@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DominosCMS.Models.Account>
+<table class="tablesorter">
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Company
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Roles
+        </th>
+        <th class="{sorter: false}">
+            Activated
+        </th>
+        <th class="{sorter: false}"></th>
+    </tr>
+</thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.FirstName) 
+            @Html.DisplayFor(modelItem => item.Company.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Roles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activated)
+        </td>
+        <td class="action">
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "delete-link"}) |
+@*            @if (item.Activated.Value) {
+                @Html.ActionLink("DeActivate", "DeActivate", new { id = item.ID }, null) <text>|</text>
+            }else {
+                @Html.ActionLink("Activate", "Activate", new { id = item.ID }, null) <text>|</text>
+            }*@
+            @Html.ActionLink("Impersonate", "Impersonate", new { id = item.ID }, null)
+       </td>
+    </tr>
+}
+</tbody>
+</table>

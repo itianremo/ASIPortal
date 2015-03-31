@@ -1,0 +1,17 @@
+﻿@model DominosCMS.Web.Models.SubmittalBuilderModel
+
+        <div class="form-line">
+            <label>Web Depth:</label>
+            @Html.DropDownList("WebDepth", new SelectList(Model.WebDepths, "Key", "Value"), "Select") 
+        </div>
+        @Html.Hidden("CoatingWeights", "G40")
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#fields select").change(function () {
+            updateSections(this);
+        });
+
+    });
+</script>

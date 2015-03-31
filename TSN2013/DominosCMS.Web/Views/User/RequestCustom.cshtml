@@ -1,0 +1,98 @@
+﻿@model DominosCMS.Web.Models.RequestCustomModel
+
+@{
+    ViewBag.Title = "Request a Custom Product";
+    //var products = ViewBag.Products as SelectList;
+    var GenreLst = new[] { "Select Product" };  
+    var products = new SelectList(GenreLst, GenreLst[0]);
+}
+
+@section header {
+    @Html.Css("forms.css")
+
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+}
+
+<h2>Request a Custom Product</h2>
+<p>
+    Please provide as much descriptive information as possible and a simple drawing or sketch.
+</p>
+
+
+@using (Html.BeginForm("RequestCustom", "User", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Request a custom</legend>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductLine)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.ProductLine, new SelectList( Model.ProductList), "Select Product")
+            @Html.ValidationMessageFor(model => model.ProductLine)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Dimensions)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Dimensions)
+            @Html.ValidationMessageFor(model => model.Dimensions)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MilThickness)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MilThickness)
+            @Html.ValidationMessageFor(model => model.MilThickness)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.YieldStrength)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.YieldStrength)
+            @Html.ValidationMessageFor(model => model.YieldStrength)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Holes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Holes)
+            @Html.ValidationMessageFor(model => model.Holes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SlotsBushings)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SlotsBushings)
+            @Html.ValidationMessageFor(model => model.SlotsBushings)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EstimatedQuantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EstimatedQuantity)
+            @Html.ValidationMessageFor(model => model.EstimatedQuantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SketchDrawing)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file1" id="file1" style="width: 50%; padding: 5px;" />
+            @Html.ValidationMessageFor(model => model.SketchDrawing)
+        </div>
+
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    </fieldset>
+}
+

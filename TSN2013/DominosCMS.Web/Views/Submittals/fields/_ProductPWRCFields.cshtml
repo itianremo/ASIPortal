@@ -1,0 +1,43 @@
+﻿@model DominosCMS.Web.Models.SubmittalBuilderModel
+
+        <div class="form-line">
+            <label>Leg Length:</label>
+            @Html.DropDownList("LegLength", new SelectList(Model.LegLengths, "Key", "Value"), "Select") 
+        </div>
+        <div class="form-line">
+            <label>Mil Thickness (Gauge):</label>
+            @Html.DropDownList("MilThickness", new SelectList(Model.MilThickness, "Key", "Value"), "Select") 
+        </div>
+        @Html.Hidden("CoatingWeights", "G60")
+<script type="text/javascript">
+
+    $(function () {
+        $("#fields select").change(function () {
+            updateSections(this);
+        });
+
+        $("#LegLength").change(function () {
+
+            console.log("change fired!");
+            if ($(this).val() > 1) {
+                if ($("#photo2").val())
+                    $("#productImage").attr("src", $("#photo2").val());
+                else {
+                    $("#productImage").hide();
+                    $("#sectionLabel").remove();
+                }
+
+            } else {
+                if ($("#photo1").val())
+                    $("#productImage").attr("src", $("#photo1").val());
+                else {
+                    $("#productImage").hide();
+                    $("#sectionLabel").remove();
+                }
+            }
+
+
+        });
+
+    });
+</script>

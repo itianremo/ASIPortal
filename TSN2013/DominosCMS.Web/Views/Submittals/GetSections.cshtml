@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DominosCMS.Models.Section>
+@using DominosCMS.Web.Helpers;
+
+@{
+    var submittalItems = ViewBag.SubmittalItems as int[];
+    var index = 1;
+}
+
+<h3>Quick Member Selector:</h3>
+<div id="sections-list">
+<table class="list">
+    <tr>
+        <th>Section name</th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    var className = ((index++ % 2) == 0) ? "alternateRow" : "";
+    <tr class="@className">
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.SubmittalLink(Url.Action("AddToSubmittal", new { section_id = item.ID }), 
+                                Url.Action("RemoveFromSubmittal", new { section_id = item.ID }), submittalItems, item.ID)
+            
+        </td>
+    </tr>
+}
+</table>
+    
+</div>
+    <div id="trPunched">
+            <span style="font-weight: bold; font-style: italic">Currently Selected:</span> <span id="G60" style="font-style: italic">G60, </span><span id="Punched" style="font-style: italic">Punched</span> 
+    </div>
+

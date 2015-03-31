@@ -1,0 +1,56 @@
+﻿@model DominosCMS.Models.Account
+
+@{
+    ViewBag.Title = "Submittals";
+}
+
+@section header {
+    @Html.Css("tablesorter/themes/blue/style.css")
+    @Html.Script("tablesorter/jquery.tablesorter.min.js")
+    @Html.Script("tablesorter/jquery.metadata.js")
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSearch").click(function (e) {
+                e.preventDefault();
+                var val = $("#submittalkw").val();
+                if (val === '') {
+                    alert("Enter some keywords to search");
+                    return;
+                };
+                $("<img />", {
+                    src: '/_static/images/loader2.gif',
+                    id: "loader",
+                    style: "margin-left: 10px;"
+                }).insertAfter(this);
+
+                $("#submittals").css("opacity", "0.5");
+
+                $.get("@Url.Action("Submittals")", { kw: val }, function (data) {
+                    $("#submittals").replaceWith(data);
+                    $("#lnkViewAll").show();
+                    $("table.tablesorter").tablesorter();
+                    $("#loader").remove();
+                });
+                
+            });
+            $("table.tablesorter").tablesorter();
+
+        });
+
+    </script>
+}
+<h2>Submittals</h2>
+
+
+    <div>
+    @Html.TextBox("submittalkw")
+    <input id="btnSearch" type="button" value="Search"  /> <a href="@Url.Action("Submittals")" style="display: none;" id="lnkViewAll">View all</a>
+</div>
+<br />
+
+@Html.Partial("_Submittals", Model.Company.Submittals)
+
+
+<p class="">@Html.ActionLink("Create New Submittal", "Create", "Submittals", null, new { @class = "button"}) </p>
+   

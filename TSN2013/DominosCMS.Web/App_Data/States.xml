@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<states>
+    <state value="Alabama" name=" Alabama"></state>
+    <state value="Alaska" name="Alaska"></state>
+    <state value="Arizona" name="Arizona"></state>
+    <state value="Arkansas" name="Arkansas"></state>
+    <state value="California" name="California"></state>
+    <state value="Colorado" name="Colorado"></state>
+    <state value="Connecticut" name="Connecticut"></state>
+    <state value="Delaware" name="Delaware"></state>
+    <state value="District of Columbia" name="District of Columbia"></state>
+    <state value="Florida" name="Florida"></state>
+    <state value="Georgia" name="Georgia"></state>
+    <state value="Hawaii" name="Hawaii"></state>
+    <state value="Idaho" name="Idaho"></state>
+    <state value="Illinois" name="Illinois"></state>
+    <state value="Indiana" name="Indiana"></state>
+    <state value="Iowa" name="Iowa"></state>
+    <state value="Kansas" name="Kansas"></state>
+    <state value="Kentucky" name="Kentucky"></state>
+    <state value="Louisiana" name="Louisiana"></state>
+    <state value="Maine" name="Maine"></state>
+    <state value="Maryland" name="Maryland"></state>
+    <state value="Massachusetts" name="Massachusetts"></state>
+    <state value="Michigan" name="Michigan"></state>
+    <state value="Minnesota" name="Minnesota"></state>
+    <state value="Mississippi" name="Mississippi"></state>
+    <state value="Missouri" name="Missouri"></state>
+    <state value="Montana" name="Montana"></state>
+    <state value="Nebraska" name="Nebraska"></state>
+    <state value="Nevada" name="Nevada"></state>
+    <state value="New Hampshire" name="New Hampshire"></state>
+    <state value="New Jersey" name="New Jersey"></state>
+    <state value="New Mexico" name="New Mexico"></state>
+    <state value="New York" name="New York"></state>
+    <state value="North Carolina" name="North Carolina"></state>
+    <state value="North Dakota" name="North Dakota"></state>
+    <state value="Ohio" name="Ohio"></state>
+    <state value="Oklahoma" name="Oklahoma"></state>
+    <state value="Oregon" name="Oregon"></state>
+    <state value="Pennsylvania" name="Pennsylvania"></state>
+    <state value="Rhode Island" name="Rhode Island"></state>
+    <state value="South Carolina" name="South Carolina"></state>
+    <state value="South Dakota" name="South Dakota"></state>
+    <state value="Tennessee" name="Tennessee"></state>
+    <state value="Texas" name="Texas"></state>
+    <state value="Utah" name="Utah"></state>
+    <state value="Vermont" name="Vermont"></state>
+    <state value="Virginia" name="Virginia"></state>
+    <state value="Washington" name="Washington"></state>
+    <state value="West Virginia" name="West Virginia"></state>
+    <state value="Wisconsin" name="Wisconsin"></state>
+    <state value="Wyoming" name="Wyoming"></state>
+
+</states>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DominosCMS.Models.PhotoAlbum>
+@using DominosCMS.Web.Helpers;
+
+@{
+    ViewBag.Title = "Media Center";
+    var indx = 0;
+}
+
+@section header {
+    @Html.Css("gallery.css")
+    @Html.Css("forms.css")
+}
+
+@section actions {
+    
+    <div class="actions-toolbar">
+        <ul>
+            <li>
+                <a class="various" href="@Url.Action("CreateAlbum")" title="Add new product">
+                    <img src="@Url.Content("~/_static/images/icons/new.png")" alt="Add new product" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="actions-title">
+        <h2>Gallery Admin</h2>
+    </div>
+        
+}
+
+
+<div id="gallery">
+@foreach (var item in Model) {
+        indx++;
+    <div class="album" >
+
+        <a href="@Url.Action("EditAlbum", new { id = item.ID })" class="thumb" >
+         @if (item.Photos != null && item.Photos.Count > 0) {
+            <img src="@Url.Content("~/Gallery/Thumb/?filename=" + item.Photos[0].Filename + "&height=170&album=" + item.ID)" width="225" height="170" class="ongoing-border" />
+         }
+         else
+         {
+            <img src="@Url.Content("~/_static/images/no_image_thumb.gif")" width="225" height="170" class="ongoing-border" />
+
+         }
+        
+        </a>
+        <p style="font-weight: bold">
+            @Html.ActionLink(item.Title, "EditAlbum", new { id = item.ID })
+        </p>
+        
+        @if (User.IsInRole("admin"))
+        {
+        <div style="margin: 10px;">
+            @Html.ImageActionLink(Url.Content("~/_static/images/icons/edit.jpg"), "Edit", Url.Action("EditAlbum", "Gallery", new { id = item.ID }), null)
+            @Html.ImageActionLink(Url.Content("~/_static/images/icons/delete2.jpg"), "Delete", Url.Action("DeleteAlbum", "Gallery", new { id = item.ID }), null)
+        </div>
+        }
+        <p>
+            @item.Description
+        </p>
+
+    </div>
+            if ((indx % 4) == 0)
+        { 
+            <br class="clear" />
+        }
+
+    }
+    </div>
+
+
+<div class="clear"></div>

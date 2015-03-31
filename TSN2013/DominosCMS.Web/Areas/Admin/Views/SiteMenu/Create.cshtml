@@ -1,0 +1,25 @@
+@model DominosCMS.Web.Models.EditMenuItemModel
+
+    @Html.Script("pageEdit.js")
+
+@using (Ajax.BeginForm(new AjaxOptions
+{
+    HttpMethod = "Post",
+    OnSuccess = "closePopup()",
+    LoadingElementId = "loaderCreate",
+    OnFailure = "alert('Error occured!')"
+}))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Menu Item data</legend>
+
+		@Html.Hidden("pID", 0)
+		@Html.Partial("_CreateOrEdit", Model)
+
+        <p>
+            <input type="submit" value="Create" /> <span id="loaderCreate" style="display:none">@Html.Image("spinner", Url.Content("~/_static/images/spinner_small.gif"), "PLEASE WAIT...") Please wait...</span>
+        </p>
+    </fieldset>
+}
+

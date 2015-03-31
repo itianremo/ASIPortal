@@ -1,0 +1,34 @@
+﻿@model DominosCMS.Web.Models.FileManagerModel
+
+@{
+    ViewBag.Title = "Folders";
+}
+
+    <ul id="foldersTree">
+            
+            <li><span class="folder-icon open-folder"></span><a href="@Model.RootFolder" title="@Model.RootFolder">@Model.RootFolder</a>
+            <ul>
+                @foreach (var item in Model.RootFolders)
+                { 
+                <li><span class="folder-icon"></span><a href="@item.RelativePath" title="@item.Name">@item.Name</a>
+                    @SubFolders(item) 
+                </li>
+                }
+            </ul>
+            </li>
+            </ul>
+
+@helper SubFolders(DominosCMS.Web.Models.FolderItem item) 
+{
+    if (item.SubFolders != null && item.SubFolders.Count > 0) {
+        <ul>
+            @foreach (var folder in item.SubFolders)
+            {
+                <li>
+                    <span class="folder-icon"></span><a href="@folder.RelativePath" title="@folder.Name">@folder.Name</a>
+                    @SubFolders(folder) 
+                </li>
+            }
+        </ul>
+    }
+}

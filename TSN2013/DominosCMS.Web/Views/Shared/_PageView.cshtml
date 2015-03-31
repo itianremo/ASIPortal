@@ -1,0 +1,18 @@
+﻿@model DominosCMS.Models.Page
+@using DominosCMS.Web.Helpers;
+
+@section header {
+    
+    @Html.Css("themes/base/jquery.ui.all.css")
+    }
+
+<div >
+@Html.Raw(Model.Contents)
+
+</div>
+@if (User.IsInRole("admin") || User.IsInRole("canedit")) {
+    @Html.ActionLink("Edit", "Edit", "Pages", new { area = "admin", id = Model.ID }, new { @class="fancybox", data_fancybox_type="iframe"})
+}
+
+
+

@@ -1,0 +1,174 @@
+﻿@model DominosCMS.Models.PhotoAlbum
+@using DominosCMS.Web.Helpers;
+
+@{
+    ViewBag.Title = "Edit Album";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+ @section header {
+    @Html.Css("forms.css")
+    @Html.Css(Url.Content("~/_static/js/lib/uploadfy/uploadify.css"), true)
+    @Html.Css("gallery.css")
+
+    @Html.Script("jquery.unobtrusive-ajax.min.js")
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+    @Html.Script("jquery-ui-1.8.11.min.js")
+    @Html.Script("lib/uploadfy/jquery.uploadify-3.1.min.js")
+
+    <script type="text/javascript">
+        $(function () {
+            $('#file_upload').uploadify({
+                swf: '/Scripts/lib/uploadfy/uploadify.swf',
+                uploader: '/gallery/UploadPhotos2',
+                fileTypeDesc: "Images",
+                fileTypeExts: "*.jpg;*.jpeg;*.bmp;*.png;*.gif",
+                // Your options here
+                buttonText: '+ Add Photos',
+                removeTimeout: 0,
+                onUploadSuccess: function (file, data, response) {
+                    //alert('The file ' + file.path + ' was successfully uploaded with a response of ' + response + ':' + data);
+                    //$("#photos").insertBefore($("#file_upload"))
+                    var wrapper = $("<div />", { "class": 'photo-item'});
+                    var actions = $("<div />", { "class": 'actions' });
+
+                    $("<a />", {
+                        href: '@Url.Action("DeletePhoto", "Gallery", new { id = 0})?&filename=' + data,
+                        title: 'Delete photo',
+                        "class":'delete-link'
+                    }).append($("<img />", {
+                        src: '@Url.Content("~/Content/images/icons/deletered.png")',
+                        alt: 'Delete'
+                    })).appendTo(actions);
+
+                   
+                    $(wrapper).append(actions);
+                    $(wrapper).append($("<input type='hidden' value='0' name='photoID' />"));
+                    $(wrapper).append($("<input type='hidden' value='" + data + "' name='photourl' />"));
+                    $(wrapper).append($("<img src='/gallery/Thumb?filename=" + data + "&height=150' alt='' class='thumb' />"));
+                    $(wrapper).append($("<textarea id='photodec' name='photodec' value='' /></textarea>"));
+                    //$(wrapper).appentTo();
+
+                    $(wrapper).hover(function () {
+                        $(".actions", this).slideDown('fast');
+                    }, function () {
+                        $(".actions", this).fadeOut('fast');
+                    });
+
+                    $("a.delete-link", wrapper).click(function(e){
+                        e.preventDefault();
+                        
+                        var context = this;
+                        var url = $(this).attr("href");
+
+                        $.get(url, null, function (data) {
+                    
+                            if (data == "Success") {
+                                $(context).parent().parent().remove();
+                            } else {
+                                alert("This photo can not be deleted now, please try again later");
+                            }
+                        });
+                    });
+
+
+                    $("#photos").append($(wrapper));
+                }
+            });
+
+            $(".photo-item").hover(function () {
+                $(".actions", this).slideDown('fast');
+            }, function () {
+                $(".actions", this).fadeOut('fast');
+            });
+
+            $(".photo-item a.delete-link").click(function(e){
+                e.preventDefault();
+                
+                var context = this;
+                var url = $(this).attr("href");
+
+                $.get(url, null, function (data) {
+                    
+                    if (data == "Success") {
+                        $(context).parent().parent().remove();
+                    } else {
+                        alert("This photo can not be deleted now, please try again later");
+                    }
+                });
+            });
+
+
+        });
+    </script>
+}
+
+
+<h2>Edit Album</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+<div>
+<div id="albumfrom">
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Album data</legend>
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.CreationDate)
+        @Html.HiddenFor(model => model.ViewOrder)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        
+        <div class="editor-field">
+            <label>@Html.EditorFor(model => model.Visible) Publish album </label> 
+            @Html.ValidationMessageFor(model => model.Visible)
+        </div>
+
+    </fieldset>
+</div>
+<div id="photos">
+@foreach (var item in Model.Photos)
+{
+    <div class='photo-item'>
+        <div class="actions">
+            @Html.ImageActionLink(Url.Content("~/Content/images/icons/deletered.png"), "Delete", Url.Action("DeletePhoto", "Gallery", new { id = item.ID }), new { @class = "delete-link"})
+        </div>
+        
+        @Html.Hidden("photoID", item.ID)
+        @Html.Hidden("photourl", string.Format("{0}/{1}/{2}", System.Configuration.ConfigurationManager.AppSettings["gallery"], Model.ID, item.Filename) )
+        @Html.Image("image1", Url.Action("Thumb", new { filename = item.Filename, album = Model.ID, height = 150 }), item.Description, new { title = item.Description, @class="thumb" })
+        @Html.TextArea("photodec", item.Description)
+    </div>
+    
+}
+
+
+</div>
+<div style="clear:both"></div>
+<input type="file" name="file_upload" id="file_upload" />
+</div>
+<div style="clear:both"></div>
+<div id="toolbar"> 
+   <input type="submit" value="Update Album" class="createbutton"/>
+</div>
+}
+
+
+
+

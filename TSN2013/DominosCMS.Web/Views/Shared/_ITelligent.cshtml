@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/css/main.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/shared.js")" type="text/javascript"></script>
+
+@RenderSection("header", false)
+</head>
+
+<body>
+@if (User.IsInRole("admin"))
+{
+
+<div id="adminPanel">
+    @Html.ActionLink("Home", "Admin", "Home") |
+    @Html.ActionLink("Pages", "Index", "Pages") |
+    @Html.ActionLink("Site Menu", "Index", "SiteMenu") |
+    @Html.ActionLink("Banners", "Index", "Banners") |
+    @Html.ActionLink("Inquiries", "Index", "Inquiries") |
+    @Html.ActionLink("Change Password", "ChangePassword", "Account") |
+    @Html.ActionLink("Log out", "LogOff", "Account") 
+
+    <div id="PanelSlider">
+        Control Panel
+
+    </div>
+</div>
+}
+
+<div id="container">
+  <div id="header">
+  	<a href="@Url.Action("Index", "Home")">
+      <img src="@Url.Content("~/Content/images/logo.gif")" alt="" />
+      </a>
+  <!-- end #header -->
+  <div id="menubar">
+  	        @{ Html.RenderAction("SiteMenu", "SiteMenu"); }
+
+  </div>
+  </div>
+  <div id="yellow_bar">
+  </div>
+  <div id="banner">
+      @RenderSection("banner", false)
+  </div>
+  <div id="social_bar">
+  Join Our Social Networks	 
+  <img src="@Url.Content("~/Content/images/socials.gif")" width="59" height="23" alt="" style="border: none"  usemap="#Map" />
+  
+  </div>
+  <div id="mainContent">
+      @RenderBody()
+	<!-- end #mainContent --></div>
+<!-- end #container --></div>
+
+<div id="footer_wrapper">
+  <div id="footer">
+    <p>
+    <span style="float:right">© 2012 ITelligent. All Rights Reserved</span>@Html.ActionLink("Terms & Conditions", "Details", "Pages", new { url="terms-conditions"}, null) 
+ | @Html.ActionLink("Privacy", "Details", "Pages", new { url="privacy"}, null) </p>
+  </div>
+
+</div>
+</body>
+</html>
+  <map name="Map" id="Map">
+    <area shape="rect" coords="3,3,21,20" href="http://www.facebook.com/ITelligenteg" target="_blank" />
+    <area shape="rect" coords="24,4,39,19" href="https://twitter.com/ITelligent_eg" target="_blank" />
+    <area shape="rect" coords="42,3,57,20" href="#" />
+  </map>

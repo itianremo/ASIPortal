@@ -1,0 +1,36 @@
+﻿@model DominosCMS.Models.Product
+@using DominosCMS.Web.Helpers;
+
+@{
+    ViewBag.Title = "_ProductSpecs";
+    if (Model == null || Model.Specifications == null) { return; }
+    
+    var specsList = Model.Specifications.OrderBy(s => s.ViewOrder).ToList();
+
+    
+}
+
+        <div id="toolbar">
+            <a id="btnAddSpecs" class="various" href="@Url.Action("AddSpecs", new { productID = Model.ID })" title="Add Specs item">
+                <img src="@Url.Content("~/_static/images/icons/new.png")" alt="Add Specs item" />
+            </a>
+            @Html.ImageActionLink(Url.Content("~/_static/images/icons/save.png"), "Save menu order", Url.Action("SortMenuList"), new { @class = "saveOrder various" })
+            <span id="loader" style="display: none">@Html.Image("spinner", Url.Content("~/_static/images/loading.gif"), "PLEASE WAIT...")</span>
+       </div>
+@using (Ajax.BeginForm(new AjaxOptions { 
+    Url = Url.Action("SortSpecs"),
+    HttpMethod = "Post",
+    LoadingElementId="loader",
+    OnFailure="alert('Error occured!')"
+}))
+{
+    <p style="font-style: italic">Drag items up and down to change view order then press the Save button above to apply changes.</p>
+
+      <ul id="specsList">
+          @if (Model != null)
+          {
+              Html.RenderPartial("Specs", specsList);
+          }
+
+      </ul>
+}

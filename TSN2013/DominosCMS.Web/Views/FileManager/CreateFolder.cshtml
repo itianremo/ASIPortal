@@ -1,0 +1,21 @@
+﻿@{
+    //Layout = "~/Views/Shared/_popup.cshtml";
+    Layout = null;
+    ViewBag.Title = "Create Folder";
+    string uploadDir = ViewBag.UploadDir.ToString();
+}
+    @Html.Script("jquery.validate.min.js")
+
+<div id="createfolder">
+<h2 style="margin-bottom: 10px;">Create Folder under <span style="color: Blue; font-weight: bold">@uploadDir</span></h2>
+<hr  style="margin-bottom: 15px;"/>
+@using (Html.BeginForm()) { 
+    
+<div class="editor-label ">
+    <label for="foldername">Folder Name: </label> @Html.TextBox("foldername", "", new { @class="required"})
+</div>
+    
+
+}
+</div>
+

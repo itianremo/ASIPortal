@@ -1,0 +1,167 @@
+﻿@model DominosCMS.Models.SubmittalItem
+
+@{
+    Layout = "~/Views/Shared/_members.cshtml";
+    decimal webDepth = Convert.ToDecimal(Model.Section.WebDepth);
+    var notes = ViewBag.Notes as IList<DominosCMS.Models.Note>;
+    var bcode = ViewBag.BuildingCode;
+    var vals = Model.Section.Values.Where(v => v.BuildingCode == bcode).OrderBy(v => v.Property.ViewOrder).ToList();
+}
+
+@section right {
+    <img src="/_static/images/primewallEq.jpg" width="299" />
+    <br />
+    @if (webDepth > 250) {    
+    <img src="/_static/images/pweq362-600.jpg"  /><br />
+<p>
+        Standard punchouts have a length of 2.5" and width of 1.5" located along the centerline of the web 24" o.c.</p>
+    <p>
+        Typical western punchout spacing 24" from lead end, then 24" o.c.
+    </p>
+    <p>
+        Typical eastern punchout spacing 12" from lead end, then 24" o.c.
+    </p>
+    } else {
+        <img src="/_static/images/pweq162-250.jpg"  /><br />
+<p>Standard punchouts have a length of 1.75" and width of 0.77" located along the centerline of the web 24" o.c.</p>
+<p>Typical western punchout spacing 24" from lead end, then 24" o.c.</p>
+<p>Typical eastern punchout spacing 12" from lead end, then 24" o.c.</p>
+    }
+
+    
+}
+
+            <table style="width:100%">
+                <!--Product Profile -->
+                <tr>
+                    <th colspan="3">Product Profile</th>
+                </tr>
+                <tr class="alt">
+                    <td>Web Depth (D)</td>
+                    <td class="val-col">@vals[0].Value </td><td>in</td>
+                </tr>
+                <tr>
+                    <td>Flange Width (B)</td>
+                    <td class="val-col">@vals[1].Value </td><td>in</td>
+                </tr>
+                <tr class="alt">
+                    <td>Return Lip (d)</td>
+                    <td class="val-col">@vals[2].Value </td><td>in</td>
+                </tr>
+                <tr>
+                    <td>Gauge</td>
+                    <td class="val-col">@vals[3].Value </td><td>ga</td>
+                </tr>
+                <tr class="alt">
+                    <td>Design Thickness (t)</td>
+                    <td class="val-col">@vals[4].Value </td><td>in</td>
+                </tr>
+                <tr>
+                    <td>Minimum Steel Thickness (t<sub>min</sub>)</td>
+                    <td class="val-col">@vals[5].Value </td><td>in</td>
+                </tr>
+                <tr class="alt">
+                    <td>Inside Bend Radius (R)</td>
+                    <td class="val-col">@vals[6].Value </td><td>in</td>
+                </tr>
+                <tr>
+                    <td>Punchout Length</td>
+                    <td class="val-col">@vals[7].Value </td><td>in</td>
+                </tr>
+                 <tr class="alt">
+                    <td>Punchout Width</td>
+                    <td class="val-col">@vals[8].Value </td><td>in</td>
+                </tr>
+               <!--Mechanical Properties -->
+                <tr>
+                    <th colspan="3">Material Composition</th>
+                </tr>
+                <tr >
+                    <td  >ASTM Standard:</td><td colspan="2"> @vals[9].Value</td>
+                </tr>
+                <tr class="alt">
+                    <td>Yield Strength (F<sub>y</sub>)</td>
+                    <td class="val-col">@vals[10].Value </td><td>ksi (MPa)</td>
+                </tr>
+                <tr >
+                    <td>Tensile Strength (F<sub>u</sub>)</td>
+                    <td class="val-col">@vals[11].Value </td><td>ksi (MPa)</td>
+                </tr>
+                <tr class="alt">
+                    <td>Coating Weight</td>
+                    <td class="val-col">@vals[12].Value </td><td></td>
+                </tr>
+                <!--Gross Properties -->
+                <tr>
+                    <th colspan="3">Gross Properties</th>
+                </tr>
+                <tr >
+                    <td>Area </td>
+                    <td class="val-col">@vals[13].Value </td><td>in<sup>2</sup></td>
+                </tr>
+                <tr class="alt">
+                    <td>Unit Weight </td>
+                    <td class="val-col">@vals[14].Value </td><td>(lbs/ft)</td>
+                </tr>
+                <tr >
+                    <td>Moment of Inertia (I<sub>x</sub>)</td>
+                    <td class="val-col">@vals[15].Value </td><td>in<sup>4</sup></td>
+                </tr>
+                <tr class="alt">
+                    <td>Radius of Gyration (R<sub>x</sub>)</td>
+                    <td class="val-col">@vals[16].Value </td><td>in</td>
+                </tr>
+                <tr >
+                    <td>Moment of Inertia (I<sub>y</sub>)</td>
+                    <td class="val-col">@vals[17].Value </td><td>in<sup>4</sup></td>
+                </tr>
+                <tr class="alt">
+                    <td>Radius of Gyration (R<sub>y</sub>)</td>
+                    <td class="val-col">@vals[18].Value </td><td>in</td>
+                </tr>
+                 <!--Effective Properties -->
+                <tr>
+                    <th colspan="3">Effective Properties</th>
+                </tr>
+                <tr>
+                    <td>Moment of Inertia for Deflection (I<sub>x</sub>)</td>
+                    <td class="val-col">@vals[19].Value </td><td>in<sup>4</sup></td>
+                </tr>
+                <tr class="alt">
+                    <td>Section Modulus (S<sub>x</sub>)</td>
+                    <td class="val-col">@vals[20].Value </td><td>in<sup>3</sup></td>
+                </tr>
+                <tr>
+                    <td>Allowable Local Bending Moment (M<sub>al</sub>)</td>
+                    <td class="val-col">@vals[21].Value </td><td>kips-in</td>
+                </tr>
+
+            </table>
+
+
+@section comments {
+    <ul class="no-bullet">
+ @if (notes != null) {
+   
+        foreach (var note in notes)
+        {
+            <li>
+                <span><sup>@note.Number</sup></span> @note.Text
+            </li>
+        }
+    
+    }
+    </ul>
+    <ul style="margin-top: 0;">
+
+<li>Section properties and capacities are calculated in accordance with AISI-NASPEC 2007. </li>
+<li>Tabulated gross properties are based on the full, unreduced cross section of the stud away from punchouts.</li>
+<li>Effective section properties incorporate the strength increase from cold work of forming as applicable per AISI-NASPEC, Sec. A7.2.</li>
+<li>PrimeWall EQ Studs are produced to meet or exceed ASTM C546, A653, and A1003.</li>
+<li>For deflection calculations, use the effective moment of inertia (Ix). This Ix is calculated at a stress which results in a section modulus such that the stress times the section modulus at that stress is equal to the allowable moment.  AISI S100-07 Procedure I for serviceability determination has been used.</li>
+  
+
+       
+    </ul>
+
+}

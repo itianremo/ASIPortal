@@ -1,0 +1,37 @@
+﻿@model DominosCMS.Models.SpecificationItem
+
+    <fieldset>
+        <legend>Specification Item</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Content)
+        </div>
+        <div class="editor-field  rte-fullfeature">
+            @Html.TextAreaFor(model => model.Content)
+            @Html.ValidationMessageFor(model => model.Content)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Filename)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Filename)
+            @Html.ValidationMessageFor(model => model.Filename)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ViewOrder)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ViewOrder)
+            @Html.ValidationMessageFor(model => model.ViewOrder)
+        </div>
+    </fieldset>

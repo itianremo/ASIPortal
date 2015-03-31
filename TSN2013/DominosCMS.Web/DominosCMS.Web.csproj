@@ -1,0 +1,1809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{732CD82A-45E8-4B53-B2B4-E39EC5E6B8AF}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DominosCMS.Web</RootNamespace>
+    <AssemblyName>DominosCMS.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DbCore">
+      <HintPath>..\..\Elite Schools\Elite\DbCore\bin\Debug\DbCore.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Pdf">
+      <HintPath>..\EO.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.4.1.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorPDF">
+      <HintPath>..\packages\RazorPDF.1.0.0\lib\net40\RazorPDF.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Admin\Controllers\DownloadsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ConfigController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManageUsersController.cs" />
+    <Compile Include="Areas\Admin\ManageUsers\ManageEntities.aspx.cs">
+      <DependentUpon>ManageEntities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\ManageUsers\ManageEntities.aspx.designer.cs">
+      <DependentUpon>ManageEntities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\ManageUsers\ManageJobs.aspx.cs">
+      <DependentUpon>ManageJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\ManageUsers\ManageJobs.aspx.designer.cs">
+      <DependentUpon>ManageJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\ManageUsers\ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Admin\ManageUsers\ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Areas\Admin\Models\EditMenuModel.cs" />
+    <Compile Include="Areas\Admin\Models\EditPageModel.cs" />
+    <Compile Include="Configuration\MenuTypeCollection.cs" />
+    <Compile Include="Configuration\MenuTypeElement.cs" />
+    <Compile Include="Configuration\MenuTypeParamElement.cs" />
+    <Compile Include="Configuration\MenuTypeParamsCollection.cs" />
+    <Compile Include="Configuration\MenuTypesConfigConstants.cs" />
+    <Compile Include="Configuration\MenuTypesSettings.cs" />
+    <Compile Include="Controllers\CaptchaImageController.cs" />
+    <Compile Include="Controllers\CController.cs" />
+    <Compile Include="Controllers\DownloadsController.cs" />
+    <Compile Include="FormAuth.aspx.cs">
+      <DependentUpon>FormAuth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormAuth.aspx.designer.cs">
+      <DependentUpon>FormAuth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CaptchaHelper.cs" />
+    <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Resources\Labels.ar-eg.Designer.cs">
+      <DependentUpon>Labels.ar-eg.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Labels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GalleryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SiteMenuController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BannersController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FileManagerController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InquiriesController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PagesController.cs" />
+    <Compile Include="Controllers\SiteMenuController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\ImageHelpers.cs" />
+    <Compile Include="Helpers\Mailer.cs" />
+    <Compile Include="Helpers\TreeViewHelpers.cs" />
+    <Compile Include="Helpers\Util.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\EditMenuItemModel.cs" />
+    <Compile Include="Models\FileManagerModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Countries.xml" />
+    <Content Include="App_Data\HOW.xml" />
+    <Content Include="App_Data\States.xml" />
+    <Content Include="Areas\Admin\ManageUsers\ManageEntities.aspx" />
+    <Content Include="Areas\Admin\ManageUsers\ManageJobs.aspx" />
+    <Content Include="Areas\Admin\ManageUsers\ManageUsers.aspx" />
+    <Content Include="bs.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="FormAuth.aspx" />
+    <Content Include="_static\Content\HW\HW-D-0003 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0003 - Joint Systems_files\ulb124.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0003 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0003.htm" />
+    <Content Include="_static\Content\HW\HW-D-0024 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0024 - Joint Systems_files\uld271.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0024 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0024.htm" />
+    <Content Include="_static\Content\HW\HW-D-0025 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0025 - Joint Systems_files\uld294.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0025 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0025.htm" />
+    <Content Include="_static\Content\HW\HW-D-0036 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0036 - Joint Systems_files\uld973.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0036 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0036.htm" />
+    <Content Include="_static\Content\HW\HW-D-0042 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0042 - Joint Systems_files\ule176.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0042 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0042.htm" />
+    <Content Include="_static\Content\HW\HW-D-0043 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0043 - Joint Systems_files\ule551.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0043 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0043.htm" />
+    <Content Include="_static\Content\HW\HW-D-0044 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0044 - Joint Systems_files\ule552.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0044 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0044.htm" />
+    <Content Include="_static\Content\HW\HW-D-0045 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0045 - Joint Systems_files\ulf128.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0045 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0045.htm" />
+    <Content Include="_static\Content\HW\HW-D-0046 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0046 - Joint Systems_files\ulf129.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0046 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0046.htm" />
+    <Content Include="_static\Content\HW\HW-D-0047 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0047 - Joint Systems_files\ule716.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0047 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0047.htm" />
+    <Content Include="_static\Content\HW\HW-D-0048 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0048 - Joint Systems_files\ule717.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0048 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0048.htm" />
+    <Content Include="_static\Content\HW\HW-D-0049 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0049 - Joint Systems_files\ule979.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0049 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0049.htm" />
+    <Content Include="_static\Content\HW\HW-D-0054 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0054 - Joint Systems_files\ule968.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0054 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0054.htm" />
+    <Content Include="_static\Content\HW\HW-D-0062 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0062 - Joint Systems_files\ule867.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0062 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0062.htm" />
+    <Content Include="_static\Content\HW\HW-D-0063 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0063 - Joint Systems_files\ule868.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0063 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0063.htm" />
+    <Content Include="_static\Content\HW\HW-D-0066 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0066 - Joint Systems_files\ulf825.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0066 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0066.htm" />
+    <Content Include="_static\Content\HW\HW-D-0067 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0067 - Joint Systems_files\ulg236.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0067 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0067.htm" />
+    <Content Include="_static\Content\HW\HW-D-0068 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0068 - Joint Systems_files\ulg237.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0068 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0068.htm" />
+    <Content Include="_static\Content\HW\HW-D-0069 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0069 - Joint Systems_files\ulj418.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0069 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0069.htm" />
+    <Content Include="_static\Content\HW\HW-D-0071 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0071 - Joint Systems_files\ulg657.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0071 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0071.htm" />
+    <Content Include="_static\Content\HW\HW-D-0072 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0072 - Joint Systems_files\ulg656.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0072 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0072.htm" />
+    <Content Include="_static\Content\HW\HW-D-0073 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0073 - Joint Systems_files\ulj366.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0073 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0073.htm" />
+    <Content Include="_static\Content\HW\HW-D-0076 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0076 - Joint Systems_files\ulf130.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0076 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0076.htm" />
+    <Content Include="_static\Content\HW\HW-D-0077 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0077 - Joint Systems_files\ulf131.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0077 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0077.htm" />
+    <Content Include="_static\Content\HW\HW-D-0079 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0079 - Joint Systems_files\ulf074.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0079 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0079.htm" />
+    <Content Include="_static\Content\HW\HW-D-0082 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0082 - Joint Systems_files\ulf631.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0082 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0082.htm" />
+    <Content Include="_static\Content\HW\HW-D-0083 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0083 - Joint Systems_files\ulf632.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0083 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0083.htm" />
+    <Content Include="_static\Content\HW\HW-D-0084 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0084 - Joint Systems_files\ulf633.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0084 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0084.htm" />
+    <Content Include="_static\Content\HW\HW-D-0085 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0085 - Joint Systems_files\ulf634.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0085 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0085.htm" />
+    <Content Include="_static\Content\HW\HW-D-0087 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0087 - Joint Systems_files\ulf235.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0087 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0087.htm" />
+    <Content Include="_static\Content\HW\HW-D-0089 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0089 - Joint Systems_files\ulf245.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0089 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0089.htm" />
+    <Content Include="_static\Content\HW\HW-D-0091 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0091 - Joint Systems_files\ulf280.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0091 - Joint Systems_files\ulf281.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0091 - Joint Systems_files\ulg460.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0091 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0091.htm" />
+    <Content Include="_static\Content\HW\HW-D-0102 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0102 - Joint Systems_files\ulf419.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0102 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0102.htm" />
+    <Content Include="_static\Content\HW\HW-D-0106 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0106 - Joint Systems_files\ulf490.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0106 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0106.htm" />
+    <Content Include="_static\Content\HW\HW-D-0152 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0152 - Joint Systems_files\ulh073.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0152 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0152.htm" />
+    <Content Include="_static\Content\HW\HW-D-0154 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0154 - Joint Systems_files\ulh183.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0154 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0154.htm" />
+    <Content Include="_static\Content\HW\HW-D-0160 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0160 - Joint Systems_files\ulg788.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0160 - Joint Systems_files\ulg789.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0160 - Joint Systems_files\ulk650.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0160 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0160.htm" />
+    <Content Include="_static\Content\HW\HW-D-0162 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0162 - Joint Systems_files\ulh099.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0162 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0162.htm" />
+    <Content Include="_static\Content\HW\HW-D-0167 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0167 - Joint Systems_files\ulg909.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0167 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0167.htm" />
+    <Content Include="_static\Content\HW\HW-D-0184 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0184 - Joint Systems_files\ulj124.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0184 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0184.htm" />
+    <Content Include="_static\Content\HW\HW-D-0185 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0185 - Joint Systems_files\ulj147.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0185 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0185.htm" />
+    <Content Include="_static\Content\HW\HW-D-0186 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0186 - Joint Systems_files\ulj208.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0186 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0186.htm" />
+    <Content Include="_static\Content\HW\HW-D-0190 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0190 - Joint Systems_files\ulj125.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0190 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0190.htm" />
+    <Content Include="_static\Content\HW\HW-D-0193 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0193 - Joint Systems_files\ulh555.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0193 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0193.htm" />
+    <Content Include="_static\Content\HW\HW-D-0209 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0209 - Joint Systems_files\ulj772.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0209 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0209.htm" />
+    <Content Include="_static\Content\HW\HW-D-0218 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0218 - Joint Systems_files\ulj631.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0218 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0218.htm" />
+    <Content Include="_static\Content\HW\HW-D-0246 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0246 - Joint Systems_files\ulj658.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0246 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0246.htm" />
+    <Content Include="_static\Content\HW\HW-D-0256 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0256 - Joint Systems_files\ulk301.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0256 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0256.htm" />
+    <Content Include="_static\Content\HW\HW-D-0259 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0259 - Joint Systems_files\ulk335.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0259 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0259.htm" />
+    <Content Include="_static\Content\HW\HW-D-0263 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0263 - Joint Systems_files\ulk244.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0263 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0263.htm" />
+    <Content Include="_static\Content\HW\HW-D-0271 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0271 - Joint Systems_files\ulk875.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0271 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0271.htm" />
+    <Content Include="_static\Content\HW\HW-D-0272 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0272 - Joint Systems_files\ulk876.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0272 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0272.htm" />
+    <Content Include="_static\Content\HW\HW-D-0275 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0275 - Joint Systems_files\ulk824.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0275 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0275.htm" />
+    <Content Include="_static\Content\HW\HW-D-0277 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0277 - Joint Systems_files\ulk825.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0277 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0277.htm" />
+    <Content Include="_static\Content\HW\HW-D-0278 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0278 - Joint Systems_files\ulk878.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0278 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0278.htm" />
+    <Content Include="_static\Content\HW\HW-D-0280.htm" />
+    <Content Include="_static\Content\HW\HW-D-0280_files\copyrightOCD_2005.js" />
+    <Content Include="_static\Content\HW\HW-D-0280_files\header.gif" />
+    <Content Include="_static\Content\HW\HW-D-0280_files\ocdprint_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0280_files\ocdstylesheet_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0280_files\ulr691.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0280_files\UL_independent.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0293.htm" />
+    <Content Include="_static\Content\HW\HW-D-0293_files\copyrightOCD_2005.js" />
+    <Content Include="_static\Content\HW\HW-D-0293_files\header.gif" />
+    <Content Include="_static\Content\HW\HW-D-0293_files\ocdprint_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0293_files\ocdstylesheet_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0293_files\ulr694.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0293_files\UL_independent.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0299 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0299 - Joint Systems_files\ulk812.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0299 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0299.htm" />
+    <Content Include="_static\Content\HW\HW-D-0310 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0310 - Joint Systems_files\ulo183.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0310 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0310.htm" />
+    <Content Include="_static\Content\HW\HW-D-0313 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0313 - Joint Systems_files\ulo117.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0313 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0313.htm" />
+    <Content Include="_static\Content\HW\HW-D-0321 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0321 - Joint Systems_files\ulo279.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0321 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0321.htm" />
+    <Content Include="_static\Content\HW\HW-D-0322 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0322 - Joint Systems_files\ulo280.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0322 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0322.htm" />
+    <Content Include="_static\Content\HW\HW-D-0324 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0324 - Joint Systems_files\ulo282.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0324 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0324.htm" />
+    <Content Include="_static\Content\HW\HW-D-0341 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0341 - Joint Systems_files\ulo452.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0341 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0341.htm" />
+    <Content Include="_static\Content\HW\HW-D-0342.htm" />
+    <Content Include="_static\Content\HW\HW-D-0342_files\copyrightOCD_2005.js" />
+    <Content Include="_static\Content\HW\HW-D-0342_files\header.gif" />
+    <Content Include="_static\Content\HW\HW-D-0342_files\ocdprint_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0342_files\ocdstylesheet_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0342_files\ulq949.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0342_files\UL_independent.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0353 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0353 - Joint Systems_files\ulq098.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0353 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0353.htm" />
+    <Content Include="_static\Content\HW\HW-D-0356 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0356 - Joint Systems_files\ulq101.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0356 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0356.htm" />
+    <Content Include="_static\Content\HW\HW-D-0357 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0357 - Joint Systems_files\ulq102.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0357 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0357.htm" />
+    <Content Include="_static\Content\HW\HW-D-0358 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0358 - Joint Systems_files\ulq103.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0358 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0358.htm" />
+    <Content Include="_static\Content\HW\HW-D-0363 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0363 - Joint Systems_files\ulq279.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0363 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0363.htm" />
+    <Content Include="_static\Content\HW\HW-D-0365 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0365 - Joint Systems_files\ulq219.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0365 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0365.htm" />
+    <Content Include="_static\Content\HW\HW-D-0368 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0368 - Joint Systems_files\ulq236.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0368 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0368.htm" />
+    <Content Include="_static\Content\HW\HW-D-0370 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0370 - Joint Systems_files\ulq238.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0370 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0370.htm" />
+    <Content Include="_static\Content\HW\HW-D-0371 - Joint Systems_files\topbar.gif" />
+    <Content Include="_static\Content\HW\HW-D-0371 - Joint Systems_files\ulq280.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0371 - Joint Systems_files\up_left.gif" />
+    <Content Include="_static\Content\HW\HW-D-0371.htm" />
+    <Content Include="_static\Content\HW\HW-D-0404.htm" />
+    <Content Include="_static\Content\HW\HW-D-0404_files\copyrightOCD_2005.js" />
+    <Content Include="_static\Content\HW\HW-D-0404_files\header.gif" />
+    <Content Include="_static\Content\HW\HW-D-0404_files\ocdprint_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0404_files\ocdstylesheet_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0404_files\uls024.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0404_files\UL_independent.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0420.htm" />
+    <Content Include="_static\Content\HW\HW-D-0420_files\copyrightOCD_2005.js" />
+    <Content Include="_static\Content\HW\HW-D-0420_files\header.gif" />
+    <Content Include="_static\Content\HW\HW-D-0420_files\ocdprint_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0420_files\ocdstylesheet_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0420_files\uls201.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0420_files\UL_independent.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0421.htm" />
+    <Content Include="_static\Content\HW\HW-D-0421_files\copyrightOCD_2005.js" />
+    <Content Include="_static\Content\HW\HW-D-0421_files\header.gif" />
+    <Content Include="_static\Content\HW\HW-D-0421_files\ocdprint_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0421_files\ocdstylesheet_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0421_files\uls202.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0421_files\UL_independent.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0460.htm" />
+    <Content Include="_static\Content\HW\HW-D-0460_files\copyrightOCD_2005.js" />
+    <Content Include="_static\Content\HW\HW-D-0460_files\header.gif" />
+    <Content Include="_static\Content\HW\HW-D-0460_files\ocdprint_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0460_files\ocdstylesheet_2005.css" />
+    <Content Include="_static\Content\HW\HW-D-0460_files\uls631.jpg" />
+    <Content Include="_static\Content\HW\HW-D-0460_files\UL_independent.jpg" />
+    <Content Include="_static\Content\HW\XHLI7_R19248 - Light Gauge Framing Certified for Canada.htm" />
+    <Content Include="_static\Content\HW\XHLI7_R19248 - Light Gauge Framing Certified for Canada_files\topbar.gif" />
+    <Content Include="_static\Content\HW\XHLI7_R19248 - Light Gauge Framing Certified for Canada_files\up_left.gif" />
+    <Content Include="_static\Content\HW\XHLI_R19248 - Light Gauge Framing.htm" />
+    <Content Include="_static\Content\HW\XHLI_R19248 - Light Gauge Framing_files\topbar.gif" />
+    <Content Include="_static\Content\HW\XHLI_R19248 - Light Gauge Framing_files\up_left.gif" />
+    <Content Include="_static\css\admin.css" />
+    <Content Include="_static\css\bg.jpg" />
+    <Content Include="_static\css\customerPanel.css" />
+    <Content Include="_static\css\editor.css" />
+    <Content Include="_static\css\filemanager.css" />
+    <Content Include="_static\css\fire-rated.css" />
+    <Content Include="_static\css\gallery.css" />
+    <Content Include="_static\css\gallery\ad_next.png" />
+    <Content Include="_static\css\gallery\ad_prev.png" />
+    <Content Include="_static\css\gallery\ad_scroll_back.png" />
+    <Content Include="_static\css\gallery\ad_scroll_forward.png" />
+    <Content Include="_static\css\gallery\jquery.ad-gallery.css" />
+    <Content Include="_static\css\gallery\loader.gif" />
+    <Content Include="_static\css\gallery\opa75.png" />
+    <Content Include="_static\css\jqgrid\ellipsis-xbl.xml" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-anim_basic_16x16.gif" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="_static\css\jqgrid\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="_static\css\jqgrid\redmond\jquery-ui-1.8.2.custom.css" />
+    <Content Include="_static\css\jqgrid\ui.jqgrid.css" />
+    <Content Include="_static\css\jqgrid\ui.multiselect.css" />
+    <Content Include="_static\css\members.css" />
+    <Content Include="_static\css\menu\AI-Down.png" />
+    <Content Include="_static\css\menu\AI-Up.png" />
+    <Content Include="_static\css\menu\arrowsub.png" />
+    <Content Include="_static\css\menu\b-home-32.png" />
+    <Content Include="_static\css\menu\blue-download-32.png" />
+    <Content Include="_static\css\menu\blue-menu-32.png" />
+    <Content Include="_static\css\menu\blue-samples-32.png" />
+    <Content Include="_static\css\menu\blue-support-32.png" />
+    <Content Include="_static\css\menu\blue-tabs-32.png" />
+    <Content Include="_static\css\menu\blue-tree-32.png" />
+    <Content Include="_static\css\menu\clock.png" />
+    <Content Include="_static\css\menu\DOC-Down.png" />
+    <Content Include="_static\css\menu\DOC-Up.png" />
+    <Content Include="_static\css\menu\EPS-Down.png" />
+    <Content Include="_static\css\menu\EPS-Up.png" />
+    <Content Include="_static\css\menu\g-micon2.png" />
+    <Content Include="_static\css\menu\g-micon3.png" />
+    <Content Include="_static\css\menu\g-micon5.png" />
+    <Content Include="_static\css\menu\gears.png" />
+    <Content Include="_static\css\menu\green-menu-32.png" />
+    <Content Include="_static\css\menu\hsep.png" />
+    <Content Include="_static\css\menu\JPG-Down.png" />
+    <Content Include="_static\css\menu\JPG-Up.png" />
+    <Content Include="_static\css\menu\mainbk.png" />
+    <Content Include="_static\css\menu\MOV-Down.png" />
+    <Content Include="_static\css\menu\MOV-Up.png" />
+    <Content Include="_static\css\menu\MP4-Down.png" />
+    <Content Include="_static\css\menu\MP4-Up.png" />
+    <Content Include="_static\css\menu\PDF-Down.png" />
+    <Content Include="_static\css\menu\PDF-Up.png" />
+    <Content Include="_static\css\menu\PNG-Down.png" />
+    <Content Include="_static\css\menu\PNG-Up.png" />
+    <Content Include="_static\css\menu\PPT-Down.png" />
+    <Content Include="_static\css\menu\PPT-Up.png" />
+    <Content Include="_static\css\menu\PSD-Down.png" />
+    <Content Include="_static\css\menu\PSD-Up.png" />
+    <Content Include="_static\css\menu\style.css" />
+    <Content Include="_static\css\menu\XLS-Down.png" />
+    <Content Include="_static\css\menu\XLS-Up.png" />
+    <Content Include="_static\css\productManager.css" />
+    <Content Include="_static\css\submittalBuilder.css" />
+    <Content Include="_static\css\tablesorter\themes\blue\asc.gif" />
+    <Content Include="_static\css\tablesorter\themes\blue\bg.gif" />
+    <Content Include="_static\css\tablesorter\themes\blue\desc.gif" />
+    <Content Include="_static\css\tablesorter\themes\blue\style.css" />
+    <Content Include="_static\css\tablesorter\themes\green\asc.png" />
+    <Content Include="_static\css\tablesorter\themes\green\bg.png" />
+    <Content Include="_static\css\tablesorter\themes\green\desc.png" />
+    <Content Include="_static\css\tablesorter\themes\green\style.css" />
+    <Content Include="_static\images\4we.gif" />
+    <Content Include="_static\images\add.jpg" />
+    <Content Include="_static\images\ajax-loader.gif" />
+    <Content Include="_static\css\images\banner2.jpg" />
+    <Content Include="_static\css\images\blue_bullet.png" />
+    <Content Include="_static\css\images\body_bg.jpg" />
+    <Content Include="_static\images\banner2.jpg" />
+    <Content Include="_static\images\bim-icon.png" />
+    <Content Include="_static\images\bullet.gif" />
+    <Content Include="_static\images\cad_graphic.gif" />
+    <Content Include="_static\css\images\copyright_bg.png" />
+    <Content Include="_static\css\images\file.gif" />
+    <Content Include="_static\css\images\folder-closed.gif" />
+    <Content Include="_static\css\images\folder.gif" />
+    <Content Include="_static\css\images\footer-bg.jpg" />
+    <Content Include="_static\css\images\footer_bg.jpg" />
+    <Content Include="_static\css\images\footer_bg.png" />
+    <Content Include="_static\css\images\header-bg.gif" />
+    <Content Include="_static\css\images\header_bg.jpg" />
+    <Content Include="_static\css\images\home_col_img_frame.gif" />
+    <Content Include="_static\css\images\input-field-bg.png" />
+    <Content Include="_static\css\images\left-link-hover.png" />
+    <Content Include="_static\css\images\left-link-hover2.png" />
+    <Content Include="_static\css\images\left_bg.png" />
+    <Content Include="_static\css\images\login-btn.png" />
+    <Content Include="_static\css\images\main-sub-frame.png" />
+    <Content Include="_static\css\images\main_frame.png" />
+    <Content Include="_static\css\images\map-frame.png" />
+    <Content Include="_static\css\images\menu-aboutus.png" />
+    <Content Include="_static\css\images\menu-contactus.png" />
+    <Content Include="_static\css\images\menu-erp.png" />
+    <Content Include="_static\css\images\menu-home.png" />
+    <Content Include="_static\css\images\menu-otms.png" />
+    <Content Include="_static\css\images\menu-services.png" />
+    <Content Include="_static\css\images\menu-testimonials.png" />
+    <Content Include="_static\css\images\minus.gif" />
+    <Content Include="_static\css\images\otms-icon-over.png" />
+    <Content Include="_static\css\images\otms-icon.png" />
+    <Content Include="_static\css\images\otms-login-txt.png" />
+    <Content Include="_static\css\images\our-clients-title.png" />
+    <Content Include="_static\css\images\plus.gif" />
+    <Content Include="_static\css\images\sep.png" />
+    <Content Include="_static\css\images\services-icon-over.png" />
+    <Content Include="_static\css\images\services-icon.png" />
+    <Content Include="_static\css\images\testimonials-icon-over.png" />
+    <Content Include="_static\css\images\testimonials-icon.png" />
+    <Content Include="_static\css\images\testimonials-title.png" />
+    <Content Include="_static\css\images\tooptip.png" />
+    <Content Include="_static\css\images\treeview-black-line.gif" />
+    <Content Include="_static\css\images\treeview-black.gif" />
+    <Content Include="_static\css\images\treeview-default-line.gif" />
+    <Content Include="_static\css\images\treeview-default.gif" />
+    <Content Include="_static\css\images\treeview-famfamfam-line.gif" />
+    <Content Include="_static\css\images\treeview-famfamfam.gif" />
+    <Content Include="_static\css\images\treeview-gray-line.gif" />
+    <Content Include="_static\css\images\treeview-gray.gif" />
+    <Content Include="_static\css\images\treeview-red-line.gif" />
+    <Content Include="_static\css\images\treeview-red.gif" />
+    <Content Include="_static\css\images\yellow_bar.gif" />
+    <Content Include="_static\css\images\yellow_bullet.png" />
+    <Content Include="_static\css\main.css" />
+    <Content Include="_static\css\MenuBarRight.gif" />
+    <Content Include="_static\css\MenuBarRightHover.gif" />
+    <Content Include="_static\css\sitemenu_browser.css" />
+    <Content Include="_static\css\images\closed_folder_yellow.png" />
+    <Content Include="_static\css\images\new_folder.png" />
+    <Content Include="_static\css\images\open_folder_yellow.png" />
+    <Content Include="_static\css\images\spinner_small.gif" />
+    <Content Include="_static\css\images\toolbar-bg.jpg" />
+    <Content Include="_static\css\images\upload_file.png" />
+    <Content Include="_static\css\images\view_refresh.png" />
+    <Content Include="_static\css\forms.css" />
+    <Content Include="_static\css\popup.css" />
+    <Content Include="_static\css\tipsy.css" />
+    <Content Include="_static\images\about.png" />
+    <Content Include="_static\images\banner_icon.png" />
+    <Content Include="_static\images\calendar.png" />
+    <Content Include="_static\images\change-password.png" />
+    <Content Include="_static\images\ConventionalStud.jpg" />
+    <Content Include="_static\images\ConventionalTrack.jpg" />
+    <Content Include="_static\images\CurtainWallStud.jpg" />
+    <Content Include="_static\images\doc-icon.png" />
+    <Content Include="_static\images\download.png" />
+    <Content Include="_static\images\dwg-icon.png" />
+    <Content Include="_static\images\filemanager\avi.gif" />
+    <Content Include="_static\images\filemanager\excel.png" />
+    <Content Include="_static\images\filemanager\pdf.png" />
+    <Content Include="_static\images\filemanager\flash.gif" />
+    <Content Include="_static\images\filemanager\flv.gif" />
+    <Content Include="_static\images\filemanager\generalFileType.gif" />
+    <Content Include="_static\images\filemanager\ppt.png" />
+    <Content Include="_static\images\filemanager\swf.png" />
+    <Content Include="_static\images\filemanager\word.png" />
+    <Content Include="_static\images\filemanager\pdf.gif" />
+    <Content Include="_static\images\filemanager\qt.gif" />
+    <Content Include="_static\images\filemanager\rm.gif" />
+    <Content Include="_static\images\FlatStrap.jpg" />
+    <Content Include="_static\images\folder.png" />
+    <Content Include="_static\images\forms.png" />
+    <Content Include="_static\images\gallery.png" />
+    <Content Include="_static\images\icons\accepted.png" />
+    <Content Include="_static\images\icons\add.jpg" />
+    <Content Include="_static\images\icons\delete.jpg" />
+    <Content Include="_static\images\icons\delete.png" />
+    <Content Include="_static\images\icons\delete2.jpg" />
+    <Content Include="_static\images\icons\deletered.png" />
+    <Content Include="_static\images\icons\details.jpg" />
+    <Content Include="_static\images\icons\down.jpg" />
+    <Content Include="_static\images\icons\download.png" />
+    <Content Include="_static\images\icons\edit.jpg" />
+    <Content Include="_static\images\icons\edit.png" />
+    <Content Include="_static\images\icons\excel.jpg" />
+    <Content Include="_static\images\icons\Favorites.png" />
+    <Content Include="_static\images\icons\fb-n.png" />
+    <Content Include="_static\images\icons\fb-o.png" />
+    <Content Include="_static\images\icons\linkedin.jpg" />
+    <Content Include="_static\images\icons\new.png" />
+    <Content Include="_static\images\icons\notvalid.png" />
+    <Content Include="_static\images\icons\openfile.png" />
+    <Content Include="_static\images\icons\pintrest.jpg" />
+    <Content Include="_static\images\icons\recycle.png" />
+    <Content Include="_static\images\icons\rss-n.png" />
+    <Content Include="_static\images\icons\rss-o.png" />
+    <Content Include="_static\images\icons\save.png" />
+    <Content Include="_static\images\icons\tw-n.png" />
+    <Content Include="_static\images\icons\tw-o.png" />
+    <Content Include="_static\images\icons\up.jpg" />
+    <Content Include="_static\images\icons\word.jpg" />
+    <Content Include="_static\images\icons\yt-n.png" />
+    <Content Include="_static\images\icons\yt-o.png" />
+    <Content Include="_static\css\images\up_one_dir.png" />
+    <Content Include="_static\css\jquery.treeview.css" />
+    <Content Include="_static\images\Image Placeholder.jpg" />
+    <Content Include="_static\images\js-1.jpg" />
+    <Content Include="_static\images\js-2.jpg" />
+    <Content Include="_static\images\loader2.gif" />
+    <Content Include="_static\images\loading.gif" />
+    <Content Include="_static\images\logo.jpg" />
+    <Content Include="_static\images\logos\arage.gif" />
+    <Content Include="_static\images\logos\cis.gif" />
+    <Content Include="_static\images\logos\electronics_inistitute.gif" />
+    <Content Include="_static\images\logos\iom.gif" />
+    <Content Include="_static\images\logos\mega_plast.gif" />
+    <Content Include="_static\images\logos\nile_takafol.jpg" />
+    <Content Include="_static\images\logos\OASIS.gif" />
+    <Content Include="_static\images\logos\stars_group.gif" />
+    <Content Include="_static\images\logos\whs.gif" />
+    <Content Include="_static\images\logout.png" />
+    <Content Include="_static\images\main-img.png" />
+    <Content Include="_static\images\members.png" />
+    <Content Include="_static\images\newicons\fb-n.jpg" />
+    <Content Include="_static\images\newicons\fb-o.jpg" />
+    <Content Include="_static\images\newicons\LinkedIn-n.jpg" />
+    <Content Include="_static\images\newicons\LinkedIn-o.jpg" />
+    <Content Include="_static\images\newicons\RSS-n.jpg" />
+    <Content Include="_static\images\newicons\RSS-o.jpg" />
+    <Content Include="_static\images\newicons\twitter-n.jpg" />
+    <Content Include="_static\images\newicons\twitter-o.jpg" />
+    <Content Include="_static\images\newicons\YouTube-n.jpg" />
+    <Content Include="_static\images\newicons\YouTube-o.jpg" />
+    <Content Include="_static\images\news-admin.png" />
+    <Content Include="_static\images\no_image_thumb.gif" />
+    <Content Include="_static\images\pdf-icon.png" />
+    <Content Include="_static\images\PrimeWallStud.jpg" />
+    <Content Include="_static\images\PWAngel.jpg" />
+    <Content Include="_static\images\PWEQStud.jpg" />
+    <Content Include="_static\images\PWEQTrack.jpg" />
+    <Content Include="_static\images\pwfc.jpg" />
+    <Content Include="_static\images\PWResilient.jpg" />
+    <Content Include="_static\images\pwtrack.jpg" />
+    <Content Include="_static\images\pwz.jpg" />
+    <Content Include="_static\images\report.png" />
+    <Content Include="_static\images\search-icon.jpg" />
+    <Content Include="_static\images\services.png" />
+    <Content Include="_static\images\sg.jpg" />
+    <Content Include="_static\images\SigmaTrak.jpg" />
+    <Content Include="_static\images\site_menu.png" />
+    <Content Include="_static\images\socials.gif" />
+    <Content Include="_static\images\specs-icon.png" />
+    <Content Include="_static\images\spinner_small.gif" />
+    <Content Include="_static\images\StiffWallColumn.jpg" />
+    <Content Include="_static\images\logo_ph.png" />
+    <Content Include="_static\images\temp\1.jpg" />
+    <Content Include="_static\images\temp\2.jpg" />
+    <Content Include="_static\images\TSN-ASI-Portal-Logo-01sm.png" />
+    <Content Include="_static\images\TSN-ASI-Portal-Logo-web.png" />
+    <Content Include="_static\images\web_page.png" />
+    <Content Include="_static\Content\mails\mailTemplate.htm" />
+    <Content Include="_static\images\Star-Default.png" />
+    <Content Include="_static\images\Star-Selected.png" />
+    <Content Include="_static\css\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="_static\css\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="_static\css\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="_static\css\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="_static\css\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="_static\css\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="_static\css\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="_static\css\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="_static\css\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="_static\css\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="_static\css\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="_static\css\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="_static\css\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="_static\css\themes\base\jquery.ui.accordion.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.all.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.base.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.button.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.core.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.dialog.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.resizable.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.selectable.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.slider.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.tabs.css" />
+    <Content Include="_static\css\themes\base\jquery.ui.theme.css" />
+    <Content Include="_static\css\gray\design\dot-02.gif" />
+    <Content Include="_static\css\gray\design\dot-03.gif" />
+    <Content Include="_static\css\gray\design\dot.gif" />
+    <Content Include="_static\css\gray\design\ico-list.gif" />
+    <Content Include="_static\css\gray\images\dot-02.gif" />
+    <Content Include="_static\css\gray\images\dot-03.gif" />
+    <Content Include="_static\css\gray\images\dot.gif" />
+    <Content Include="_static\css\gray\images\ico-list.gif" />
+    <Content Include="_static\css\gray\index.html" />
+    <Content Include="_static\css\gray\css\main-msie.css" />
+    <Content Include="_static\css\gray\css\main.css" />
+    <Content Include="_static\css\gray\css\print.css" />
+    <Content Include="_static\css\gray\css\scheme.css" />
+    <Content Include="_static\css\gray\tmp\image-02.gif" />
+    <Content Include="_static\css\gray\tmp\image-03.gif" />
+    <Content Include="_static\css\gray\tmp\image.gif" />
+    <Content Include="_static\css\themes\blue\blue.css" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_diagonals-small_25_c5ddfc_40x40.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_diagonals-thick_20_e69700_40x40.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_diagonals-thick_22_1484e6_40x40.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_diagonals-thick_26_2293f7_40x40.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_flat_0_e69700_40x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_flat_0_e6b900_40x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_highlight-soft_100_f9f9f9_1x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_inset-hard_100_eeeeee_1x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_0a82eb_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_0b54d5_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_5fa5e3_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_fcdd4a_256x240.png" />
+    <Content Include="_static\css\themes\blue\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Global.asax" />
+    <Content Include="_static\js\admin.js" />
+    <Content Include="_static\js\browseButton.gif" />
+    <Content Include="_static\js\contacts.js" />
+    <Content Include="_static\js\custom_products.js" />
+    <Content Include="_static\js\email_submittal.js" />
+    <Content Include="_static\js\filemanager.js" />
+    <Content Include="_static\js\fire_rated.js" />
+    <Content Include="_static\js\home-banner.js" />
+    <Content Include="_static\js\jquery-1.5.1-vsdoc.js" />
+    <Content Include="_static\js\jquery-1.5.1.js" />
+    <Content Include="_static\js\jquery-1.5.1.min.js" />
+    <Content Include="_static\js\jquery-1.7.1.js" />
+    <Content Include="_static\js\jquery-1.7.1.min.js" />
+    <Content Include="_static\js\jquery-1.8.0.min.js" />
+    <Content Include="_static\js\jquery-ui-1.8.11.js" />
+    <Content Include="_static\js\jquery-ui-1.8.11.min.js" />
+    <Content Include="_static\js\lib\flexslider\flexslider.css" />
+    <Content Include="_static\js\lib\flexslider\jquery.flexslider-min.js" />
+    <Content Include="_static\js\jquery.gmap.js" />
+    <Content Include="_static\js\jquery.rotator.js" />
+    <Content Include="_static\js\jquery.tipsy.js" />
+    <Content Include="_static\js\jquery.validate-vsdoc.js" />
+    <Content Include="_static\js\jquery.validate.js" />
+    <Content Include="_static\js\jquery.validate.min.js" />
+    <Content Include="_static\js\jquery.watermark.min.js" />
+    <Content Include="_static\js\lib\fancybox\blank.gif" />
+    <Content Include="_static\js\lib\fancybox\fancybox_loading.gif" />
+    <Content Include="_static\js\lib\fancybox\fancybox_overlay.png" />
+    <Content Include="_static\js\lib\fancybox\fancybox_sprite.png" />
+    <Content Include="_static\js\lib\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="_static\js\lib\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="_static\js\lib\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="_static\js\lib\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="_static\js\lib\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="_static\js\lib\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="_static\js\lib\fancybox\jquery.fancybox.css" />
+    <Content Include="_static\js\lib\fancybox\jquery.fancybox.js" />
+    <Content Include="_static\js\lib\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="_static\js\lib\fileuploader\fileUploader.css" />
+    <Content Include="_static\js\lib\fileuploader\jquery.fileUploader.js" />
+    <Content Include="_static\js\lib\fileuploader\old\fileUploader.css" />
+    <Content Include="_static\js\lib\fileuploader\old\jquery.fileUploader.js" />
+    <Content Include="_static\js\lib\flexslider\jquery.flexslider.js" />
+    <Content Include="_static\js\lib\gallery\jquery.ad-gallery.js" />
+    <Content Include="_static\js\lib\gallery\jquery.ad-gallery.pack.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-bg.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-bg1251.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-cat.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-cs.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-de.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-dk.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-el.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-en.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-fa.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-fi.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-fr.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-he.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-is.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-it.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-jp.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-nl.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-no.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-pl.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-pt-br.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-pt.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-ro.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-ru.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-sp.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-sv.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-tr.js" />
+    <Content Include="_static\js\lib\jqgrid\i18n\grid.locale-ua.js" />
+    <Content Include="_static\js\lib\jqgrid\jquery-ui-1.8.2.custom.min.js" />
+    <Content Include="_static\js\lib\jqgrid\jquery.contextmenu.js" />
+    <Content Include="_static\js\lib\jqgrid\jquery.jqGrid.min.js" />
+    <Content Include="_static\js\lib\jqgrid\jquery.layout.js" />
+    <Content Include="_static\js\lib\jqgrid\jquery.min.js" />
+    <Content Include="_static\js\lib\jqgrid\jquery.tablednd.js" />
+    <Content Include="_static\js\lib\jqgrid\src\css\ellipsis-xbl.xml" />
+    <Content Include="_static\js\lib\jqgrid\src\css\jquery.searchFilter.css" />
+    <Content Include="_static\js\lib\jqgrid\src\css\ui.jqgrid.css" />
+    <Content Include="_static\js\lib\jqgrid\src\css\ui.multiselect.css" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.base.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.celledit.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.common.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.custom.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.filter.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.formedit.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.grouping.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.import.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.inlinedit.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.jqueryui.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.loader.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.postext.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.setcolumns.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.subgrid.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.tbltogrid.js" />
+    <Content Include="_static\js\lib\jqgrid\src\grid.treegrid.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-ar.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-bg.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-bg1251.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-cat.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-cn.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-cs.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-da.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-de.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-dk.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-el.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-en.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-es.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-fa.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-fi.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-fr.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-gl.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-he.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-hu.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-is.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-it.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-ja.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-jp.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-lt.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-mne.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-nl.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-no.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-pl.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-pt-br.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-pt.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-ro.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-ru.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-sk.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-sp.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-sr.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-sv.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-th.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-tr.js" />
+    <Content Include="_static\js\lib\jqgrid\src\i18n\grid.locale-ua.js" />
+    <Content Include="_static\js\lib\jqgrid\src\jqDnR.js" />
+    <Content Include="_static\js\lib\jqgrid\src\jqModal.js" />
+    <Content Include="_static\js\lib\jqgrid\src\jquery.fmatter.js" />
+    <Content Include="_static\js\lib\jqgrid\src\jquery.searchFilter.js" />
+    <Content Include="_static\js\lib\jqgrid\src\JsonXml.js" />
+    <Content Include="_static\js\lib\jqgrid\src\ui.multiselect.js" />
+    <Content Include="_static\js\lib\jqgrid\tablednd.js" />
+    <Content Include="_static\js\lib\jqgrid\ui.multiselect.js" />
+    <Content Include="_static\js\lib\jquery.bxslider\images\bx_loader.gif" />
+    <Content Include="_static\js\lib\jquery.bxslider\images\controls.png" />
+    <Content Include="_static\js\lib\jquery.bxslider\jquery.bxslider.css" />
+    <Content Include="_static\js\lib\jquery.bxslider\jquery.bxslider.js" />
+    <Content Include="_static\js\lib\jquery.bxslider\jquery.bxslider.min.js" />
+    <Content Include="_static\js\lib\jquery.bxslider\plugins\jquery.easing.1.3.js" />
+    <Content Include="_static\js\lib\jquery.bxslider\plugins\jquery.fitvids.js" />
+    <Content Include="_static\js\lib\jquery.nivo.slider.pack.js" />
+    <Content Include="_static\js\lib\nivo-slider.css" />
+    <Content Include="_static\js\lib\scroller\img\arrows\bdown.png" />
+    <Content Include="_static\js\lib\scroller\img\arrows\bleft.png" />
+    <Content Include="_static\js\lib\scroller\img\arrows\bright.png" />
+    <Content Include="_static\js\lib\scroller\img\arrows\bup.png" />
+    <Content Include="_static\js\lib\scroller\img\arrows\wdown.png" />
+    <Content Include="_static\js\lib\scroller\img\arrows\wleft.png" />
+    <Content Include="_static\js\lib\scroller\img\arrows\wright.png" />
+    <Content Include="_static\js\lib\scroller\img\arrows\wup.png" />
+    <Content Include="_static\js\lib\scroller\jcontent.css" />
+    <Content Include="_static\js\lib\scroller\jquery.easing.min.1.3.js" />
+    <Content Include="_static\js\lib\scroller\jquery.jcontent.0.8.min.js" />
+    <Content Include="_static\js\lib\superfish\hoverIntent.js" />
+    <Content Include="_static\js\lib\superfish\jquery-1.2.6.min.js" />
+    <Content Include="_static\js\lib\superfish\jquery.bgiframe.min.js" />
+    <Content Include="_static\js\lib\superfish\superfish.js" />
+    <Content Include="_static\js\lib\superfish\supersubs.js" />
+    <Content Include="_static\js\lib\uploadfy\jquery.uploadify-3.1.js" />
+    <Content Include="_static\js\lib\uploadfy\jquery.uploadify-3.1.min.js" />
+    <Content Include="_static\js\lib\uploadfy\uploadify-cancel.png" />
+    <Content Include="_static\js\lib\uploadfy\uploadify.css" />
+    <Content Include="_static\js\lib\uploadfy\uploadify.swf" />
+    <Content Include="_static\js\pageEdit.js" />
+    <Content Include="_static\js\productManager.js" />
+    <Content Include="_static\js\searchbox.js" />
+    <Content Include="_static\js\shared.js" />
+    <Content Include="_static\js\site_menu.js" />
+    <Content Include="_static\js\submittalbuilder.js" />
+    <Content Include="_static\js\submittalbuilder_defind_product.js" />
+    <Content Include="_static\js\submittalbuilder_edit_section.js" />
+    <Content Include="_static\js\tablesorter\jquery.metadata.js" />
+    <Content Include="_static\js\tablesorter\jquery.tablesorter.min.js" />
+    <Content Include="_static\js\tiny_mce\classes\adapter\jquery\adapter.js" />
+    <Content Include="_static\js\tiny_mce\classes\adapter\jquery\jquery.tinymce.js" />
+    <Content Include="_static\js\tiny_mce\classes\adapter\prototype\adapter.js" />
+    <Content Include="_static\js\tiny_mce\classes\AddOnManager.js" />
+    <Content Include="_static\js\tiny_mce\classes\ControlManager.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\DOMUtils.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\Element.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\EventUtils.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\Range.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\RangeUtils.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\ScriptLoader.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\Selection.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\Serializer.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\Sizzle.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\TreeWalker.js" />
+    <Content Include="_static\js\tiny_mce\classes\dom\TridentSelection.js" />
+    <Content Include="_static\js\tiny_mce\classes\Editor.Events.js" />
+    <Content Include="_static\js\tiny_mce\classes\Editor.js" />
+    <Content Include="_static\js\tiny_mce\classes\EditorCommands.js" />
+    <Content Include="_static\js\tiny_mce\classes\EditorManager.js" />
+    <Content Include="_static\js\tiny_mce\classes\EnterKey.js" />
+    <Content Include="_static\js\tiny_mce\classes\firebug\firebug-lite.js" />
+    <Content Include="_static\js\tiny_mce\classes\ForceBlocks.js" />
+    <Content Include="_static\js\tiny_mce\classes\Formatter.js" />
+    <Content Include="_static\js\tiny_mce\classes\html\DomParser.js" />
+    <Content Include="_static\js\tiny_mce\classes\html\Entities.js" />
+    <Content Include="_static\js\tiny_mce\classes\html\Node.js" />
+    <Content Include="_static\js\tiny_mce\classes\html\SaxParser.js" />
+    <Content Include="_static\js\tiny_mce\classes\html\Schema.js" />
+    <Content Include="_static\js\tiny_mce\classes\html\Serializer.js" />
+    <Content Include="_static\js\tiny_mce\classes\html\Styles.js" />
+    <Content Include="_static\js\tiny_mce\classes\html\Writer.js" />
+    <Content Include="_static\js\tiny_mce\classes\LegacyInput.js" />
+    <Content Include="_static\js\tiny_mce\classes\Popup.js" />
+    <Content Include="_static\js\tiny_mce\classes\tinymce.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\Button.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\ColorSplitButton.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\Container.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\Control.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\DropMenu.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\KeyboardNavigation.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\ListBox.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\Menu.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\MenuButton.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\MenuItem.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\NativeListBox.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\Separator.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\SplitButton.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\Toolbar.js" />
+    <Content Include="_static\js\tiny_mce\classes\ui\ToolbarGroup.js" />
+    <Content Include="_static\js\tiny_mce\classes\UndoManager.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\Cookie.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\Dispatcher.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\JSON.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\JSONP.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\JSONRequest.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\Quirks.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\URI.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\VK.js" />
+    <Content Include="_static\js\tiny_mce\classes\util\XHR.js" />
+    <Content Include="_static\js\tiny_mce\classes\WindowManager.js" />
+    <Content Include="_static\js\tiny_mce\jquery.tinymce.js" />
+    <Content Include="_static\js\tiny_mce\langs\en.js" />
+    <Content Include="_static\js\tiny_mce\license.txt" />
+    <Content Include="_static\js\tiny_mce\plugins\advhr\css\advhr.css" />
+    <Content Include="_static\js\tiny_mce\plugins\advhr\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advhr\js\rule.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advhr\rule.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\advimage\css\advimage.css" />
+    <Content Include="_static\js\tiny_mce\plugins\advimage\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advimage\image.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\advimage\img\sample.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\advimage\js\image.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advlink\css\advlink.css" />
+    <Content Include="_static\js\tiny_mce\plugins\advlink\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advlink\js\advlink.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advlink\link.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\advlist\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\advlist\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\autolink\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\autolink\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\autoresize\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\autoresize\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\autosave\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\autosave\langs\en.js" />
+    <Content Include="_static\js\tiny_mce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\MyPlugin\MyPlugin.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\MyPlugin\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\MyPlugin\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\MyPlugin\img\example.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\MyPlugin\js\dialog.js" />
+    <Content Include="_static\js\tiny_mce\plugins\MyPlugin\langs\en.js" />
+    <Content Include="_static\js\tiny_mce\plugins\MyPlugin\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\directionality\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\emotions.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\js\emotions.js" />
+    <Content Include="_static\js\tiny_mce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\example\dialog.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\example\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\example\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\example\img\example.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\example\js\dialog.js" />
+    <Content Include="_static\js\tiny_mce\plugins\example\langs\en.js" />
+    <Content Include="_static\js\tiny_mce\plugins\example\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\example_dependency\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\example_dependency\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="_static\js\tiny_mce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\fullpage\fullpage.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="_static\js\tiny_mce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\iespell\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="_static\js\tiny_mce\plugins\inlinepopups\template.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\layer\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\legacyoutput\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\legacyoutput\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\lists\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\lists\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\media\css\media.css" />
+    <Content Include="_static\js\tiny_mce\plugins\media\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\media\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\media\js\embed.js" />
+    <Content Include="_static\js\tiny_mce\plugins\media\js\media.js" />
+    <Content Include="_static\js\tiny_mce\plugins\media\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\media\media.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\media\moxieplayer.swf" />
+    <Content Include="_static\js\tiny_mce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\paste\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\paste\js\pastetext.js" />
+    <Content Include="_static\js\tiny_mce\plugins\paste\js\pasteword.js" />
+    <Content Include="_static\js\tiny_mce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\paste\pastetext.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\paste\pasteword.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\preview\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\preview\example.html" />
+    <Content Include="_static\js\tiny_mce\plugins\preview\jscripts\embed.js" />
+    <Content Include="_static\js\tiny_mce\plugins\preview\preview.html" />
+    <Content Include="_static\js\tiny_mce\plugins\print\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\print\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\save\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\save\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="_static\js\tiny_mce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="_static\js\tiny_mce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\spellchecker\css\content.css" />
+    <Content Include="_static\js\tiny_mce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="_static\js\tiny_mce\plugins\style\css\props.css" />
+    <Content Include="_static\js\tiny_mce\plugins\style\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\style\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\style\js\props.js" />
+    <Content Include="_static\js\tiny_mce\plugins\style\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\style\props.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\style\readme.txt" />
+    <Content Include="_static\js\tiny_mce\plugins\tabfocus\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\tabfocus\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\table\cell.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\table\css\cell.css" />
+    <Content Include="_static\js\tiny_mce\plugins\table\css\row.css" />
+    <Content Include="_static\js\tiny_mce\plugins\table\css\table.css" />
+    <Content Include="_static\js\tiny_mce\plugins\table\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\table\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\table\js\cell.js" />
+    <Content Include="_static\js\tiny_mce\plugins\table\js\merge_cells.js" />
+    <Content Include="_static\js\tiny_mce\plugins\table\js\row.js" />
+    <Content Include="_static\js\tiny_mce\plugins\table\js\table.js" />
+    <Content Include="_static\js\tiny_mce\plugins\table\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\table\merge_cells.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\table\row.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\table\table.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\template\blank.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\template\css\template.css" />
+    <Content Include="_static\js\tiny_mce\plugins\template\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\template\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\template\js\template.js" />
+    <Content Include="_static\js\tiny_mce\plugins\template\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\plugins\template\template.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="_static\js\tiny_mce\plugins\visualblocks\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\visualblocks\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\wordcount\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\wordcount\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="_static\js\tiny_mce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\about.htm" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\anchor.htm" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\charmap.htm" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\color_picker.htm" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\editor_template.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\editor_template_src.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\image.htm" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\flash.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\icons.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\iframe.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\pagebreak.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\quicktime.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\realmedia.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\shockwave.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\trans.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\video.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\img\windowsmedia.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\js\about.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\js\anchor.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\js\charmap.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\js\color_picker.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\js\image.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\js\link.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\js\source_editor.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\langs\en.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\link.htm" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\shortcuts.htm" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\content.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\default\ui.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\highcontrast\content.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\highcontrast\dialog.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\highcontrast\ui.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\o2k7\content.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\o2k7\dialog.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\o2k7\img\button_bg.png" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_black.png" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_silver.png" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\o2k7\ui.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\o2k7\ui_black.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\skins\o2k7\ui_silver.css" />
+    <Content Include="_static\js\tiny_mce\themes\advanced\source_editor.htm" />
+    <Content Include="_static\js\tiny_mce\themes\simple\editor_template.js" />
+    <Content Include="_static\js\tiny_mce\themes\simple\editor_template_src.js" />
+    <Content Include="_static\js\tiny_mce\themes\simple\img\icons.gif" />
+    <Content Include="_static\js\tiny_mce\themes\simple\langs\en.js" />
+    <Content Include="_static\js\tiny_mce\themes\simple\skins\default\content.css" />
+    <Content Include="_static\js\tiny_mce\themes\simple\skins\default\ui.css" />
+    <Content Include="_static\js\tiny_mce\themes\simple\skins\o2k7\content.css" />
+    <Content Include="_static\js\tiny_mce\themes\simple\skins\o2k7\img\button_bg.png" />
+    <Content Include="_static\js\tiny_mce\themes\simple\skins\o2k7\ui.css" />
+    <Content Include="_static\js\tiny_mce\tiny_mce.js" />
+    <Content Include="_static\js\tiny_mce\tiny_mce_dev.js" />
+    <Content Include="_static\js\tiny_mce\tiny_mce_jquery.js" />
+    <Content Include="_static\js\tiny_mce\tiny_mce_jquery_src.js" />
+    <Content Include="_static\js\tiny_mce\tiny_mce_popup.js" />
+    <Content Include="_static\js\tiny_mce\tiny_mce_prototype.js" />
+    <Content Include="_static\js\tiny_mce\tiny_mce_prototype_src.js" />
+    <Content Include="_static\js\tiny_mce\tiny_mce_src.js" />
+    <Content Include="_static\js\tiny_mce\utils\editable_selects.js" />
+    <Content Include="_static\js\tiny_mce\utils\form_utils.js" />
+    <Content Include="_static\js\tiny_mce\utils\mctabs.js" />
+    <Content Include="_static\js\tiny_mce\utils\validate.js" />
+    <Content Include="_static\js\treeview\jquery.treeview.async.js" />
+    <Content Include="_static\js\treeview\jquery.treeview.edit.js" />
+    <Content Include="_static\js\treeview\jquery.treeview.js" />
+    <Content Include="_static\js\treeview\jquery.treeview.sortable.js" />
+    <Content Include="_static\js\treeview\tsn.treeview.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="_static\js\jquery.unobtrusive-ajax.js" />
+    <Content Include="_static\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="_static\js\jquery.validate.unobtrusive.js" />
+    <Content Include="_static\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="_static\js\view_submittal.js" />
+    <Content Include="_static\mails\ActivationTemplate.html" />
+    <Content Include="_static\mails\ContactTemplate.htm" />
+    <Content Include="_static\mails\CustomSubmissionTemplate.html" />
+    <Content Include="_static\mails\forgotpass.html" />
+    <Content Include="_static\mails\RequestCustomConfirm.html" />
+    <Content Include="_static\mails\RequestCustomTemplate.html" />
+    <Content Include="_static\mails\SubmittalTemplate.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Gallery\CreateAlbum.cshtml" />
+    <Content Include="Views\Gallery\Edit.cshtml" />
+    <Content Include="Views\Gallery\EditAlbum.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\NoPhotos.cshtml" />
+    <Content Include="Views\Gallery\ShowAlbum.cshtml" />
+    <Content Include="Views\Gallery\ShowAlbum2.cshtml" />
+    <Content Include="Views\Gallery\UploadPhoto.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\ContactForm.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Pages\Create.cshtml" />
+    <Content Include="Views\Pages\Delete.cshtml" />
+    <Content Include="Views\Pages\Details.cshtml" />
+    <Content Include="Views\Pages\Edit.cshtml" />
+    <Content Include="Views\Pages\Index.cshtml" />
+    <Content Include="Views\Pages\Search.cshtml" />
+    <Content Include="Views\Pages\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Pages\_PagesList.cshtml" />
+    <Content Include="Views\SiteMenu\Create.cshtml" />
+    <Content Include="Views\SiteMenu\Delete.cshtml" />
+    <Content Include="Views\SiteMenu\Details.cshtml" />
+    <Content Include="Views\SiteMenu\Edit.cshtml" />
+    <Content Include="Views\SiteMenu\GetMenuItems.cshtml" />
+    <Content Include="Views\SiteMenu\Index.cshtml" />
+    <Content Include="Views\SiteMenu\SiteMenu.cshtml" />
+    <Content Include="Views\SiteMenu\Tree.cshtml" />
+    <Content Include="Views\SiteMenu\_CreateOrEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DominosCMS.Models\DominosCMS.Models.csproj">
+      <Project>{EED1DCA2-2DD3-4B88-A27F-2C9790CF9E78}</Project>
+      <Name>DominosCMS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DominosCMS.Repositories\DominosCMS.Repositories.csproj">
+      <Project>{B758BCF1-9F5B-44FF-B57D-B7C4DCF9A675}</Project>
+      <Name>DominosCMS.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Popup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FileManager\TestAjax.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FileManager\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="data\" />
+    <Folder Include="_static\css\tablesorter\themes\.svn\prop-base\" />
+    <Folder Include="_static\css\tablesorter\themes\.svn\props\" />
+    <Folder Include="_static\css\tablesorter\themes\.svn\text-base\" />
+    <Folder Include="_static\css\tablesorter\themes\.svn\tmp\prop-base\" />
+    <Folder Include="_static\css\tablesorter\themes\.svn\tmp\props\" />
+    <Folder Include="_static\css\tablesorter\themes\.svn\tmp\text-base\" />
+    <Folder Include="_static\css\tablesorter\themes\blue\.svn\props\" />
+    <Folder Include="_static\css\tablesorter\themes\blue\.svn\tmp\prop-base\" />
+    <Folder Include="_static\css\tablesorter\themes\blue\.svn\tmp\props\" />
+    <Folder Include="_static\css\tablesorter\themes\blue\.svn\tmp\text-base\" />
+    <Folder Include="_static\css\tablesorter\themes\green\.svn\props\" />
+    <Folder Include="_static\css\tablesorter\themes\green\.svn\tmp\prop-base\" />
+    <Folder Include="_static\css\tablesorter\themes\green\.svn\tmp\props\" />
+    <Folder Include="_static\css\tablesorter\themes\green\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FileManager\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FileManager\UploadFiles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FileManager\CreateFolder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Contacts\ContactEditor.cshtml" />
+    <Content Include="_static\Content\HW\HW-D-0042 - Joint Systems_files\Thumbs.db" />
+    <Content Include="_static\Content\HW\HW-D-0043 - Joint Systems_files\Thumbs.db" />
+    <Content Include="_static\Content\HW\HW-D-0046 - Joint Systems_files\Thumbs.db" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_ProductFiles.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_ProductSections.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_ProductSpecs.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_ProductTechProp.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_SectionsList.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_SpecsEditor.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\AddSpecs.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\EditSpecs.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\FileEditor.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\FilesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\ProductEditor.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Sections.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Specs.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\News\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\CreateAlbum.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\EditAlbum.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\NoPhotos.cshtml" />
+    <Content Include="Areas\Admin\Views\Gallery\UploadPhoto.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\GetMenuItems.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\SiteMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\SiteMenu\Tree.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\_PagesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Search.cshtml" />
+    <Content Include="Views\Gallery\Album.cshtml" />
+    <Content Include="Views\Submittals\templates\ConventionalTrack_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\CurtainWallStud_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PrimeJoist_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\SigmaTrack_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PWCRC_Section_Template.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\EditSection.cshtml" />
+    <Content Include="Areas\Admin\Views\Members\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\SpecsUpdated.cshtml" />
+    <Content Include="Areas\Admin\Views\Downloads\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Custom.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\CreateCustom.cshtml" />
+    <Content Include="Areas\Admin\Views\Reports\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Reports\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Reports\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Grid.cshtml" />
+    <Content Include="Areas\Admin\Views\Members\_MembersList.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_Notes.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_NotesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\SubmittalsData.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_TSNMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\Inquiries\OptOuts.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\_Members.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\PreviewCustom.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\EditCustom.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ManageUsers\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\1.pubxml" />
+    <Content Include="Views\Submittals\fields\_Product57Fields.cshtml" />
+    <Content Include="Views\User\EditAccount.cshtml" />
+    <Content Include="Views\User\Favorites.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\PasswordSent.cshtml" />
+    <Content Include="Views\Submittals\Edit.cshtml" />
+    <Content Include="Views\Contacts\List.cshtml" />
+    <Content Include="Views\Submittals\RenderCover.cshtml" />
+    <Content Include="Views\Submittals\Email.cshtml" />
+    <Content Include="Views\Submittals\SubmittalSent.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product48Fields.cshtml" />
+    <Content Include="Areas\Admin\Views\Config\Index.cshtml" />
+    <Content Include="Views\SiteMenu\Social.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\SubmittalBuilder\Index.cshtml" />
+    <Content Include="Views\SubmittalBuilder\SubmittalSubmitted.cshtml" />
+    <Content Include="Views\Submittals\Customs.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductFields\FlangeWidth.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductFields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductFields\YeildStrength.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product57Fields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product57Fields\YeildStrength.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product33Fields\FlangeWidth.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product33Fields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product33Fields\LegLength.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product44Fields\LegLength.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product44Fields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product48Fields\LegLength.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product48Fields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product48Fields\YeildStrength.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product54Fields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWSEQTrackFields\LegLength.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWSEQTrackFields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWStudFields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWAngelFields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product77Fields.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product77Fields\LegLength.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product77Fields\MilThickness.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product77Fields\YeildStrength.cshtml" />
+    <Content Include="Views\Account\ActivationSuccess.cshtml" />
+    <Content Include="Views\Account\ActivationFailed.cshtml" />
+    <Content Include="Views\Home\NotFound.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\User\_downloads.cshtml" />
+    <Content Include="Views\User\CustomProducts.cshtml" />
+    <Content Include="Views\User\AddCustom.cshtml" />
+    <Content Include="Views\Submittals\DefineProduct.cshtml" />
+    <Content Include="Views\Submittals\DefineView.cshtml" />
+    <Content Include="Views\User\CreateSubmittalFromQueue.cshtml" />
+    <Content Include="Views\User\EditSubmittalQueueData.cshtml" />
+    <Content Include="Views\User\QueueList.cshtml" />
+    <Content Include="Views\Submittals\Reports.cshtml" />
+    <Content Include="Views\User\_Favorites.cshtml" />
+    <Content Include="Views\Home\ContactSubmitted.cshtml" />
+    <Content Include="Views\User\RequestCustom.cshtml" />
+    <Content Include="Views\User\RequestCustomConfirm.cshtml" />
+    <Content Include="Views\Submittals\Contacts.cshtml" />
+    <Content Include="Views\Submittals\Preview.cshtml" />
+    <Content Include="Views\User\_CustomProducts.cshtml" />
+    <Content Include="Views\Submittals\EditSection.cshtml" />
+    <Content Include="_static\css\tablesorter\themes\.svn\all-wcprops" />
+    <Content Include="_static\css\tablesorter\themes\.svn\entries" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\all-wcprops" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\entries" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\prop-base\asc.gif.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\prop-base\bg.gif.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\prop-base\blue.zip.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\prop-base\desc.gif.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\prop-base\style.css.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\text-base\asc.gif.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\text-base\bg.gif.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\text-base\blue.zip.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\text-base\desc.gif.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\.svn\text-base\style.css.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\blue\blue.zip" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\all-wcprops" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\entries" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\prop-base\asc.png.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\prop-base\bg.png.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\prop-base\desc.png.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\prop-base\green.zip.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\prop-base\style.css.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\text-base\asc.png.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\text-base\bg.png.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\text-base\desc.png.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\text-base\green.zip.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\.svn\text-base\style.css.svn-base" />
+    <Content Include="_static\css\tablesorter\themes\green\green.zip" />
+    <Content Include="Views\Submittals\Copy of RenderCover.cshtml" />
+    <Content Include="_static\js\lib\flexslider\flexslider.less" />
+    <Content Include="_static\js\lib\flexslider\fonts\flexslider-icon.eot" />
+    <Content Include="_static\js\lib\flexslider\fonts\flexslider-icon.svg" />
+    <Content Include="_static\js\lib\flexslider\fonts\flexslider-icon.ttf" />
+    <Content Include="_static\js\lib\flexslider\fonts\flexslider-icon.woff" />
+    <Content Include="_static\js\lib\jquery.bxslider\bower.json" />
+    <Content Include="_static\js\lib\jquery.bxslider\readme.md" />
+    <Content Include="Views\Home\OptOut.cshtml" />
+    <Content Include="Views\Home\OptOutRequestSubmitted.cshtml" />
+    <Content Include="Views\Pages\NotAuthorized.cshtml" />
+    <Content Include="Views\Test\GetData.cshtml" />
+    <None Include="_static\js\tiny_mce\classes\firebug\FIREBUG.LICENSE" />
+    <Content Include="Views\FileManager\Folders.cshtml" />
+    <Content Include="Views\Shared\_PageView.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\News\SideBar.cshtml" />
+    <Content Include="Views\Banners\Rotator.cshtml" />
+    <Content Include="Areas\Admin\Views\Inquiries\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Inquiries\Details.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Shared\_TSNMaster.cshtml" />
+    <Content Include="Views\Shared\LogOnUserControl.cshtml" />
+    <Content Include="Views\Home\FRList.cshtml" />
+    <Content Include="Views\Home\FireRated.cshtml" />
+    <Content Include="Views\Home\LSFApp.cshtml" />
+    <Content Include="Views\ProductsViewer\Index.cshtml" />
+    <Content Include="Views\Account\VerificationSent.cshtml" />
+    <Content Include="Views\Submittals\Create.cshtml" />
+    <Content Include="Views\Submittals\Builder.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductFields.cshtml" />
+    <Content Include="Views\Submittals\GetSections.cshtml" />
+    <Content Include="Views\Submittals\Progress.cshtml" />
+    <Content Include="Views\Submittals\Clips.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductLegFields.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductStrapFields.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWAngelFields.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWRCFields.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWSEQFields.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWSEQTrackFields.cshtml" />
+    <Content Include="Views\Submittals\fields\_ProductPWStudFields.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product54Fields.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product44Fields.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product33Fields.cshtml" />
+    <Content Include="Views\Submittals\View.cshtml" />
+    <Content Include="Views\Submittals\fields\_Product55Fields.cshtml" />
+    <Content Include="Views\Shared\_CustomerPortal.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\Contacts\_ViewStart.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\_ViewStart.cshtml" />
+    <Content Include="Views\User\Submittals.cshtml" />
+    <Content Include="Views\User\_Submittals.cshtml" />
+    <Content Include="Views\ProductsViewer\_downloads.cshtml" />
+    <Content Include="Views\Submittals\TestPdf.cshtml" />
+    <Content Include="Views\Shared\_members.cshtml" />
+    <Content Include="Views\Submittals\templates\JS_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\NotImplemented.cshtml" />
+    <Content Include="Views\Submittals\templates\SG_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PWFC_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PWResilient_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\FlatStrap_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PWAngel_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PWZ_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\StandardStud_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\SWColumn_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PrimeWallStud_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PWEQTrack_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PWEQStud_Section_Template.cshtml" />
+    <Content Include="Views\Submittals\templates\PWTrack_Section_Template.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Labels.ar-eg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.ar-eg.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>DominosCMS.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Labels.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>DominosCMS.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57286</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

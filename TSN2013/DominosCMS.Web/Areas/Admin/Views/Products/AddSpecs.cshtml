@@ -1,0 +1,31 @@
+﻿@model DominosCMS.Models.SpecificationItem
+
+@{
+    ViewBag.Title = "Add Specs";
+    Layout = "~/Views/Shared/_Popup.cshtml";
+}
+
+@section header {
+    @Html.Script("jquery.validate.min.js")
+
+    <script type="text/javascript">
+        $(function () {
+            $("form").validate({
+                rules: {
+                    Title: "required",
+                    ViewOrder: "required"
+                }
+            });
+        })
+
+    </script>
+}
+<h2>Add Specs</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    { Html.RenderPartial("_SpecsEditor"); }
+}
+

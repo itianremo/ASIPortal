@@ -1,0 +1,67 @@
+﻿@model DominosCMS.Models.Product
+
+@{
+    ViewBag.Title = "Submittals Data: " + Model.Title;
+    var pro_id = (Model == null) ? 0 : Model.ID;
+}
+
+
+@section header {
+
+    @Html.Css("themes/base/jquery.ui.all.css")
+    @Html.Css(Url.Content("~/_static/js/lib/uploadfy/uploadify.css"), true)
+    @Html.Css("forms.css")
+    @Html.Css("productManager.css")
+}
+@section scripts {
+    @Html.Script("productManager.js")
+    @Html.Script("jquery-ui-1.8.11.min.js")
+    @Html.Script("jquery.unobtrusive-ajax.min.js")
+    @Html.Script("jquery.validate.min.js")
+    @Html.Script("jquery.validate.unobtrusive.min.js")
+    @Html.Script("tiny_mce/jquery.tinymce.js")
+    @Html.Script("lib/uploadfy/jquery.uploadify-3.1.min.js")
+}
+
+@section actions {
+    
+    <div class="actions-title">
+        <h2>@Html.ActionLink("Products", "Index", "Products") >  @Model.Title
+                
+                </h2>
+    </div>
+        
+}
+
+
+
+    @Html.Hidden("pro_id", pro_id)
+    @Html.Hidden("SectionsListUrl", @Url.Action("Sections", new { id = pro_id}))
+
+<p style="margin: 10px; color: red; font-weight: 800">ATTENSION: This page should be used by developers only for data migration purposes</p>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#TechProp" title="">Tech. Properties</a></li>
+    <li><a href="#Sections" title="">Sections</a></li>
+    <li><a href="#notes" title="">Notes</a></li>
+  </ul>
+    
+
+  <div id="TechProp">
+
+      @{ Html.RenderPartial("_ProductTechProp", Model); }
+  </div>
+  <div id="Sections">
+  
+      @{ Html.RenderPartial("_ProductSections", Model); }
+  </div>
+
+    <div id="notes">
+        @{ Html.RenderPartial("_Notes", Model); }
+    </div>
+</div>
+
+
+
+

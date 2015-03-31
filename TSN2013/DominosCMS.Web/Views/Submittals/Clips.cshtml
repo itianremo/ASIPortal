@@ -1,0 +1,49 @@
+﻿@model IList<DominosCMS.Models.ProductCategory>
+@{
+    var submittalClips = ViewBag.SubmittalClips as int[];
+}
+<h3>Connections Selector</h3>
+<style type="text/css">
+    .pro-cat { 
+    }
+</style>
+
+
+<table class="list" id="clipsList">
+    
+@foreach (var item in Model)
+{
+    var index = 1;
+    <tr>
+        <td colspan="4" class="pro-cat"><h4 style="text-align: center">@item.Title</h4></td>
+    </tr>
+    <tr class="">
+
+    @foreach (var product in item.Products.OrderBy(p => p.Title)) {
+        if (product.Type != null && product.Type.Equals("c"))
+        {
+                <td>
+                    <a href="@Url.Action("Index", "ProductsViewer", new { id = product.URL })" target = "_blank" id="ClipFileLink">@Util.SuperScript(product.Title)</a>
+                        @if (!string.IsNullOrEmpty(product.Description)) {
+                            <span>(@product.Description)</span>
+                        }
+                    
+                </td>
+                <td style="width: 80px; text-align: center" class="action">
+                    @Html.ClipLink(Url.Action("AddClipToSubmittal", new { prod_id = product.ID }), 
+                                        Url.Action("RemoveClipFromSubmittal", new { prod_id = product.ID }), submittalClips, product.ID)
+                </td>
+        
+            if ((index++ % 2) == 0) {
+                @:</tr><tr>
+            }
+        }
+    }
+
+    </tr>
+
+
+}
+
+</table>
+

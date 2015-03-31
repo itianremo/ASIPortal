@@ -1,0 +1,144 @@
+﻿@model DominosCMS.Models.Submittal
+@using DominosCMS.Web.Helpers;
+
+@{
+    Layout = "~/Views/Shared/_CustomerPortal.cshtml";
+    ViewBag.Title = "Submittal preview ::: " + Model.Project;
+    var members = Model.Items.Where(i => i.Type == "m").ToList();
+    var clips = Model.Items.Where(i => i.Type == "c").ToList();
+    var custom = Model.Items.Where(i => i.Type == "x").ToList();
+    var reports = Model.Items.Where(i => i.Type == "r").ToList();
+}
+
+@section header {
+    <script type="text/javascript">
+        $(function () {
+            $(".btn-action").click(function (e) {
+                e.preventDefault();
+
+                location.href = $(this).attr("data-href");
+            });
+        })
+    </script>
+}
+    <style type="text/css">
+        table.frm th { background-color: transparent; border: solid 1px #e8eef4; color: #000}
+        table.list .actions { width: 180px; text-align: center; }
+    </style>
+
+<h2>Submittal Builder
+</h2>
+<p>Submittal Preview</p>
+
+<table class="frm">
+    <tr>
+        <th>Project</th>
+        <td>@Model.Project</td>
+
+    </tr>
+    <tr>
+        <th>Location</th>
+        <td>@Model.Location</td>
+
+    </tr>
+    <tr>
+        <th>Date</th>
+        <td>@Model.Date.Value.ToShortDateString()</td>
+
+    </tr>
+    <tr>
+        <th>Building Code </th>
+        <td>@Model.BuildingCode</td>
+
+    </tr>
+
+</table>
+<p>
+@Html.ActionLink("Edit", "Edit", new {id = Model.ID })
+    </p>
+<h3>Products</h3>
+
+@if (members.Count > 0) {
+<fieldset>
+
+    <legend>Members</legend>
+    <table class="list">
+        @foreach (var item in members)
+        {
+            <tr>
+                <td>@Util.SuperScript(item.Product.Title)</td>
+                <td>@if (item.Section == null) { 
+                        <span>@Html.ActionLink("Define Product", "DefineProduct", new { productID = item.Product.ID, submittalItem=item.ID, submittalID = Model.ID }) </span>
+                    } else {
+                        <span>@Util.FormatSectionTitle(item)</span>
+                    }
+                    </td>
+                <td class="actions">@Html.ActionLink("Delete", "DeleteItem", new { id = item.ID, submittal_id = Model.ID }) | 
+                    @if (item.Section != null) { 
+                        @Html.ActionLink("Add to favorites", "AddMembertoFav", new { id = item.Section.ID, submittal_id = Model.ID }) 
+                    } else {
+                        <a href="javascript:void(0)" style="color: gray">Add to favorites</a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</fieldset>
+}
+@if (clips.Count > 0) {
+<fieldset>
+    <legend>Clips</legend>
+    <table class="list">
+        @foreach (var item in clips)
+        {
+            <tr>
+                <td>@Util.SuperScript(item.Product.Title)</td>
+                <td class="actions">@Html.ActionLink("Delete", "DeleteItem", new { id = item.ID, submittal_id = Model.ID }) | 
+                    @Html.ActionLink("Add to favorites", "AddtoFav", new { id = item.Product.ID, submittal_id = Model.ID }) 
+                </td>
+            </tr>
+        }
+    </table>
+
+</fieldset>
+}
+@if (custom.Count > 0) {
+<fieldset>
+    <legend>Custom</legend>
+    <table class="list">
+        @foreach (var item in custom)
+        {
+            <tr>
+                <td>@Util.SuperScript(item.Custom.Title)</td>
+                <td class="actions">@Html.ActionLink("Delete", "DeleteItem", new { id = item.ID, submittal_id = Model.ID })
+                    
+                </td>
+            </tr>
+        }
+    </table>
+
+</fieldset>
+}
+@if (reports.Count > 0)
+{
+
+<fieldset>
+    <legend>Reports</legend>
+    <table class="list">
+        @foreach (var item in reports)
+        {
+            <tr>
+                <td>@item.Report.Title</td>
+                <td class="actions">@Html.ActionLink("Delete", "DeleteItem", new { id = item.ID, submittal_id = Model.ID })
+                    
+                </td>
+            </tr>
+        }
+    </table>
+
+</fieldset>
+}
+<button class="btn-action" data-href="@Url.Action("Builder", new { id = Model.ID })">Add Items</button>
+<button class="btn-action" data-href="@Url.Action("PDF", new { id = Model.ID })">PDF</button>
+@*<button class="btn-action" data-href="#">Save</button>*@
+<button class="btn-action" data-href="@Url.Action("Email", new { id = Model.ID })">Email</button>

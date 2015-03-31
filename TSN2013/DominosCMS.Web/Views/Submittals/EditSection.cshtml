@@ -1,0 +1,70 @@
+﻿@model DominosCMS.Models.SubmittalItem
+
+@{
+    Layout = "~/Views/Shared/_Popup.cshtml";
+    ViewBag.Title = "Define Product";
+    var sitem = Model.ID;
+    //var favID = (int)ViewBag.FavoriteItem;
+    var type = ViewBag.Type as string;
+    var productID = Model.Product.ID.ToString();
+}
+
+@section header {
+    @Html.Css("themes/base/jquery.ui.all.css")
+    @Html.Css("submittalBuilder.css")
+
+    @Html.Script("jquery-ui-1.8.11.min.js")
+
+    <style type="text/css">
+               #wrapper { width: 98%;}
+    </style>
+
+}
+    @Html.Script("submittalbuilder_edit_section.js")
+
+@Html.Hidden("sitem_id", sitem)
+@Html.Hidden("productID", productID)
+@Html.Hidden("dtype", type)
+@Html.Hidden("submittal_id", Request.QueryString["submittal"])
+@Html.Hidden("update_submittal_url", Url.Action("DefineSubmittalItem"))
+
+@Html.Hidden("editwd", Model.Section.WebDepth)
+@Html.Hidden("editmt", Model.Section.MilThickness)
+@Html.Hidden("editfw", Model.Section.FlangeWidth)
+@Html.Hidden("editll", Model.Section.LegLength)
+@Html.Hidden("editys", Model.Section.YeildStrength)
+@Html.Hidden("editbootkit", Model.BootKit)
+@Html.Hidden("editcoating", Model.CoatingWeight)
+@Html.Hidden("editpunch", Model.Punched)
+
+<div>
+<h2>Define Product</h2>
+</div>
+    <div id="tabs">
+  <ul>
+    <li><a href="#members">Members</a></li>
+  </ul>
+  <div id="members">
+      
+      <div id="frm">
+      <div class="form-line">
+          <label>Member Type:</label>
+          @Html.DropDownList("product", ViewBag.ProductsList as SelectList, "Select Member Type", new { disabled="disabled"}) 
+      </div>
+      
+      <div id="fields">
+
+
+      </div>
+    </div>
+      <div id="pro_photo">
+          <img src="" style="max-width: 180px; height: auto; display: none" id="productImage" />
+          
+      </div>
+      <div id="sections">
+          <span style="font-style: italic">To begin, select a product from the dropdown to show a list of all available sections.</span>
+      </div>
+      <div class="clear"></div>
+  </div>
+</div>
+

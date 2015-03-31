@@ -1,0 +1,65 @@
+﻿        #productPhoto
+        {
+            float: right;
+            padding: 20px;
+            width: 220px;
+        }
+
+        .uploadify-button {
+            background-color: #FFF;
+            background-image:none;
+            background-position: center top;
+            background-repeat: no-repeat;
+            border: 1px solid #808080;
+            border-radius: 0;
+            color: #000;
+            font: bold 11px Arial,Helvetica,sans-serif;
+            text-align: center;
+            text-shadow: none;
+            width: 100%;
+        }
+
+        .uploadify:hover .uploadify-button {
+            background-color: #FFF;
+            background-image: none;
+            background-position: center bottom;
+        }
+
+        li .actions
+        {
+            float: right;
+        }
+
+        #specsList,  #specsList li, #TechProp li
+        {
+            margin:0;
+            padding: 0;
+
+        }
+        #specsList li, #TechProp li
+        {
+            line-height: 35px;
+            border-bottom: dashed 1px gray;
+            list-style-type: none;
+            cursor: move;
+        }
+
+        td
+        {
+            vertical-align: top;
+        }
+
+        #bulk_sections
+        {
+            display: none;
+
+        }
+
+#notesList {
+    margin-right: 320px;
+}
+
+#noteForm {
+    float: right;
+    width: 300px;
+}

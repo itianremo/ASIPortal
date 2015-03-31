@@ -1,0 +1,173 @@
+﻿@model IList<DominosCMS.Models.Submittal>
+
+    <style type="text/css">
+        .disabled {color: gray; text-decoration: none;}
+        html, body {
+          min-height: 100%;
+        }
+
+        body {
+          position: relative;
+        }
+        .overlay {
+           position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          background-color: #000; /*dim the background*/
+          background-image: url('@Url.Content("~/_static/images/ajax-loader3.gif")');
+          background-position: center;
+          background-repeat: no-repeat;
+          display: none1;
+
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+
+          /* IE 5-7 */
+          filter: alpha(opacity=50);
+
+          /* Netscape */
+          -moz-opacity: 0.5;
+
+          /* Safari 1.x */
+          -khtml-opacity: 0.5;
+
+          /* Good browsers */
+          opacity: 0.5;
+
+        display: none;
+        }    
+
+    </style>    
+    <script lang="javascript" type="text/javascript">
+        $(function () {
+            $("#submittals a.sortLink").click(bindSort);
+
+            $("a.disabled").click(function (e) {
+                e.preventDefault();
+
+                alert("There are no products within this submittal package.  Click \"Edit\" to add products before generating a PDF.");
+            });
+
+            $("a.pdf").click(function (e) {
+                if ($(this).is(".disabled")) return;
+
+                $("div.overlay").show();
+
+                setTimeout(function () {
+                    $("div.overlay").hide();
+                }, 15000);
+
+            });
+
+            $("a.copy-submittal").click(function (e) {
+                e.preventDefault();
+                var url = $("#saveAsUrl").val();
+                var submittal_id = $(this).attr("data-submittal-id");
+                $("#submittalName").val($(this).attr("data-title"));
+                $("#submittalID").val(submittal_id);
+
+                $("#saveAsDialog").dialog({
+                    width: 500,
+                    modal: true,
+                    buttons: {
+                        Save: function () {
+
+                            var id = $("#submittalID").val();
+                            var name = $("#submittalName").val();
+
+                            $.post(url, { submittalID: id, newProjectName: name }, function (data) {
+                                if (data.newID > 0) {
+                                    location.reload();
+                                } else {
+                                    alert("An error occured while processing your request, please try again later");
+                                }
+                            });
+                        },
+                        Cancel: function () { $(this).dialog("close"); }
+                    }
+                });
+                //console.log(url + submittal_id);
+            });
+
+        });
+
+        function bindSort() {
+
+            //alert($(this).text());
+            var url = $(this).attr("data-source");
+            var order = $(this).attr("data-orderby");
+            //$("#current-sort").val(order);
+            var rndm = Math.floor((Math.random() * 10000) + 1);
+            $.get(url, { orderby: order, r: rndm }, function (data) {
+                $("#submittals").replaceWith(data);
+                $("#submittals a.sortLink").click(bindSort);
+
+            });
+            return false;
+        }
+    </script>
+
+@if (Model.Count == 0) { 
+<div id="submittals">
+    <p style="text-align:center; font-weight: bold">No submittals found that match your search.</p>
+    <br />
+    <br />
+    <br />
+    <br />
+   
+</div>
+    return;
+}
+
+<table class="list tablesorter" id="submittals" align="center">
+    <thead>
+        <tr>
+            <th>Project</th>
+            <th>Location</th>
+            <th>Project Date</th>
+            <th class="{sorter: false}"></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        object htmlAtrributes = new { @class = "pdf" };
+
+        if (item.Items.Count == 0)
+        {
+            htmlAtrributes = new { @class = "pdf disabled" };
+        }
+        
+        <tr>
+            <td>@item.Project</td>
+            <td>@item.Location</td>
+            <td>@item.Date.Value.ToShortDateString()</td>
+            <td class="nowrap">
+                @Html.ActionLink("PDF", "PDF", "Submittals", new { id = item.ID }, htmlAtrributes)
+                | @Html.ActionLink("View", "Preview", "Submittals", new { id = item.ID }, null)
+                | @Html.ActionLink("Copy", "Copy", "Submittals", new { id = item.ID }, new { @class = "copy-submittal", data_submittal_id = item.ID, data_title = item.Project })
+                | @Html.ActionLink("Edit", "View", "Submittals", new { id = item.ID }, null)
+                | @Html.ActionLink("Delete", "Delete", "Submittals", new { id = item.ID }, new { @class = "delete-link" })
+            </td>
+        </tr>
+    }
+        </tbody>
+</table>
+
+
+<div class="overlay"> 
+</div>
+@Html.Hidden("saveAsUrl", Url.Action("SaveSubmittalAs", "Submittals"))
+
+<div id="saveAsDialog" title="Save as..." style="display: none; text-align: left">
+    <div>
+        <label for="submittalName">
+            Project
+        </label>
+        @Html.TextBox("submittalName")
+        @Html.Hidden("submittalID")
+    </div>
+
+</div>

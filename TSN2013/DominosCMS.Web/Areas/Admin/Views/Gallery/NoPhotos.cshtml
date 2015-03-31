@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "NoPhotos";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>No Photos in this album</h2>
+
+@Html.ActionLink("Add Photo", "UploadPhoto", new { id = ViewBag.AlbumID })

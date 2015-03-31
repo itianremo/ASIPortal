@@ -1,0 +1,86 @@
+﻿@model DominosCMS.Models.SubmittalItem
+@{
+    Layout = "~/Views/Shared/_members.cshtml";
+    var bcode = ViewBag.BuildingCode;
+    var vals = Model.Section.Values.Where(v => v.BuildingCode == bcode).OrderBy(v => v.Property.ViewOrder).ToList();
+}
+
+@section right {
+    <img src="/_static/images/FlatStrap.jpg" width="299" height="65" /><br />
+
+    <br />
+
+}
+
+<table style="width: 100%">
+    <tr>
+        <th colspan="3">Product Profile</th>
+    </tr>
+    <tr class="alt">
+        <td>Strap width (D)</td>
+        <td class="val-col">@vals[0].Value </td>
+        <td>in</td>
+    </tr>
+    <tr>
+        <td>Gauge (ga)</td>
+        <td class="val-col">@vals[1].Value </td>
+        <td>ga</td>
+    </tr>
+    <tr class="alt">
+        <td>Design Thickness (t)</td>
+        <td class="val-col">@vals[2].Value </td>
+        <td>in</td>
+    </tr>
+    <tr>
+        <td>Minimum Steel Thickness (t<sub>min</sub>)</td>
+        <td class="val-col">@vals[3].Value </td>
+        <td>in</td>
+    </tr>
+    <tr class="alt">
+        <td>Area</td>
+        <td class="val-col">@vals[4].Value </td>
+        <td>in<sup>2</sup></td>
+    </tr>
+    <tr>
+        <td>Weight</td>
+        <td class="val-col">@vals[5].Value </td>
+        <td>lbs/ft</td>
+    </tr>
+    <tr>
+        <th colspan="3">Material Composition</th>
+    </tr>
+    <tr class="alt">
+        <td>ASTM Standard</td>
+        <td class="val-col" colspan="2">@vals[6].Value</td>
+        
+    </tr>
+    <tr>
+        <td>Yield Strength (F<sub>y</sub>)</td>
+        <td class="val-col">@vals[7].Value </td>
+        <td>ksi (MPa)</td>
+    </tr>
+    <tr class="alt">
+        <td>Tensile Strength (F<sub>u</sub>)</td>
+        <td class="val-col">@vals[8].Value </td>
+        <td>ksi (MPa)</td>
+    </tr>
+    <tr>
+        <td>Coating Weight</td>
+        <td class="val-col">@vals[9].Value</td>
+        <td></td>
+    </tr>
+
+
+</table>
+
+
+@section comments {
+
+    <ul>
+        <li>Section properties and capacities are calculated in accordance with AISI-NASPEC 2007.</li>
+        <li>Structural framing is produced to meet or exceed ASTM C955, A653, and A1003.</li>
+        <li>Non-Structural framing is produced to meet or exceed ASTM C645, A653, and A1003.</li>
+        <li>Galvanized sheet steel meets or exceeds requirements of ASTM A924 & A1003.</li>
+    </ul>
+
+}

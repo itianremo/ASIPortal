@@ -1,0 +1,42 @@
+﻿@model DominosCMS.Models.Product
+
+@{
+    ViewBag.Title = "Sections";
+    var tech_prop = Model.TechnicalProperties.OrderBy(s => s.ViewOrder).ToList();
+
+    var bCode = ViewBag.BuildingCode;
+}
+
+<div id="sectionsListTable">
+<h2>@Model.Title Sections</h2>
+<table class="list" style="font-size: 11px;">
+    <tr>
+        <th>
+        </th>
+        <th>Notes
+        </th>
+        <th>Section name</th>
+    @foreach (var item in tech_prop)
+    { 
+        <th>@item.Title</th>
+    }
+    </tr>
+
+    @foreach (var item in Model.Sections)
+    { 
+        <tr>
+            <td>
+                @Html.ImageActionLink(Url.Content("~/_static/images/icons/edit.jpg"), "Edit Section", Url.Action("EditSection",new { id = item.ID }), new { @class="edit-link"})
+                @Html.ImageActionLink(Url.Content("~/_static/images/icons/delete2.jpg"), "Delete Section", Url.Action("DeleteSection", new { id = item.ID }), new { @class="delete-link"})
+            </td>
+            <td>@item.Notes</td>
+            <td>@item.Title</td>
+            @foreach (var p in item.Values.Where(v => v.BuildingCode == bCode))
+            { 
+                <td>@p.Value</td>
+            }
+
+        </tr>
+    }
+</table>
+</div>
